@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/touch3/ip"
+name: Interruptor principal IP
+

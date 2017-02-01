@@ -1,0 +1,8 @@
+driving_daniel_start:
+  sequence:
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: daniel
+        message: "Daniel is in the car!"
+        entity_id: device_tracker.daniel_aquarisx5plus
+        domain: light

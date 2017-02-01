@@ -1,0 +1,92 @@
+homeassistant:
+  name: Trotacaminos 2
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/Madrid
+
+  customize:
+    sensor.aquaris_x5_plus:
+      icon: mdi:battery-60
+    script.car_finder_notify:
+      friendly_name: Enviar ubicación del coche
+      icon: mdi:car-connected
+    script.refresh_devices:
+      friendly_name: Actulizar Loc/Bat
+      icon: mdi:account-location
+    sensor.daniel2home:
+      friendly_name: ETA Casa
+      icon: mdi:av-timer
+
+frontend:
+
+http:
+  base_url: !secret ha_url
+  api_password: !secret ha_password
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+
+updater:
+
+discovery:
+
+conversation:
+
+tts:
+  - platform: google
+    language: 'es'
+
+history:
+
+logbook:
+
+sun:
+
+mqtt:
+  broker: 192.168.1.101
+  port: 8883
+  client_id: home-assistant-1
+  username: pi
+  password: raspberry
+  
+light:
+  - platform: mqtt
+    name: Luz Principal
+    state_topic: "home/daniel-bedroom/light-main"
+    command_topic: "home/daniel-bedroom/light-main/set"
+    optimistic: false
+  - platform: mqtt
+    name: Luz Pasillo
+    state_topic: "home/daniel-bedroom/light-corridor"
+    command_topic: "home/daniel-bedroom/light-corridor/set"
+    optimistic: false
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+
+notify:
+  - name: notify
+    platform: telegram
+    api_key: !secret telegram_api_key
+    chat_id: !secret telegram_chat_id
+
+media_player:
+  - platform: lg_netcast
+    name: Televisión LG
+    host: !secret lg_netcast_host
+    access_token: !secret lg_netcast_access_token
+
+
+#### DIRECTORIES ####
+
+zone: !include_dir_list zones/
+weather: !include_dir_list weather/
+sensor: !include_dir_list sensors/
+input_select: !include inputs/input_select.yaml
+input_boolean: !include inputs/input_boolean.yaml
+group: !include groups.yaml
+automation: !include_dir_list automations/
+script: !include_dir_merge_named scripts/

@@ -1,0 +1,5 @@
+platform: google_travel_time
+api_key: !secret google_travel_time_api_key
+name: daniel2home
+origin: device_tracker.daniel_aquarisx5plus
+destination: zone.home

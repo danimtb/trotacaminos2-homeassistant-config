@@ -1,0 +1,15 @@
+daniel_aquarisx5plus:
+  hide_if_away: false
+  mac:
+  name: daniel
+  picture: !secret daniel_picture
+  track: true
+  vendor:
+
+daniel_clio:
+  hide_if_away: false
+  mac:
+  name: clio
+  picture: !secret clio_picture
+  track: true
+  vendor:

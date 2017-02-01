@@ -1,0 +1,7 @@
+daniel_status:
+  name: Daniel Status
+  options:
+    - conduciendo
+    - standby
+    - durmiendo
+  initial: standby

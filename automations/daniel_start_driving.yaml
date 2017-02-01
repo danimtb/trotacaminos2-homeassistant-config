@@ -1,0 +1,10 @@
+alias: "Daniel Driving"
+trigger:
+  platform: state
+  entity_id: input_select.daniel_status
+  state: "conduciendo"
+action:
+  - service: notify.notify
+    data:
+      message: "Daniel is in the car!"
+  - service: script.driving_daniel_start

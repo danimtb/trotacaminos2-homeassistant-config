@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/touch2/type"
+name: Interruptor pasillo tipo
+

@@ -1,0 +1,4 @@
+daniel_bedtime:
+  name: Hora de dormir
+  initial: off
+  icon: mdi:hotel

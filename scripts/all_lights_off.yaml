@@ -1,0 +1,9 @@
+all_lights_off:
+  sequence:
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: EVENT
+        message: "Nobody is home. Turning everything off."
+    - service: light.turn_off
+      data:
+        entity_id: group.bedroomligths

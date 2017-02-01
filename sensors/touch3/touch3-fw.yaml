@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/touch3/fw"
+name: Interruptor principal FW

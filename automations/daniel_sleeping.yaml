@@ -1,0 +1,7 @@
+alias: "Daniel Sleeping"
+trigger:
+  - platform: state
+    entity_id: input_select.daniel_status
+    state: "durmiendo"
+action:
+  - service: script.all_lights_off

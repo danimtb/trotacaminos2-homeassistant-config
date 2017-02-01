@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/touch3"
+name: Interruptor principal nombre
+

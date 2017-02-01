@@ -1,0 +1,57 @@
+weather:
+  name: Tiempo
+  entities:
+    - weather.openweathermap
+    - sensor.owm_condition
+    - sensor.owm_temperature
+    - sensor.owm_humidity
+    - sensor.owm_wind_speed
+    - sensor.owm_cloud_coverage
+    - sensor.owm_rain
+    - sensor.owm_snow
+    - sensor.owm_humidity
+    - sensor.owm_pressure
+    - sun.sun
+
+bedroom-ligths:
+  name: Luces
+  entities:
+    - light.luz_pasillo
+    - light.luz_principal
+
+devices:
+  name: Dispositivos
+  view: yes
+  entities:
+    - group.touch3
+    - group.touch2
+
+touch3:
+  name: Interruptor Principal
+  entities:
+    - sensor.interruptor_principal_nombre
+    - sensor.interruptor_principal_ip
+    - sensor.interruptor_principal_tipo
+    - sensor.interruptor_principal_fw
+    - sensor.interruptor_principal_version
+
+touch2:
+  name: Interruptor Pasillo
+  entities:
+    - sensor.interruptor_pasillo_nombre
+    - sensor.interruptor_pasillo_ip
+    - sensor.interruptor_pasillo_tipo
+    - sensor.interruptor_pasillo_fw
+    - sensor.interruptor_pasillo_version
+
+daniel:
+  name: Daniel
+  entities:
+    - device_tracker.daniel_aquarisx5plus
+    - sensor.aquaris_x5_plus
+    - script.refresh_devices
+    - input_boolean.daniel_bedtime
+    - input_select.daniel_status
+    - device_tracker.daniel_clio
+    - sensor.daniel2home
+    - script.car_finder_notify

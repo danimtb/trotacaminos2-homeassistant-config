@@ -1,0 +1,9 @@
+alias: "Daniel Bedtime"
+trigger:
+  platform: state
+  entity_id: input_boolean.hora_de_dormir
+  state: "on"
+action:
+  - service: notify.notify
+    data:
+      message: "¡Hora de dormir!"
