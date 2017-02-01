@@ -1,7 +1,7 @@
 alias: "Daniel Bedtime"
 trigger:
   platform: state
-  entity_id: input_boolean.hora_de_dormir
+  entity_id: input_boolean.daniel_bedtime
   state: "on"
 action:
   - service: notify.notify
