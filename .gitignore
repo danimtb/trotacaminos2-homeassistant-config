@@ -1,0 +1,7 @@
+!.gitignore
+*.db
+*.db-journal
+deps/
+.*
+secrets.yaml
+*.log
