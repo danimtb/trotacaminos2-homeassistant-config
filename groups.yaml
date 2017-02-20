@@ -1,30 +1,79 @@
-weather:
-  name: Tiempo
+daniel:
+  name: Daniel
   entities:
-    - weather.openweathermap
-    - sensor.owm_condition
-    - sensor.owm_temperature
-    - sensor.owm_humidity
-    - sensor.owm_wind_speed
-    - sensor.owm_cloud_coverage
-    - sensor.owm_rain
-    - sensor.owm_snow
-    - sensor.owm_humidity
-    - sensor.owm_pressure
-    - sun.sun
+    - device_tracker.daniel_aquarisx5plus
+    - device_tracker.daniel_aquarisx5plus_nmap
+    - sensor.aquaris_x5_plus
+    - script.refresh_devices
+    - input_boolean.daniel_bedtime
+    - input_select.daniel_status
+    - device_tracker.daniel_clio
+    - sensor.daniel2home
+    - script.car_finder_notify
 
-bedroom-ligths:
+ramon:
+  name: Ramón
+  entities:
+    - device_tracker.ramon_motorola
+    - device_tracker.ramon_motorola_nmap
+    - sensor.motorola
+    - script.refresh_devices
+
+bedroom_ligths:
   name: Luces
   entities:
     - light.luz_pasillo
     - light.luz_principal
+    - light.luz_cama
+    - light.lampara
 
-devices:
-  name: Dispositivos
-  view: yes
+weather:
+  name: Tiempo Meteorológico
   entities:
-    - group.touch3
-    - group.touch2
+    - sun.sun
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_daily_high_apparent_temperature
+    - sensor.dark_sky_daily_low_apparent_temperature
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_ozone
+
+television_lg:
+  name: Televisión LG
+  entities:
+    - device_tracker.television_lg
+    - media_player.television_lg
+
+sonoff1:
+  name: Luz Cama
+  entities:
+    - device_tracker.sonoff1
+    - sensor.luz_cama_nombre
+    - sensor.luz_cama_ip
+    - sensor.luz_cama_tipo
+    - sensor.luz_cama_fw
+    - sensor.luz_cama_version
+
+sonoff2:
+  name: Lampara Entradita
+  entities:
+    - device_tracker.sonoff2
+    - sensor.lampara_entradita_nombre
+    - sensor.lampara_entradita_ip
+    - sensor.lampara_entradita_tipo
+    - sensor.lampara_entradita_fw
+    - sensor.lampara_entradita_version
 
 touch3:
   name: Interruptor Principal
@@ -38,20 +87,82 @@ touch3:
 touch2:
   name: Interruptor Pasillo
   entities:
+    - device_tracker.touch2
     - sensor.interruptor_pasillo_nombre
     - sensor.interruptor_pasillo_ip
     - sensor.interruptor_pasillo_tipo
     - sensor.interruptor_pasillo_fw
     - sensor.interruptor_pasillo_version
 
-daniel:
-  name: Daniel
+rpi3:
+  name: Raspberry Pi 3
   entities:
-    - device_tracker.daniel_aquarisx5plus
-    - sensor.aquaris_x5_plus
-    - script.refresh_devices
-    - input_boolean.daniel_bedtime
-    - input_select.daniel_status
-    - device_tracker.daniel_clio
-    - sensor.daniel2home
+    - sensor.last_boot
+    - sensor.cpu_use
+    - sensor.ram_free
+    - sensor.rpi3_temperature
+    - sensor.disk_free_home
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+
+automations:
+  name: Automatizaciones
+  entities:
+    - automation.arrive_home_daniel
+    - automation.daniel_bedtime
+    - automation.daniel_driving
+    - automation.daniel_not_driving
+    - automation.daniel_sleeping
+    - automation.daniel_bedtime_off
+    - automation.away
+    - automation.owntracks_refresh
+
+scripts:
+  name: scripts
+  entities:
+    - script.all_lights_off
     - script.car_finder_notify
+    - script.daniel_bedtime
+    - script.driving_daniel_start
+    - script.driving_daniel_stop
+    - script.refresh_devices
+
+default:
+  name: Default
+  view: yes
+  entities:
+    - group.weather
+    - group.bedroom_ligths
+    - group.daniel
+    - device_tracker.ramon_motorola
+    - device_tracker.mcarmen_aquarise54g
+    - device_tracker.amanda_aquarisa45
+    - device_tracker.andrea_aquarisx5
+
+multimedia:
+  name: Multimedia
+  view: yes
+  entities:
+    - group.television_lg
+
+devices:
+  name: Dispositivos
+  view: yes
+  entities:
+    - device_tracker.livebox
+    - device_tracker.computer_compaq
+    - device_tracker.computer_satellite
+    - group.rpi3
+    - group.sonoff1
+    - group.sonoff2
+    - group.touch3
+    - group.touch2
+
+control:
+  name: Control
+  view: yes
+  entities:
+    - group.automations
+    - group.scripts

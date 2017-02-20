@@ -1,14 +1,14 @@
 alias: "Away"
 trigger:
-  - platform: zone
-    event: leave
-    zone: zone.home
-    entity_id: device_tracker.daniel_aquarisx5plus
+  - platform: state
+    entity_id: group.daniel
+    from: 'home'
+    to: 'not_home'
 condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: group.bedroomligths
+        entity_id: group.bedroom_ligths
         state: "on"
 action:
   - service: script.all_lights_off

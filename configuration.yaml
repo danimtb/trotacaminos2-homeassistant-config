@@ -9,15 +9,20 @@ homeassistant:
   customize:
     sensor.aquaris_x5_plus:
       icon: mdi:battery-60
+    sensor.motorola:
+      icon: mdi:battery-60
     script.car_finder_notify:
       friendly_name: Enviar ubicación del coche
       icon: mdi:car-connected
     script.refresh_devices:
-      friendly_name: Actulizar Loc/Bat
+      friendly_name: Actualizar Loc/Bat
       icon: mdi:account-location
     sensor.daniel2home:
       friendly_name: ETA Casa
       icon: mdi:av-timer
+    sensor.rpi3_temperature:
+      friendly_name: RPi3 Temperatura
+      icon: mdi:thermometer
 
 frontend:
 
@@ -44,28 +49,42 @@ logbook:
 sun:
 
 mqtt:
-  broker: 192.168.1.101
-  port: 8883
-  client_id: home-assistant-1
-  username: pi
-  password: raspberry
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  client_id: !secret mqtt_client_id
+  username: !secret mqtt_username
+  password: !secret mqtt_password
   
 light:
   - platform: mqtt
     name: Luz Principal
-    state_topic: "home/daniel-bedroom/light-main"
-    command_topic: "home/daniel-bedroom/light-main/set"
+    state_topic: "home/daniel-bedroom/lights/main"
+    command_topic: "home/daniel-bedroom/lights/main/set"
     optimistic: false
   - platform: mqtt
     name: Luz Pasillo
-    state_topic: "home/daniel-bedroom/light-corridor"
-    command_topic: "home/daniel-bedroom/light-corridor/set"
+    state_topic: "home/daniel-bedroom/lights/corridor"
+    command_topic: "home/daniel-bedroom/lights/corridor/set"
+    optimistic: false
+  - platform: mqtt
+    name: Luz Cama
+    state_topic: "home/daniel-bedroom/lights/bed"
+    command_topic: "home/daniel-bedroom/lights/bed/set"
+    optimistic: false
+  - platform: mqtt
+    name: Lampara
+    state_topic: "home/entrance/lights/lamp"
+    command_topic: "home/entrance/lights/lamp/set"
     optimistic: false
 
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
     waypoints: True
+  - platform: nmap_tracker
+    hosts: 192.168.1.1/24
+    consider_home: 0:8:00
+    interval_seconds: 1
 
 notify:
   - name: notify

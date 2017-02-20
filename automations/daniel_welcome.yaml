@@ -1,0 +1,9 @@
+alias: "Daniel Welcome"
+trigger:
+  - platform: state
+    entity_id: group.daniel
+    from: 'not_home'
+    to: 'home'
+action:
+  - service: script.welcome_home_daniel
+  - service: script.welcome_home

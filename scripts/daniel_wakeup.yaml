@@ -1,0 +1,12 @@
+daniel_wakeup:
+  sequence:
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: EVENT
+        message: "Daniel wake up!"
+    - service: notify.notify
+      data:
+        message: "¡Buenos días!"
+    - service: light.turn_on
+      data:
+        entity_id: light.luz_cama

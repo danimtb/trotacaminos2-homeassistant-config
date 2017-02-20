@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoff1/type"
+name: Luz cama tipo
+

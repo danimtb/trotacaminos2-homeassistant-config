@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/sonoff2/fw"
+name: Lampara entradita fw

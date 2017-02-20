@@ -5,3 +5,5 @@ deps/
 .*
 secrets.yaml
 *.log
+*.save
+*.save.*

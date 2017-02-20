@@ -1,0 +1,10 @@
+welcome_home:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.lampara
+  - delay:
+      minutes: 2
+  - service: light.turn_off
+    data:
+      entity_id: light.lampara

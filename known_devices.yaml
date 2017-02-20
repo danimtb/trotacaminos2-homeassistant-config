@@ -1,15 +1,131 @@
 daniel_aquarisx5plus:
   hide_if_away: false
-  mac:
-  name: daniel
+  name: Daniel
   picture: !secret daniel_picture
   track: true
-  vendor:
+  vendor: BQ
+
+daniel_aquarisx5plus_nmap:
+  hide_if_away: false
+  mac: !secret daniel_mac
+  name: daniel_nmap
+  picture: !secret daniel_picture
+  track: true
+  vendor: BQ
+
+ramon_motorola:
+  hide_if_away: false
+  name: Ramón
+  picture: !secret ramon_picture
+  track: true
+  vendor: Motorola Mobility LLC, a Lenovo Company
+
+ramon_motorola_nmap:
+  hide_if_away: false
+  mac: !secret ramon_mac
+  name: ramon_nmap
+  picture: !secret ramon_picture
+  track: true
+  vendor: Motorola Mobility LLC, a Lenovo Company
+
+clio:
+  hide_if_away: false
+  name: Clio
+  picture: !secret clio_picture
+  track: true
+  vendor: Renault
+
+scenic:
+  hide_if_away: false
+  name: Scenic
+  picture: !secret scenic_picture
+  track: true
+  vendor: Renault
+
+sonoff1:
+  hide_if_away: false
+  mac: !secret sonoff1_mac
+  name: sonoff1
+  picture: !secret sonoff_picture
+  track: true
+  vendor: Espressif Inc.
+
+sonoff2:
+  hide_if_away: false
+  mac: !secret sonoff2_mac
+  name: sonoff2
+  picture: !secret sonoff_picture
+  track: true
+  vendor: Espressif Inc.
+
+touch2:
+  hide_if_away: false
+  mac: !secret touch2_mac
+  name: touch2
+  picture: !secret sonoff_touch_picture
+  track: true
+  vendor: Espressif Inc.
+
+livebox:
+  hide_if_away: false
+  mac: !secret livebox_mac
+  name: Livebox
+  picture: !secret livebox_picture
+  track: true
+  vendor: Arcadyan Technology Corporation
+
+mcarmen_aquarise54g:
+  hide_if_away: false
+  mac: !secret mcarmen_mac
+  name: M.Carmen
+  picture: !secret mcarmen_picture
+  track: true
+  vendor: BQ
+
+amanda_aquarisa45:
+  hide_if_away: false
+  mac: !secret amanda_mac
+  name: Amanda
+  picture: !secret amanda_picture
+  track: true
+  vendor: BQ
+
+television_lg:
+  hide_if_away: false
+  mac: !secret television_lg_mac
+  name: Television LG Status
+  picture: !secret television_lg_picture
+  track: true
+  vendor: LG Innotek
+
+andrea_aquarisx5:
+  hide_if_away: false
+  mac: !secret andrea_mac
+  name: andrea
+  picture: !secret andrea_picture
+  track: true
+  vendor: BQ
+
+computer_compaq:
+  hide_if_away: false
+  mac: !secret computer_compaq_mac
+  name: Ordenador Grande
+  picture: !secret computer_compaq_picture
+  track: true
+  vendor: SMC Networks Inc
+
+computer_satellite:
+  hide_if_away: false
+  mac: !secret computer_satellite_mac
+  name: Portátil Toshiba
+  picture: !secret computer_satellite_picture
+  track: true
+  vendor: Intel Corporate
 
 daniel_clio:
   hide_if_away: false
   mac:
-  name: clio
-  picture: !secret clio_picture
+  name: daniel
+  picture:
   track: true
   vendor:

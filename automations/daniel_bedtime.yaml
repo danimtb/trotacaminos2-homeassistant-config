@@ -3,7 +3,11 @@ trigger:
   platform: state
   entity_id: input_boolean.daniel_bedtime
   state: "on"
+condition:
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: group.daniel
+        state: "home"
 action:
-  - service: notify.notify
-    data:
-      message: "¡Hora de dormir!"
+  - service: script.daniel_bedtime

@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoff2/type"
+name: Lampara entradita tipo
+

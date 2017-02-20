@@ -1,0 +1,14 @@
+alias: "Daniel Wake Up"
+trigger:
+  - platform: state
+    entity_id: input_select.daniel_status
+    from: "durmiendo"
+    to: "standby"
+condition:
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: group.daniel
+        state: "home"
+action:
+  - service: script.daniel_wakeup
