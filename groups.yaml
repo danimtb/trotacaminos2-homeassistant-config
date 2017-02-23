@@ -7,7 +7,7 @@ daniel:
     - script.refresh_devices
     - input_boolean.daniel_bedtime
     - input_select.daniel_status
-    - device_tracker.daniel_clio
+    - device_tracker.renault_clio
     - sensor.daniel2home
     - script.car_finder_notify
 
@@ -18,6 +18,8 @@ ramon:
     - device_tracker.ramon_motorola_nmap
     - sensor.motorola
     - script.refresh_devices
+    - device_tracker.renault_scenic
+    - sensor.ramon2home
 
 bedroom_ligths:
   name: Luces
@@ -106,37 +108,45 @@ rpi3:
     - sensor.speedtest_download
     - sensor.speedtest_upload
 
-
 automations:
   name: Automatizaciones
   entities:
-    - automation.arrive_home_daniel
+    - automation.away
     - automation.daniel_bedtime
+    - automation.daniel_bedtime_off
+    - automation.daniel_bedtime_welcome
     - automation.daniel_driving
     - automation.daniel_not_driving
     - automation.daniel_sleeping
-    - automation.daniel_bedtime_off
-    - automation.away
+    - automation.daniel_wake_up
+    - automation.daniel_welcome
     - automation.owntracks_refresh
 
 scripts:
-  name: scripts
+  name: Scripts
   entities:
     - script.all_lights_off
     - script.car_finder_notify
     - script.daniel_bedtime
+    - script.daniel_sleeping
+    - script.daniel_wakeup
     - script.driving_daniel_start
     - script.driving_daniel_stop
+    - script.homeassistant_restart
     - script.refresh_devices
+    - script.welcome_home
+    - script.welcome_home_daniel
 
-default:
+###### VIEWS ######
+
+default_view:
   name: Default
   view: yes
   entities:
     - group.weather
     - group.bedroom_ligths
     - group.daniel
-    - device_tracker.ramon_motorola
+    - group.ramon
     - device_tracker.mcarmen_aquarise54g
     - device_tracker.amanda_aquarisa45
     - device_tracker.andrea_aquarisx5
@@ -146,14 +156,14 @@ multimedia:
   view: yes
   entities:
     - group.television_lg
+    - device_tracker.computer_compaq
+    - device_tracker.computer_satellite
 
 devices:
   name: Dispositivos
   view: yes
   entities:
     - device_tracker.livebox
-    - device_tracker.computer_compaq
-    - device_tracker.computer_satellite
     - group.rpi3
     - group.sonoff1
     - group.sonoff2

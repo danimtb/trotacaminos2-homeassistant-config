@@ -8,5 +8,5 @@ driving_daniel_stop:
         domain: light
     - service: mqtt.publish
       data:
-        topic: "owntracks/clio"
+        topic: "owntracks/renault/clio"
         payload_template: '{"_type":"location","lat":{{states.device_tracker.daniel_aquarisx5plus.attributes.latitude}},"lon":{{ states.device_tracker.daniel_aquarisx5plus.attributes.longitude}},"tst":1234,"acc":{{states.device_tracker.daniel_aquarisx5plus.attributes.gps_accuracy}}}'

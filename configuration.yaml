@@ -20,6 +20,9 @@ homeassistant:
     sensor.daniel2home:
       friendly_name: ETA Casa
       icon: mdi:av-timer
+    sensor.ramon2home:
+      friendly_name: ETA Casa
+      icon: mdi:av-timer
     sensor.rpi3_temperature:
       friendly_name: RPi3 Temperatura
       icon: mdi:thermometer

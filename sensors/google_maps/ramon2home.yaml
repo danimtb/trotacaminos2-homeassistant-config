@@ -1,0 +1,5 @@
+platform: google_travel_time
+api_key: !secret google_travel_time_api_key
+name: ramon2home
+origin: device_tracker.ramon_motorola
+destination: zone.home

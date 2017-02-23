@@ -28,14 +28,14 @@ ramon_motorola_nmap:
   track: true
   vendor: Motorola Mobility LLC, a Lenovo Company
 
-clio:
+renault_clio:
   hide_if_away: false
   name: Clio
   picture: !secret clio_picture
   track: true
   vendor: Renault
 
-scenic:
+renault_scenic:
   hide_if_away: false
   name: Scenic
   picture: !secret scenic_picture
@@ -101,7 +101,7 @@ television_lg:
 andrea_aquarisx5:
   hide_if_away: false
   mac: !secret andrea_mac
-  name: andrea
+  name: Andrea
   picture: !secret andrea_picture
   track: true
   vendor: BQ
@@ -121,11 +121,3 @@ computer_satellite:
   picture: !secret computer_satellite_picture
   track: true
   vendor: Intel Corporate
-
-daniel_clio:
-  hide_if_away: false
-  mac:
-  name: daniel
-  picture:
-  track: true
-  vendor:
