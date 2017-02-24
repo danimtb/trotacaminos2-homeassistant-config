@@ -57,11 +57,23 @@ television_lg:
     - device_tracker.television_lg
     - media_player.television_lg
 
+sonoffdev:
+  name: Sonoff DEV
+  entities:
+    - device_tracker.sonoffdev
+    - sensor.sonoff_dev_name
+    - sensor.sonoff_dev_mac
+    - sensor.sonoff_dev_ip
+    - sensor.sonoff_dev_type
+    - sensor.sonoff_dev_fw
+    - sensor.sonoff_dev_version
+
 sonoff1:
   name: Luz Cama
   entities:
     - device_tracker.sonoff1
     - sensor.luz_cama_nombre
+    - sensor.luz_cama_mac
     - sensor.luz_cama_ip
     - sensor.luz_cama_tipo
     - sensor.luz_cama_fw
@@ -72,6 +84,7 @@ sonoff2:
   entities:
     - device_tracker.sonoff2
     - sensor.lampara_entradita_nombre
+    - sensor.lampara_entradita_mac
     - sensor.lampara_entradita_ip
     - sensor.lampara_entradita_tipo
     - sensor.lampara_entradita_fw
@@ -81,6 +94,7 @@ touch3:
   name: Interruptor Principal
   entities:
     - sensor.interruptor_principal_nombre
+    - sensor.interruptor_principal_mac
     - sensor.interruptor_principal_ip
     - sensor.interruptor_principal_tipo
     - sensor.interruptor_principal_fw
@@ -91,6 +105,7 @@ touch2:
   entities:
     - device_tracker.touch2
     - sensor.interruptor_pasillo_nombre
+    - sensor.interruptor_pasillo_mac
     - sensor.interruptor_pasillo_ip
     - sensor.interruptor_pasillo_tipo
     - sensor.interruptor_pasillo_fw
@@ -165,6 +180,7 @@ devices:
   entities:
     - device_tracker.livebox
     - group.rpi3
+    - group.sonoffdev
     - group.sonoff1
     - group.sonoff2
     - group.touch3

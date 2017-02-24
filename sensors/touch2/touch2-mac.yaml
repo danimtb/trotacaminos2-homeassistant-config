@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoff2/mac"
+name: Interruptor pasillo MAC
+

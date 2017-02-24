@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoffdev/ip"
+name: Sonoff DEV IP
+

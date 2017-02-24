@@ -42,6 +42,14 @@ renault_scenic:
   track: true
   vendor: Renault
 
+sonoffdev:
+  hide_if_away: false
+  mac: !secret sonoffdev_mac
+  name: sonoffdev
+  picture: !secret sonoff_picture
+  track: true
+  vendor: Espressif Inc.
+
 sonoff1:
   hide_if_away: false
   mac: !secret sonoff1_mac

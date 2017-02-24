@@ -61,23 +61,23 @@ mqtt:
 light:
   - platform: mqtt
     name: Luz Principal
-    state_topic: "home/daniel-bedroom/lights/main"
-    command_topic: "home/daniel-bedroom/lights/main/set"
+    state_topic: "/home/daniel-bedroom/lights/main"
+    command_topic: "/home/daniel-bedroom/lights/main/set"
     optimistic: false
   - platform: mqtt
     name: Luz Pasillo
-    state_topic: "home/daniel-bedroom/lights/corridor"
-    command_topic: "home/daniel-bedroom/lights/corridor/set"
+    state_topic: "/home/daniel-bedroom/lights/corridor"
+    command_topic: "/home/daniel-bedroom/lights/corridor/set"
     optimistic: false
   - platform: mqtt
     name: Luz Cama
-    state_topic: "home/daniel-bedroom/lights/bed"
-    command_topic: "home/daniel-bedroom/lights/bed/set"
+    state_topic: "/home/daniel-bedroom/lights/bed"
+    command_topic: "/home/daniel-bedroom/lights/bed/set"
     optimistic: false
   - platform: mqtt
     name: Lampara
-    state_topic: "home/entrance/lights/lamp"
-    command_topic: "home/entrance/lights/lamp/set"
+    state_topic: "/home/entrance/lights/lamp"
+    command_topic: "/home/entrance/lights/lamp/set"
     optimistic: false
 
 device_tracker:

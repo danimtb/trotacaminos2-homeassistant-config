@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoff1/mac"
+name: Luz cama MAC
+

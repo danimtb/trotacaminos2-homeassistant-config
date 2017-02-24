@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoffdev/fw/version"
+name: Sonoff DEV version
+
