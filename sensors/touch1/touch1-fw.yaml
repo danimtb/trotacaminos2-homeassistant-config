@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/touch1/fw"
+name: Touch1 firmware

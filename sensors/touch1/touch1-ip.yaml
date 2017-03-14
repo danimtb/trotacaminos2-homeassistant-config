@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/touch1/ip"
+name: Touch1 IP

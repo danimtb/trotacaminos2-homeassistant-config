@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: "/sonoff2/ip"
-name: Lampara entradita IP
+name: Sonoff2 IP
 

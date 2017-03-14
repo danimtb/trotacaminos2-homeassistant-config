@@ -1,4 +1,3 @@
 platform: mqtt
 state_topic: "/sonoff2/fw/version"
-name: Lampara entradita version
-
+name: Sonoff2 versión

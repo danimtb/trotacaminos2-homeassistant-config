@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/touch1/mac"
+name: Touch1 MAC

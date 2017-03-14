@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: "/sonoffdev/type"
-name: Sonoff DEV type
+name: Sonoffdev dispositivo
 

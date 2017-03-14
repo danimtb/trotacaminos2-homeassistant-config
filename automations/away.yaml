@@ -8,7 +8,7 @@ condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: group.bedroom_ligths
+        entity_id: group.daniel_bedroom
         state: "on"
 action:
   - service: script.all_lights_off

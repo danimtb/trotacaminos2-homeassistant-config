@@ -75,10 +75,29 @@ light:
     command_topic: "/home/daniel-bedroom/lights/bed/set"
     optimistic: false
   - platform: mqtt
-    name: Lampara
+    name: Lamparita
     state_topic: "/home/entrance/lights/lamp"
     command_topic: "/home/entrance/lights/lamp/set"
     optimistic: false
+  - platform: mqtt
+    name: Lampara Mesa 
+    state_topic: "/home/livingroom/lights/lamp"
+    command_topic: "/home/livingroom/lights/lamp/set"
+    optimistic: false
+  - platform: yeelight
+    devices:
+      192.168.1.131:
+        name: Lampara Pie
+      192.168.1.132:
+        name: Luz Ambiente
+
+cover:
+  - platform: mqtt
+    name: "Persiana"
+    state_topic: "/home/daniel-bedroom/blind"
+    command_topic: "/home/daniel-bedroom/blind/set"
+    state_open: "OPEN"
+    state_closed: "CLOSE"
 
 device_tracker:
   - platform: owntracks

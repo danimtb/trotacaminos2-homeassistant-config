@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: "/sonoff1/fw/version"
-name: Luz cama version
+name: Sonoff1 versión
 

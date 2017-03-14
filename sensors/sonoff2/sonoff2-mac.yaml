@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: "/sonoff2/mac"
-name: Lampara entradita MAC
+name: Sonoff2 MAC
 

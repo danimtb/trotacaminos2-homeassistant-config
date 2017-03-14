@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/touch1"
+name: Touch1 nombre
+

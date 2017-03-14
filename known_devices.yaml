@@ -66,6 +66,14 @@ sonoff2:
   track: true
   vendor: Espressif Inc.
 
+sonoff3:
+  hide_if_away: false
+  mac: !secret sonoff3_mac
+  name: sonoff3
+  picture: !secret sonoff_picture
+  track: true
+  vendor: Espressif Inc.
+
 touch2:
   hide_if_away: false
   mac: !secret touch2_mac
@@ -129,3 +137,43 @@ computer_satellite:
   picture: !secret computer_satellite_picture
   track: true
   vendor: Intel Corporate
+
+60d8196819b3:
+  hide_if_away: false
+  mac: 60:D8:19:68:19:B3
+  name: 60d8196819b3
+  picture:
+  track: true
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+8cbfa6d9cdb8:
+  hide_if_away: false
+  mac: 8C:BF:A6:D9:CD:B8
+  name: 8cbfa6d9cdb8
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+xiaomi_yeelight1:
+  hide_if_away: false
+  mac: !secret yeelight1_mac
+  name: Yeelight1
+  picture: !secret yeelight_picture
+  track: true
+  vendor: XIAOMI Electronics,CO.,LTD
+
+xiaomi_yeelight2:
+  hide_if_away: false
+  mac: !secret yeelight2_mac
+  name: Yeelight2
+  picture: !secret yeelight_picture
+  track: true
+  vendor: XIAOMI Electronics,CO.,LTD
+
+a020a61556ee:
+  hide_if_away: false
+  mac: A0:20:A6:15:56:EE
+  name: a020a61556ee
+  picture:
+  track: true
+  vendor: Espressif Inc.

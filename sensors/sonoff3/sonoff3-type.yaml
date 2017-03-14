@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: "/sonoff3/type"
+name: Sonoff3 dispositivo
+

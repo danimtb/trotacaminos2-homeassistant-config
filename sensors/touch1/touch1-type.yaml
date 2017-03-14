@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/touch1/type"
+name: Touch1 dispositivo

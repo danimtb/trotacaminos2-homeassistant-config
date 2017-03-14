@@ -1,0 +1,5 @@
+welcome_home_ramon:
+  sequence:
+    - service: notify.notify
+      data:
+        message: "Bienvenido a casa Ramón"

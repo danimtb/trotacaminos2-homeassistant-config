@@ -1,0 +1,3 @@
+platform: mqtt
+state_topic: "/sonoff3/fw"
+name: Sonoff3 firmware

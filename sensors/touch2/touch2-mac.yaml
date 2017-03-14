@@ -1,4 +1,3 @@
 platform: mqtt
-state_topic: "/sonoff2/mac"
-name: Interruptor pasillo MAC
-
+state_topic: "/touch2/mac"
+name: Touch2 MAC

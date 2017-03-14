@@ -1,0 +1,14 @@
+alias: "TV mode on"
+trigger:
+  - platform: state
+    entity_id: device_tracker.television_lg
+    from: "not_home"
+    to: "home"
+condition:
+  - condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-1:00:00"
+action:
+  - service: script.livingroom_lights_on

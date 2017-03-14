@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: "/sonoff3/mac"
-name: Interruptor principal MAC
+name: Sonoff3 MAC
 

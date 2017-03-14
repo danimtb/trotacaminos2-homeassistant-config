@@ -21,13 +21,25 @@ ramon:
     - device_tracker.renault_scenic
     - sensor.ramon2home
 
-bedroom_ligths:
-  name: Luces
+daniel_bedroom:
+  name: Habitacion Daniel
   entities:
     - light.luz_pasillo
     - light.luz_principal
     - light.luz_cama
-    - light.lampara
+    - light.luz_ambiente
+    - cover.persiana
+
+entrance:
+  name: Entradita
+  entities:
+    - light.lamparita
+
+livingroom:
+  name: Salon
+  entities:
+    - light.lampara_pie
+    - light.lampara_mesa
 
 weather:
   name: Tiempo Meteorológico
@@ -61,55 +73,66 @@ sonoffdev:
   name: Sonoff DEV
   entities:
     - device_tracker.sonoffdev
-    - sensor.sonoff_dev_name
-    - sensor.sonoff_dev_mac
-    - sensor.sonoff_dev_ip
-    - sensor.sonoff_dev_type
-    - sensor.sonoff_dev_fw
-    - sensor.sonoff_dev_version
+    - sensor.sonoffdev_nombre
+    - sensor.sonoffdev_mac
+    - sensor.sonoffdev_ip
+    - sensor.sonoffdev_dispositivo
+    - sensor.sonoffdev_firmware
+    - sensor.sonoffdev_version
 
 sonoff1:
-  name: Luz Cama
+  name: Sonoff 1
   entities:
     - device_tracker.sonoff1
-    - sensor.luz_cama_nombre
-    - sensor.luz_cama_mac
-    - sensor.luz_cama_ip
-    - sensor.luz_cama_tipo
-    - sensor.luz_cama_fw
-    - sensor.luz_cama_version
+    - sensor.sonoff1_nombre
+    - sensor.sonoff1_mac
+    - sensor.sonoff1_ip
+    - sensor.sonoff1_dispositivo
+    - sensor.sonoff1_firmware
+    - sensor.sonoff1_version
 
 sonoff2:
-  name: Lampara Entradita
+  name: Sonoff 2
   entities:
     - device_tracker.sonoff2
-    - sensor.lampara_entradita_nombre
-    - sensor.lampara_entradita_mac
-    - sensor.lampara_entradita_ip
-    - sensor.lampara_entradita_tipo
-    - sensor.lampara_entradita_fw
-    - sensor.lampara_entradita_version
+    - sensor.sonoff2_nombre
+    - sensor.sonoff2_mac
+    - sensor.sonoff2_ip
+    - sensor.sonoff2_dispositivo
+    - sensor.sonoff2_firmware
+    - sensor.sonoff2_version
 
-touch3:
-  name: Interruptor Principal
+sonoff3:
+  name: Sonoff 3
   entities:
-    - sensor.interruptor_principal_nombre
-    - sensor.interruptor_principal_mac
-    - sensor.interruptor_principal_ip
-    - sensor.interruptor_principal_tipo
-    - sensor.interruptor_principal_fw
-    - sensor.interruptor_principal_version
+    - device_tracker.sonoff3
+    - sensor.sonoff3_nombre
+    - sensor.sonoff3_mac
+    - sensor.sonoff3_ip
+    - sensor.sonoff3_dispositivo
+    - sensor.sonoff3_firmware
+    - sensor.sonoff3_version
+
+touch1:
+  name: Touch 1
+  entities:
+    - sensor.touch1_nombre
+    - sensor.touch1_mac
+    - sensor.touch1_ip
+    - sensor.touch1_dispositivo
+    - sensor.touch1_firmware
+    - sensor.touch1_version
 
 touch2:
-  name: Interruptor Pasillo
+  name: Touch 2
   entities:
     - device_tracker.touch2
-    - sensor.interruptor_pasillo_nombre
-    - sensor.interruptor_pasillo_mac
-    - sensor.interruptor_pasillo_ip
-    - sensor.interruptor_pasillo_tipo
-    - sensor.interruptor_pasillo_fw
-    - sensor.interruptor_pasillo_version
+    - sensor.touch2_nombre
+    - sensor.touch2_mac
+    - sensor.touch2_ip
+    - sensor.touch2_dispositivo
+    - sensor.touch2_firmware
+    - sensor.touch2_version
 
 rpi3:
   name: Raspberry Pi 3
@@ -154,12 +177,14 @@ scripts:
 
 ###### VIEWS ######
 
-default_view:
+default:
   name: Default
   view: yes
   entities:
     - group.weather
-    - group.bedroom_ligths
+    - group.daniel_bedroom
+    - group.entrance
+    - group.livingroom
     - group.daniel
     - group.ramon
     - device_tracker.mcarmen_aquarise54g
@@ -179,11 +204,14 @@ devices:
   view: yes
   entities:
     - device_tracker.livebox
+    - device_tracker.xiaomi_yeelight1
+    - device_tracker.xiaomi_yeelight2
     - group.rpi3
     - group.sonoffdev
     - group.sonoff1
     - group.sonoff2
-    - group.touch3
+    - group.sonoff3
+    - group.touch1
     - group.touch2
 
 control:
