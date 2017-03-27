@@ -1,3 +1,0 @@
-platform: mqtt
-state_topic: "/sonoff3/fw/version"
-name: Sonoff3 versión

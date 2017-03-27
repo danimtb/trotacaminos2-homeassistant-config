@@ -1,0 +1,5 @@
+platform: mqtt
+name: "Radiador Daniel Potencia Reactiva"
+state_topic: "/home/daniel-bedroom/radiator/pow"
+value_template: '{{ value_json.reactivePower }}'
+unit_of_measurement: "var"

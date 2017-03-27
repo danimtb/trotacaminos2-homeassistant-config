@@ -1,4 +1,4 @@
 platform: mqtt
-state_topic: "/sonoff3/mac"
-name: Sonoff3 MAC
-
+name: "Sonoff3 MAC"
+state_topic: "/sonoff3"
+value_template: '{{ value_json.mac }}'

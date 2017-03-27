@@ -1,0 +1,4 @@
+platform: mqtt
+name: "S201 nombre"
+state_topic: "/s201"
+value_template: '{{ value_json.name }}'

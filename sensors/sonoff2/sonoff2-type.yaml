@@ -1,4 +1,0 @@
-platform: mqtt
-state_topic: "/sonoff2/type"
-name: Sonoff2 dispositivo
-

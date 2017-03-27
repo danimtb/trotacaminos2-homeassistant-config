@@ -1,0 +1,4 @@
+platform: mqtt
+name: "Touch1 firmware"
+state_topic: "/touch1"
+value_template: '{{ value_json.firmware }}'

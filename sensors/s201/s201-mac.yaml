@@ -1,4 +1,4 @@
 platform: mqtt
-name: "Touch2 MAC"
-state_topic: "/touch2"
+name: "S201 MAC"
+state_topic: "/s201"
 value_template: '{{ value_json.mac }}'

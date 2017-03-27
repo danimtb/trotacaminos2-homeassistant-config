@@ -1,3 +1,4 @@
 platform: mqtt
-state_topic: "/touch1/ip"
-name: Touch1 IP
+name: "Touch1 IP"
+state_topic: "/touch1"
+value_template: '{{ value_json.ip }}'

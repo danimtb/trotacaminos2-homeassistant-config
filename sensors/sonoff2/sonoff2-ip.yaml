@@ -1,4 +1,4 @@
 platform: mqtt
-state_topic: "/sonoff2/ip"
-name: Sonoff2 IP
-
+name: "Sonoff2 IP"
+state_topic: "/sonoff2"
+value_template: '{{ value_json.ip }}'

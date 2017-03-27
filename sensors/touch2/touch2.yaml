@@ -1,4 +1,0 @@
-platform: mqtt
-state_topic: "/touch2"
-name: Touch2 nombre
-

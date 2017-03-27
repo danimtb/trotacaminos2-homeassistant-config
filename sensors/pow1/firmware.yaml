@@ -1,0 +1,4 @@
+platform: mqtt
+name: "Pow1 firmware"
+state_topic: "/pow1"
+value_template: '{{ value_json.firmware }}'

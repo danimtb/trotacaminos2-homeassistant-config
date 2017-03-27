@@ -5,3 +5,15 @@ daniel_status:
     - standby
     - durmiendo
   initial: standby
+
+time1:
+  name: time1
+  options:
+    - 00:00
+    - 00:30
+    - 01:00
+    - 01:30
+    - 02:00
+    - 02:30
+    - 03:00
+  initial: 00:00

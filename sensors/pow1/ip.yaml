@@ -1,0 +1,5 @@
+platform: mqtt
+name: "Pow1 IP"
+state_topic: "/pow1"
+value_template: '{{ value_json.ip }}'
+

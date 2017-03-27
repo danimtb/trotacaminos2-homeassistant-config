@@ -1,0 +1,4 @@
+platform: mqtt
+name: "Touch2 nombre"
+state_topic: "/touch2"
+value_template: '{{ value_json.name }}'

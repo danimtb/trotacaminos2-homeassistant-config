@@ -1,0 +1,4 @@
+platform: mqtt
+name: "Sonoff2 firmware"
+state_topic: "/sonoff2"
+value_template: '{{ value_json.firmware }}'

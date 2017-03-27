@@ -76,7 +76,7 @@ sonoffdev:
     - sensor.sonoffdev_nombre
     - sensor.sonoffdev_mac
     - sensor.sonoffdev_ip
-    - sensor.sonoffdev_dispositivo
+    - sensor.sonoffdev_hardware
     - sensor.sonoffdev_firmware
     - sensor.sonoffdev_version
 
@@ -87,7 +87,7 @@ sonoff1:
     - sensor.sonoff1_nombre
     - sensor.sonoff1_mac
     - sensor.sonoff1_ip
-    - sensor.sonoff1_dispositivo
+    - sensor.sonoff1_hardware
     - sensor.sonoff1_firmware
     - sensor.sonoff1_version
 
@@ -98,7 +98,7 @@ sonoff2:
     - sensor.sonoff2_nombre
     - sensor.sonoff2_mac
     - sensor.sonoff2_ip
-    - sensor.sonoff2_dispositivo
+    - sensor.sonoff2_hardware
     - sensor.sonoff2_firmware
     - sensor.sonoff2_version
 
@@ -109,17 +109,18 @@ sonoff3:
     - sensor.sonoff3_nombre
     - sensor.sonoff3_mac
     - sensor.sonoff3_ip
-    - sensor.sonoff3_dispositivo
+    - sensor.sonoff3_hardware
     - sensor.sonoff3_firmware
     - sensor.sonoff3_version
 
 touch1:
   name: Touch 1
   entities:
+    - device_tracker.touch1
     - sensor.touch1_nombre
     - sensor.touch1_mac
     - sensor.touch1_ip
-    - sensor.touch1_dispositivo
+    - sensor.touch1_hardware
     - sensor.touch1_firmware
     - sensor.touch1_version
 
@@ -130,9 +131,37 @@ touch2:
     - sensor.touch2_nombre
     - sensor.touch2_mac
     - sensor.touch2_ip
-    - sensor.touch2_dispositivo
+    - sensor.touch2_hardware
     - sensor.touch2_firmware
     - sensor.touch2_version
+
+s201:
+  name: S20 1
+  entities:
+    - device_tracker.s201
+    - sensor.s201_nombre
+    - sensor.s201_mac
+    - sensor.s201_ip
+    - sensor.s201_hardware
+    - sensor.s201_firmware
+    - sensor.s201_version
+
+pow1:
+  name: Pow 1
+  entities:
+    - device_tracker.pow1
+    - sensor.pow1_nombre
+    - sensor.pow1_mac
+    - sensor.pow1_ip
+    - sensor.pow1_hardware
+    - sensor.pow1_firmware
+    - sensor.pow1_version
+
+reloj_test:
+  name: Reloj
+  entities:
+    - automation.time_on
+    - input_select.time1
 
 rpi3:
   name: Raspberry Pi 3
@@ -213,6 +242,8 @@ devices:
     - group.sonoff3
     - group.touch1
     - group.touch2
+    - group.s201
+    - group.pow1
 
 control:
   name: Control

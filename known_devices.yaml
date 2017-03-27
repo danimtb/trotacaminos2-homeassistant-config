@@ -74,11 +74,35 @@ sonoff3:
   track: true
   vendor: Espressif Inc.
 
+touch1:
+  hide_if_away: false
+  mac: !secret touch1_mac
+  name: touch1
+  picture: !secret sonoff_touch_picture
+  track: true
+  vendor: Espressif Inc.
+
 touch2:
   hide_if_away: false
   mac: !secret touch2_mac
   name: touch2
   picture: !secret sonoff_touch_picture
+  track: true
+  vendor: Espressif Inc.
+
+s201:
+  hide_if_away: false
+  mac: !secret s201_mac
+  name: s201
+  picture: !secret sonoff_s20_picture
+  track: true
+  vendor: Espressif Inc.
+
+pow1:
+  hide_if_away: false
+  mac: !secret pow1_mac
+  name: pow1
+  picture: !secret sonoff_pow_picture
   track: true
   vendor: Espressif Inc.
 

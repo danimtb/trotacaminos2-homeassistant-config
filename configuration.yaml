@@ -63,33 +63,52 @@ light:
     name: Luz Principal
     state_topic: "/home/daniel-bedroom/lights/main"
     command_topic: "/home/daniel-bedroom/lights/main/set"
-    optimistic: false
+    qos: 1
+    retain: true
   - platform: mqtt
     name: Luz Pasillo
     state_topic: "/home/daniel-bedroom/lights/corridor"
     command_topic: "/home/daniel-bedroom/lights/corridor/set"
-    optimistic: false
+    qos: 1
+    retain: true
   - platform: mqtt
     name: Luz Cama
     state_topic: "/home/daniel-bedroom/lights/bed"
     command_topic: "/home/daniel-bedroom/lights/bed/set"
-    optimistic: false
+    qos: 1
+    retain: true
   - platform: mqtt
     name: Lamparita
     state_topic: "/home/entrance/lights/lamp"
     command_topic: "/home/entrance/lights/lamp/set"
-    optimistic: false
+    qos: 1
+    retain: true
   - platform: mqtt
     name: Lampara Mesa 
     state_topic: "/home/livingroom/lights/lamp"
     command_topic: "/home/livingroom/lights/lamp/set"
-    optimistic: false
+    qos: 1
+    retain: true
   - platform: yeelight
     devices:
       192.168.1.131:
         name: Lampara Pie
       192.168.1.132:
         name: Luz Ambiente
+
+switch:
+  - platform: mqtt
+    name: "Enchufe"
+    state_topic: "/home/daniel-bedroom/socket"
+    command_topic: "/home/daniel-bedroom/socket/set"
+    qos: 1
+    retain: true
+  - platform: mqtt
+    name: "Radiador"
+    state_topic: "/home/daniel-bedroom/radiator"
+    command_topic: "/home/daniel-bedroom/radiator/set"
+    qos: 1
+    retain: true
 
 cover:
   - platform: mqtt
@@ -119,6 +138,8 @@ media_player:
     name: Televisión LG
     host: !secret lg_netcast_host
     access_token: !secret lg_netcast_access_token
+  - platform: kodi
+    host: http://192.168.1.109
 
 
 #### DIRECTORIES ####

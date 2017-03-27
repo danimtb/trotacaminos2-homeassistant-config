@@ -1,0 +1,5 @@
+platform: mqtt
+name: "Radiador Daniel Potencia Aparente"
+state_topic: "/home/daniel-bedroom/radiator/pow"
+value_template: '{{ value_json.apparentPower }}'
+unit_of_measurement: "VA"

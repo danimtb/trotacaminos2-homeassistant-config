@@ -1,4 +1,0 @@
-platform: mqtt
-state_topic: "/sonoff1"
-name: Sonoff1 nombre
-
