@@ -104,7 +104,7 @@ switch:
     qos: 1
     retain: true
   - platform: mqtt
-    name: "Radiador"
+    name: "Radiador Daniel"
     state_topic: "/home/daniel-bedroom/radiator"
     command_topic: "/home/daniel-bedroom/radiator/set"
     qos: 1
@@ -128,10 +128,15 @@ device_tracker:
     interval_seconds: 1
 
 notify:
-  - name: notify
+  - name: telegram
     platform: telegram
     api_key: !secret telegram_api_key
     chat_id: !secret telegram_chat_id
+  - name: pushbullet_daniel
+    platform: pushbullet
+    api_key: !secret pushbullet_daniel_api_key
+
+
 
 media_player:
   - platform: lg_netcast

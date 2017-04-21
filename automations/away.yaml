@@ -12,6 +12,6 @@ condition:
         state: "on"
 action:
   - service: script.all_lights_off
-  - service: notify.notify
+  - service: notify.pushbullet_daniel
     data:
       message: "¡Te dejaste las luces encendidas! Las he apagado por ti"

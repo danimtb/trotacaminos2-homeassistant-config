@@ -5,7 +5,7 @@ trigger:
   from: "conduciendo"
   to: "standby"
 action:
-  - service: notify.notify
+  - service: notify.pushbullet_daniel
     data:
       message: "Daniel is not in the car!"
   - service: script.refresh_devices

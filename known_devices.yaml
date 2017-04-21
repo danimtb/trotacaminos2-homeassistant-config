@@ -201,3 +201,19 @@ a020a61556ee:
   picture:
   track: true
   vendor: Espressif Inc.
+
+18fe349a38a1:
+  hide_if_away: false
+  mac: 18:FE:34:9A:38:A1
+  name: 18fe349a38a1
+  picture:
+  track: true
+  vendor: Espressif Inc.
+
+780cb821d3bf:
+  hide_if_away: false
+  mac: 78:0C:B8:21:D3:BF
+  name: 780cb821d3bf
+  picture:
+  track: true
+  vendor: Intel Corporate

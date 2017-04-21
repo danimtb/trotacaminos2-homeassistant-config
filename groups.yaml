@@ -41,8 +41,8 @@ livingroom:
     - light.lampara_pie
     - light.lampara_mesa
 
-weather:
-  name: Tiempo Meteorológico
+weather_today:
+  name: Tiempo Hoy
   entities:
     - sun.sun
     - sensor.dark_sky_summary
@@ -52,16 +52,17 @@ weather:
     - sensor.dark_sky_apparent_temperature
     - sensor.dark_sky_daily_high_apparent_temperature
     - sensor.dark_sky_daily_low_apparent_temperature
-    - sensor.dark_sky_precip
-    - sensor.dark_sky_precip_probability
-    - sensor.dark_sky_precip_intensity
-    - sensor.dark_sky_cloud_coverage
-    - sensor.dark_sky_visibility
-    - sensor.dark_sky_wind_speed
-    - sensor.dark_sky_humidity
-    - sensor.dark_sky_pressure
-    - sensor.dark_sky_dew_point
-    - sensor.dark_sky_ozone
+
+weather_tomorrow:
+  name: Tiempo Mañana
+  entities:
+    - sensor.dark_sky_summary_1
+    - sensor.dark_sky_temperature_1
+    - sensor.dark_sky_daily_high_temperature_1
+    - sensor.dark_sky_daily_low_temperature_1
+    - sensor.dark_sky_apparent_temperature_1
+    - sensor.dark_sky_daily_high_apparent_temperature_1
+    - sensor.dark_sky_daily_low_apparent_temperature_1
 
 television_lg:
   name: Televisión LG
@@ -157,11 +158,21 @@ pow1:
     - sensor.pow1_firmware
     - sensor.pow1_version
 
-reloj_test:
-  name: Reloj
+radiator_daniel:
+  name: Control Radiador Daniel
+  control: hidden 
   entities:
-    - automation.time_on
-    - input_select.time1
+    - switch.radiador_daniel
+    - automation.encendido_automatico_radiador_daniel
+    - input_select.radiator_daniel_time_on
+    - automation.apagado_automatico_radiador_daniel
+    - input_select.radiator_daniel_time_off
+    - sensor.radiador_daniel_potencia_activa
+    - sensor.radiador_daniel_potencia_reactiva
+    - sensor.radiador_daniel_potencia_aparente
+    - sensor.radiador_daniel_factor_potencia
+    - sensor.radiador_daniel_corriente
+    - sensor.radiador_daniel_voltaje
 
 rpi3:
   name: Raspberry Pi 3
@@ -210,7 +221,7 @@ default:
   name: Default
   view: yes
   entities:
-    - group.weather
+    - group.weather_today
     - group.daniel_bedroom
     - group.entrance
     - group.livingroom
@@ -219,6 +230,14 @@ default:
     - device_tracker.mcarmen_aquarise54g
     - device_tracker.amanda_aquarisa45
     - device_tracker.andrea_aquarisx5
+
+radiators:
+  name: Radiadores
+  view: yes
+  entities:
+    - group.weather_tomorrow
+    - input_boolean.radiators_tomorrow
+    - group.radiator_daniel
 
 multimedia:
   name: Multimedia

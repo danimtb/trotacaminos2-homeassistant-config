@@ -1,8 +1,0 @@
-alias: "time_on"
-trigger:
-  - platform: template
-    value_template: '{{ now.time().strftime("%H:%M") == states.input_select.time1.state }}'
-action:
-  - service: switch.turn_on
-    data:
-      entity_id: switch.enchufe

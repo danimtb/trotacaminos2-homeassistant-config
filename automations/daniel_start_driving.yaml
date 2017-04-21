@@ -4,7 +4,7 @@ trigger:
   entity_id: input_select.daniel_status
   state: "conduciendo"
 action:
-  - service: notify.notify
+  - service: notify.pushbullet_daniel
     data:
       message: "Daniel is in the car!"
   - service: script.driving_daniel_start

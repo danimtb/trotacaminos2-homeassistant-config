@@ -1,5 +1,5 @@
 platform: mqtt
-name: "Radiador Daniel Active Power"
+name: "Radiador Daniel Potencia Activa"
 state_topic: "/home/daniel-bedroom/radiator/pow"
 value_template: '{{ value_json.activePower }}'
 unit_of_measurement: "W"

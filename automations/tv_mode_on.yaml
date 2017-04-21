@@ -4,11 +4,17 @@ trigger:
     entity_id: device_tracker.television_lg
     from: "not_home"
     to: "home"
+  - platform: sun
+    event: sunset
+    offset: '-01:00:00'
 condition:
   - condition: and
     conditions:
       - condition: sun
         after: sunset
         after_offset: "-1:00:00"
+      - condition: state
+        entity_id: device_tracker.television_lg
+        state: "home"
 action:
   - service: script.livingroom_lights_on

@@ -1,0 +1,13 @@
+alias: "Encendido Automatico Radiador Daniel"
+trigger:
+  - platform: time
+    minutes: '/30'
+    seconds: 0
+condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ now().time().strftime("%H:%M") == states.input_select.radiator_daniel_time_on.state }}'
+action:
+  - service: switch.turn_on
+    entity_id: switch.radiator_daniel
