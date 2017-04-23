@@ -1,7 +1,7 @@
 alias: "Away"
 trigger:
   - platform: state
-    entity_id: group.daniel
+    entity_id: sensor.daniel_home
     from: 'home'
     to: 'not_home'
 condition:

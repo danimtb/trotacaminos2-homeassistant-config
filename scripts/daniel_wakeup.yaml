@@ -4,7 +4,7 @@ daniel_wakeup:
       event_data:
         name: EVENT
         message: "Daniel wake up!"
-    - service: notify.notify
+    - service: notify.pushbullet_daniel
       data:
         message: "¡Buenos días!"
     - service: light.turn_on

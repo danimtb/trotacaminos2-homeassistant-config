@@ -1,0 +1,5 @@
+welcome_home_mcarmen:
+  sequence:
+    - service: notify.pushbullet_daniel
+      data:
+        message: "Bienvenida a casa M.Carmen"

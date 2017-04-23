@@ -6,13 +6,13 @@ trigger:
     to: "home"
   - platform: sun
     event: sunset
-    offset: '-01:00:00'
+    offset: '-00:30:00'
 condition:
   - condition: and
     conditions:
       - condition: sun
         after: sunset
-        after_offset: "-1:00:00"
+        after_offset: "-0:30:00"
       - condition: state
         entity_id: device_tracker.television_lg
         state: "home"

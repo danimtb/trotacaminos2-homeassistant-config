@@ -8,6 +8,9 @@ condition:
     conditions:
       - condition: template
         value_template: '{{ now().time().strftime("%H:%M") == states.input_select.radiator_daniel_time_on.state }}'
+      - condition: state
+        entity_id: input_boolean.radiators_tomorrow
+        state: "on"
 action:
   - service: switch.turn_on
-    entity_id: switch.radiator_daniel
+    entity_id: switch.radiador_daniel

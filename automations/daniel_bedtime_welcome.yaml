@@ -1,7 +1,7 @@
 alias: "Daniel Bedtime Welcome"
 trigger:
   - platform: state
-    entity_id: group.daniel
+    entity_id: sensor.daniel_home
     from: 'not_home'
     to: 'home'
 condition:
@@ -10,5 +10,7 @@ condition:
       - condition: state
         entity_id: input_boolean.daniel_bedtime
         state: "on"
+      - condition: template
+        value_template: '{{ states.input_select.daniel_status.state != "durmiendo" }}'
 action:
   - service: script.daniel_bedtime

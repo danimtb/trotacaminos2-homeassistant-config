@@ -1,8 +1,10 @@
 daniel:
   name: Daniel
+  control: hidden
   entities:
     - device_tracker.daniel_aquarisx5plus
     - device_tracker.daniel_aquarisx5plus_nmap
+    - sensor.daniel_home
     - sensor.aquaris_x5_plus
     - script.refresh_devices
     - input_boolean.daniel_bedtime
@@ -16,6 +18,7 @@ ramon:
   entities:
     - device_tracker.ramon_motorola
     - device_tracker.ramon_motorola_nmap
+    - sensor.ramon_home
     - sensor.motorola
     - script.refresh_devices
     - device_tracker.renault_scenic
@@ -158,9 +161,19 @@ pow1:
     - sensor.pow1_firmware
     - sensor.pow1_version
 
+radiators_prediction:
+  name: Prediccion Calefaccion
+  control: hidden
+  entities:
+    - input_boolean.radiators_tomorrow
+    - input_select.radiators_threshold_temperature
+    - sensor.medium_temp_calculation
+    - automation.radiators_auto_on
+    - automation.radiators_auto_off
+
 radiator_daniel:
   name: Control Radiador Daniel
-  control: hidden 
+  control: hidden
   entities:
     - switch.radiador_daniel
     - automation.encendido_automatico_radiador_daniel
@@ -173,6 +186,20 @@ radiator_daniel:
     - sensor.radiador_daniel_factor_potencia
     - sensor.radiador_daniel_corriente
     - sensor.radiador_daniel_voltaje
+
+termo:
+  name: Control termo
+  control: hidden
+  entities:
+    - switch.enchufe
+    - automation.encendido_automatico_termo
+    - input_select.termo_time_on1
+    - input_select.termo_time_on2
+    - input_select.termo_time_on3
+    - automation.apagado_automatico_termo
+    - input_select.termo_time_off1
+    - input_select.termo_time_off2
+    - input_select.termo_time_off3
 
 rpi3:
   name: Raspberry Pi 3
@@ -236,8 +263,9 @@ radiators:
   view: yes
   entities:
     - group.weather_tomorrow
-    - input_boolean.radiators_tomorrow
+    - group.radiators_prediction
     - group.radiator_daniel
+    - group.termo
 
 multimedia:
   name: Multimedia

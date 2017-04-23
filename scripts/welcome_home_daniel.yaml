@@ -1,5 +1,5 @@
 welcome_home_daniel:
   sequence:
-    - service: notify.notify
+    - service: notify.pushbullet_daniel
       data:
         message: "Bienvenido a casa Daniel"

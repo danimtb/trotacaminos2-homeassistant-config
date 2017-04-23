@@ -4,7 +4,7 @@ daniel_sleeping:
       event_data:
         name: EVENT
         message: "Good night Daniel"
-    - service: notify.notify
+    - service: notify.pushbullet_daniel
       data:
         message: "Buenas noches"
     - service: script.all_lights_off

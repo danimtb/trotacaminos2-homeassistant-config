@@ -1,0 +1,17 @@
+alias: "Encendido Automatico Termo"
+trigger:
+  - platform: time
+    minutes: '/30'
+    seconds: 0
+condition:
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: '{{ now().time().strftime("%H:%M") == states.input_select.termo_time_on1.state }}'
+      - condition: template
+        value_template: '{{ now().time().strftime("%H:%M") == states.input_select.termo_time_on2.state }}'
+      - condition: template
+        value_template: '{{ now().time().strftime("%H:%M") == states.input_select.termo_time_on3.state }}'
+action:
+  - service: switch.turn_on
+    entity_id: switch.enchufe

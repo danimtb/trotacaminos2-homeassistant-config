@@ -3,5 +3,11 @@ trigger:
   - platform: state
     entity_id: input_select.daniel_status
     state: "durmiendo"
+condition:
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.daniel_home
+        state: 'home'
 action:
-  - service: script.all_lights_off
+  - service: script.daniel_sleeping

@@ -1,5 +1,5 @@
-welcome_home_ramon:
+welcome_home_amanda:
   sequence:
     - service: notify.pushbullet_daniel
       data:
-        message: "Bienvenido a casa Ramón"
+        message: "Bienvenida a casa Amanda"

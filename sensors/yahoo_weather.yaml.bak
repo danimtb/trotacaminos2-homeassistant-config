@@ -1,7 +1,0 @@
-platform: yweather
-forecast: 1
-name: Tiempo Mañana
-monitored_conditions:
-  - weather
-  - temp_min
-  - temp_max

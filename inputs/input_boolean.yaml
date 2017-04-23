@@ -1,9 +1,7 @@
 daniel_bedtime:
   name: Hora de dormir
-  initial: off
   icon: mdi:hotel
 
 radiators_tomorrow:
   name: Calefaccion mañana
-  initial: off
   icon: mdi:radiator

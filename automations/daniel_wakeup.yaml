@@ -8,7 +8,7 @@ condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: group.daniel
-        state: "home"
+        entity_id: sensor.daniel_home
+        state: 'home'
 action:
   - service: script.daniel_wakeup

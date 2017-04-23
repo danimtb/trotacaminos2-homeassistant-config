@@ -7,7 +7,9 @@ condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: group.daniel
-        state: "home"
+        entity_id: sensor.daniel_home
+        state: 'home'
+      - condition: template
+        value_template: '{{ states.input_select.daniel_status.state != "durmiendo" }}'
 action:
   - service: script.daniel_bedtime

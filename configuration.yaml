@@ -45,6 +45,18 @@ tts:
   - platform: google
     language: 'es'
 
+recorder:
+  purge_days: 5
+  include:
+    domains:
+      - light
+      - sensor
+      - switch
+      - media_player
+      - cover
+      - input_boolean
+      - input_select
+
 history:
 
 logbook:
@@ -136,15 +148,11 @@ notify:
     platform: pushbullet
     api_key: !secret pushbullet_daniel_api_key
 
-
-
 media_player:
   - platform: lg_netcast
     name: Televisión LG
     host: !secret lg_netcast_host
     access_token: !secret lg_netcast_access_token
-  - platform: kodi
-    host: http://192.168.1.109
 
 
 #### DIRECTORIES ####

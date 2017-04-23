@@ -10,4 +10,4 @@ condition:
         value_template: '{{ now().time().strftime("%H:%M") == states.input_select.radiator_daniel_time_off.state }}'
 action:
   - service: switch.turn_off
-    entity_id: switch.radiator_daniel
+    entity_id: switch.radiador_daniel

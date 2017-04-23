@@ -2,7 +2,6 @@ platform: darksky
 api_key: !secret darksky_api_key
 forecast:
   - 1
-  - 2
 monitored_conditions:
   - temperature
   - temperature_max
