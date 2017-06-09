@@ -201,3 +201,51 @@ a020a61556ee:
   picture:
   track: true
   vendor: Espressif Inc.
+
+a020a615ecee:
+  hide_if_away: false
+  mac: A0:20:A6:15:EC:EE
+  name: a020a615ecee
+  picture:
+  track: true
+  vendor: Espressif Inc.
+
+c821586bfc97:
+  hide_if_away: false
+  mac: C8:21:58:6B:FC:97
+  name: c821586bfc97
+  picture:
+  track: true
+  vendor: Intel Corporate
+
+c8ff2899da66:
+  hide_if_away: false
+  mac: C8:FF:28:99:DA:66
+  name: c8ff2899da66
+  picture:
+  track: true
+  vendor: Liteon Technology Corporation
+
+bc20a4779da8:
+  hide_if_away: false
+  mac: BC:20:A4:77:9D:A8
+  name: bc20a4779da8
+  picture:
+  track: true
+  vendor: unknown
+
+6045cb2089d0:
+  hide_if_away: false
+  mac: 60:45:CB:20:89:D0
+  name: 6045cb2089d0
+  picture:
+  track: true
+  vendor: ASUSTek COMPUTER INC.
+
+5ccf7fb2eba9:
+  hide_if_away: false
+  mac: 5C:CF:7F:B2:EB:A9
+  name: 5ccf7fb2eba9
+  picture:
+  track: true
+  vendor: Espressif Inc.

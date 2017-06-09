@@ -1,0 +1,9 @@
+alias: "Motion Daniel Bedroom OFF"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.pir_habitacion_daniel
+    from: "on"
+    to: "off"
+action:
+  - service: light.turn_off
+    entity_id: light.luz_principal

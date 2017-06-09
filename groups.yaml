@@ -27,10 +27,13 @@ ramon:
 daniel_bedroom:
   name: Habitacion Daniel
   entities:
+    - binary_sensor.pir_habitacion_daniel
     - light.luz_pasillo
     - light.luz_principal
     - light.luz_cama
     - light.luz_ambiente
+    - light.pipersense1
+    - light.pipersense2
     - cover.persiana
 
 entrance:
@@ -224,8 +227,15 @@ automations:
     - automation.daniel_not_driving
     - automation.daniel_sleeping
     - automation.daniel_wake_up
-    - automation.daniel_welcome
+    - automation.motion_daniel_bedroom_on
+    - automation.motion_daniel_bedroom_off
     - automation.owntracks_refresh
+    - automation.tv_mode_off
+    - automation.tv_mode_on
+    - automation.welcome_amanda
+    - automation.welcome_daniel
+    - automation.welcome_mcarmen
+    - automation.welcome_ramon
 
 scripts:
   name: Scripts
@@ -238,14 +248,20 @@ scripts:
     - script.driving_daniel_start
     - script.driving_daniel_stop
     - script.homeassistant_restart
+    - script.livingroom_lights_off
+    - script.livingroom_lights_on
     - script.refresh_devices
     - script.welcome_home
+    - script.welcome_home_amanda
     - script.welcome_home_daniel
+    - script.welcome_home_mcarmen
+    - script.welcome_home_ramon
+
 
 ###### VIEWS ######
 
 default:
-  name: Default
+  name: Inicio
   view: yes
   entities:
     - group.weather_today
@@ -298,3 +314,4 @@ control:
   entities:
     - group.automations
     - group.scripts
+    - scene.dormir

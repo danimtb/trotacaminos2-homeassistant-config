@@ -47,15 +47,6 @@ tts:
 
 recorder:
   purge_days: 5
-  include:
-    domains:
-      - light
-      - sensor
-      - switch
-      - media_player
-      - cover
-      - input_boolean
-      - input_select
 
 history:
 
@@ -108,6 +99,12 @@ light:
       192.168.1.132:
         name: Luz Ambiente
 
+binary_sensor:
+  - platform: mqtt
+    name: PIR Habitacion Daniel
+    state_topic: "/home/daniel-bedroom/pipersense/motion"
+    device_class: motion
+
 switch:
   - platform: mqtt
     name: "Enchufe"
@@ -133,11 +130,13 @@ cover:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
-    waypoints: True
   - platform: nmap_tracker
-    hosts: 192.168.1.1/24
-    consider_home: 0:8:00
-    interval_seconds: 1
+    hosts: 192.168.1.1-255
+    track_new_devices: no
+    consider_home: 600
+    interval_seconds: 10
+    home_interval: 5
+    scan_options: " --privileged -sP "
 
 notify:
   - name: telegram
@@ -153,6 +152,18 @@ media_player:
     name: Televisión LG
     host: !secret lg_netcast_host
     access_token: !secret lg_netcast_access_token
+
+scene:
+  - name: Dormir
+    entities:
+      light.luz_principal: off
+      light.luz_pasillo: off
+      light.luz_cama: on
+      light.luz_ambiente:
+        state: on
+        transition: 10
+        rgb_color: [255, 80, 75]
+        brightness: 150
 
 
 #### DIRECTORIES ####
