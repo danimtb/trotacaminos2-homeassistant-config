@@ -1,0 +1,5 @@
+name: Casa Andrea
+latitude: !secret andf_latitude
+longitude: !secret andf_longitude
+radius: 25
+icon: mdi:home

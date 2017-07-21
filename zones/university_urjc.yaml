@@ -1,0 +1,5 @@
+name: Universidad URJC
+latitude: !secret universityam_latitude
+longitude: !secret universityam_longitude
+radius: 200
+icon: mdi:school

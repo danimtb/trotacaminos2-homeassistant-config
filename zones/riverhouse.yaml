@@ -1,0 +1,5 @@
+name: Casita del rio
+latitude: !secret riverhouse_latitude
+longitude: !secret riverhouse_longitude
+radius: 200
+icon: mdi:home-variant

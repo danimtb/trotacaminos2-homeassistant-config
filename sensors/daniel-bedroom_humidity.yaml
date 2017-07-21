@@ -1,4 +1,4 @@
 platform: mqtt
 name: "Habitacion Daniel Humedad"
-state_topic: "/home/daniel-bedroom/pipersense/humidity"
+state_topic: "/home/daniel-bedroom/humidity"
 unit_of_measurement: "%"

@@ -210,11 +210,11 @@ a020a615ecee:
   track: true
   vendor: Espressif Inc.
 
-c821586bfc97:
+strixstation:
   hide_if_away: false
-  mac: C8:21:58:6B:FC:97
-  name: c821586bfc97
-  picture:
+  mac: !secret strixstation_mac
+  name: STRIX-STATION
+  picture: strixstation_picture
   track: true
   vendor: Intel Corporate
 
@@ -249,3 +249,21 @@ bc20a4779da8:
   picture:
   track: true
   vendor: Espressif Inc.
+
+b827eb242b92:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:24:2B:92
+  name: b827eb242b92
+  picture:
+  track: true
+  vendor: Raspberry Pi Foundation
+
+ac63be96c40d:
+  hide_if_away: false
+  icon:
+  mac: AC:63:BE:96:C4:0D
+  name: ac63be96c40d
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.

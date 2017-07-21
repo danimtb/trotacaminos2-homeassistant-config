@@ -92,6 +92,12 @@ light:
     command_topic: "/home/livingroom/lights/lamp/set"
     qos: 1
     retain: true
+  - platform: mqtt_json
+    name: "Notification"
+    state_topic: "/home/daniel-bedroom/lights/led"
+    command_topic: "/home/daniel-bedroom/lights/led/set"
+    qos: 1
+    rgb: true
   - platform: yeelight
     devices:
       192.168.1.131:
@@ -102,7 +108,7 @@ light:
 binary_sensor:
   - platform: mqtt
     name: PIR Habitacion Daniel
-    state_topic: "/home/daniel-bedroom/pipersense/motion"
+    state_topic: "/home/daniel-bedroom/motion"
     device_class: motion
 
 switch:
@@ -139,10 +145,6 @@ device_tracker:
     scan_options: " --privileged -sP "
 
 notify:
-  - name: telegram
-    platform: telegram
-    api_key: !secret telegram_api_key
-    chat_id: !secret telegram_chat_id
   - name: pushbullet_daniel
     platform: pushbullet
     api_key: !secret pushbullet_daniel_api_key

@@ -1,0 +1,5 @@
+name: Universidad ETSIDI
+latitude: !secret universityda_latitude
+longitude: !secret universityda_longitude
+radius: 200
+icon: mdi:school
