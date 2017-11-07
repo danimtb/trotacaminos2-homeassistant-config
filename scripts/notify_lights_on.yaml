@@ -1,0 +1,13 @@
+notify_ligths_on:
+  sequence:
+    - service: notify.telegram_daniel
+      data:
+        message: "Os habéis dejado las luces encendidas. Las he apagado por vosotros ;)"
+    - service: notify.sms
+      data:
+        message: "Trotacaminos2 dice: Os habéis dejado las luces encendidas. Las he apagado por vosotros ;)"
+        target:
+          - !secret amanda_number
+          - !secret ramon_number
+          - !secret mcarmen_number
+          - !secret daniel_number

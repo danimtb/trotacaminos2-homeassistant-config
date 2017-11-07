@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Sonoff2 hardware"
-state_topic: "/sonoff2"
-value_template: '{{ value_json.hardware }}'

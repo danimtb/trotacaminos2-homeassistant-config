@@ -1,0 +1,5 @@
+notify_daniel_lights_on:
+  sequence:
+    - service: notify.telegram_daniel
+      data:
+        message: "Te has dejado las luces encendidas. Las he apagado por ti ;)"

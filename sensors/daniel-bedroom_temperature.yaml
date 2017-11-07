@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Habitacion Daniel Temperatura"
-state_topic: "/home/daniel-bedroom/temperature"
-unit_of_measurement: "°C"

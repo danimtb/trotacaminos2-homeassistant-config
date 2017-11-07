@@ -1,5 +1,0 @@
-platform: mqtt
-state_topic: "owntracks/ramon/motorola"
-name: "Motorola"
-unit_of_measurement: "%"
-value_template: '{{ value_json.batt }}'

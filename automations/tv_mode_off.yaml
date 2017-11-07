@@ -1,8 +1,0 @@
-alias: "TV mode off"
-trigger:
-  - platform: state
-    entity_id: device_tracker.television_lg
-    from: "home"
-    to: "not_home"
-action:
-  - service: script.livingroom_lights_off

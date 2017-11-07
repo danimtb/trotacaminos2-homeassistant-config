@@ -1,5 +1,0 @@
-platform: mqtt
-name: "Radiador Daniel Voltaje"
-state_topic: "/home/daniel-bedroom/radiator/pow"
-value_template: '{{ value_json.voltage }}'
-unit_of_measurement: "V"

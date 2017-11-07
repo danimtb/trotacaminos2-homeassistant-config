@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Habitacion Daniel Iluminancia"
-state_topic: "/home/daniel-bedroom/illuminance"
-unit_of_measurement: "lx"

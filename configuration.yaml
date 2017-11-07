@@ -5,48 +5,64 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: metric
   time_zone: Europe/Madrid
-
-  customize:
-    sensor.aquaris_x5_plus:
-      icon: mdi:battery-60
-    sensor.motorola:
-      icon: mdi:battery-60
-    script.car_finder_notify:
-      friendly_name: Enviar ubicación del coche
-      icon: mdi:car-connected
-    script.refresh_devices:
-      friendly_name: Actualizar Loc/Bat
-      icon: mdi:account-location
-    sensor.daniel2home:
-      friendly_name: ETA Casa
-      icon: mdi:av-timer
-    sensor.ramon2home:
-      friendly_name: ETA Casa
-      icon: mdi:av-timer
-    sensor.rpi3_temperature:
-      friendly_name: RPi3 Temperatura
+  customize: !include customize.yaml
+  customize_glob:
+    "*_name":
+      icon: mdi:cursor-text
+    "*_status":
+      icon: mdi:access-point
+    "*_mac":
+      icon: mdi:tag-text-outline
+    "*_ip":
+      icon: mdi:pound-box
+    "*_hardware":
+      icon: mdi:wrench
+    "*_firmware":
+      icon: mdi:code-brackets
+    "*_firmware_version":
+      icon: mdi:code-tags
+    "*2home":
+      friendly_name: Tiempo Est. a Casa
+      icon: mdi:timelapse
+    "*2work":
+      friendly_name: Tiempo Est. al Trabajo
+      icon: mdi:timelapse
+    "*iluminancia_*":
+      icon: mdi:brightness-5
+    "*temperatura_*":
       icon: mdi:thermometer
+    "*humedad_*":
+      icon: mdi:water-percent
 
 frontend:
+
+logger:
+  default: debug
+
+map:
+
+config:
 
 http:
   base_url: !secret ha_url
   api_password: !secret ha_password
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
   ip_ban_enabled: True
   login_attempts_threshold: 3
 
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret addon_configurator_url
+
 updater:
+  include_used_components: true
 
 discovery:
 
 conversation:
-
-tts:
-  - platform: google
-    language: 'es'
-
-recorder:
-  purge_days: 5
 
 history:
 
@@ -54,127 +70,96 @@ logbook:
 
 sun:
 
+tts:
+  platform: google
+
 mqtt:
-  broker: !secret mqtt_broker
+  broker: core-mosquitto
   port: !secret mqtt_port
   client_id: !secret mqtt_client_id
   username: !secret mqtt_username
   password: !secret mqtt_password
-  
+  discovery: true
+  discovery_prefix: homeassistant
+  keepalive: 120
+
 light:
-  - platform: mqtt
-    name: Luz Principal
-    state_topic: "/home/daniel-bedroom/lights/main"
-    command_topic: "/home/daniel-bedroom/lights/main/set"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: Luz Pasillo
-    state_topic: "/home/daniel-bedroom/lights/corridor"
-    command_topic: "/home/daniel-bedroom/lights/corridor/set"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: Luz Cama
-    state_topic: "/home/daniel-bedroom/lights/bed"
-    command_topic: "/home/daniel-bedroom/lights/bed/set"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: Lamparita
-    state_topic: "/home/entrance/lights/lamp"
-    command_topic: "/home/entrance/lights/lamp/set"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: Lampara Mesa 
-    state_topic: "/home/livingroom/lights/lamp"
-    command_topic: "/home/livingroom/lights/lamp/set"
-    qos: 1
-    retain: true
-  - platform: mqtt_json
-    name: "Notification"
-    state_topic: "/home/daniel-bedroom/lights/led"
-    command_topic: "/home/daniel-bedroom/lights/led/set"
-    qos: 1
-    rgb: true
-  - platform: yeelight
-    devices:
-      192.168.1.131:
-        name: Lampara Pie
-      192.168.1.132:
-        name: Luz Ambiente
-
-binary_sensor:
-  - platform: mqtt
-    name: PIR Habitacion Daniel
-    state_topic: "/home/daniel-bedroom/motion"
-    device_class: motion
-
-switch:
-  - platform: mqtt
-    name: "Enchufe"
-    state_topic: "/home/daniel-bedroom/socket"
-    command_topic: "/home/daniel-bedroom/socket/set"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: "Radiador Daniel"
-    state_topic: "/home/daniel-bedroom/radiator"
-    command_topic: "/home/daniel-bedroom/radiator/set"
-    qos: 1
-    retain: true
-
-cover:
-  - platform: mqtt
-    name: "Persiana"
-    state_topic: "/home/daniel-bedroom/blind"
-    command_topic: "/home/daniel-bedroom/blind/set"
-    state_open: "OPEN"
-    state_closed: "CLOSE"
+ - platform: yeelight
+   devices:
+     192.168.1.131:
+       name: Lampara Pieo
+     192.168.1.132:
+       name: Luz Ambiente
 
 device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
+  - platform: gpslogger
   - platform: nmap_tracker
     hosts: 192.168.1.1-255
-    track_new_devices: no
-    consider_home: 600
+    track_new_devices: False
+    consider_home: 900
     interval_seconds: 10
     home_interval: 5
     scan_options: " --privileged -sP "
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+      
+twilio:
+  account_sid: !secret twilio_account_ssid
+  auth_token: !secret twilio_auth_token
+
 notify:
-  - name: pushbullet_daniel
-    platform: pushbullet
-    api_key: !secret pushbullet_daniel_api_key
+  - name: telegram_daniel
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+  - name: sms
+    platform: twilio_sms
+    from_number: !secret twilio_from_number
+  - name: html5
+    platform: html5
+    gcm_api_key: !secret html5_api_key
+    gcm_sender_id: !secret html5_sender_id
+  - name: html5_daniel
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "daniel_bqaquarisx5plus"
+  - name: html5_ramon
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "ramon_motorola"
+  - name: html5_family
+    platform: group
+    services:
+      - service: html5_daniel
+      - service: html5_ramon
 
 media_player:
-  - platform: lg_netcast
-    name: Televisión LG
-    host: !secret lg_netcast_host
-    access_token: !secret lg_netcast_access_token
+  - platform: gpmdp
+    host: 192.168.1.150
 
-scene:
-  - name: Dormir
-    entities:
-      light.luz_principal: off
-      light.luz_pasillo: off
-      light.luz_cama: on
-      light.luz_ambiente:
-        state: on
-        transition: 10
-        rgb_color: [255, 80, 75]
-        brightness: 150
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  client_id: !secret google_assistant_client_id
+  access_token: !secret google_assistant_access_token
+  exposed_domains:
+    - switch
+    - light
+    - media_player
 
 
-#### DIRECTORIES ####
-
-zone: !include_dir_list zones/
-weather: !include_dir_list weather/
-sensor: !include_dir_list sensors/
-input_select: !include inputs/input_select.yaml
-input_boolean: !include inputs/input_boolean.yaml
+### DIRECTORIES ###
+automation: !include automations.yaml
 group: !include groups.yaml
-automation: !include_dir_list automations/
+input_boolean: !include inputs/input_boolean.yaml
+input_select: !include inputs/input_select.yaml
+scene: !include scenes.yaml
 script: !include_dir_merge_named scripts/
+sensor: !include_dir_list sensors/
+zone: !include_dir_list zones/

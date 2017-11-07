@@ -1,0 +1,10 @@
+- name: Dormir
+  entities:
+    light.luz_principal: off
+    light.luz_pasillo: off
+    light.luz_cama: on
+    light.luz_ambiente:
+      state: on
+      transition: 10
+      rgb_color: [255, 80, 75]
+      brightness: 150

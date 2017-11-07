@@ -1,7 +1,0 @@
-homeassistant_restart:
-  sequence:
-    - event: LOGBOOK_ENTRY
-      event_data:
-        name: EVENT
-        message: "Restarting home assistant..."
-    - service: homeassistant.restart

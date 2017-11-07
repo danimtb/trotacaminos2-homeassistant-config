@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Pow1 versión"
-state_topic: "/pow1"
-value_template: '{{ value_json.firmware_version }}'

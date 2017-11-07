@@ -1,10 +1,85 @@
+home_status:
+  name: Estado de la Casa
+  icon: mdi:home
+  options:
+    - Habitada
+    - Deshabitada
+    - Vacaciones
+
 daniel_status:
   name: Daniel Status
   icon: mdi:account
+  initial: Standby
   options:
-    - "conduciendo"
-    - "standby"
-    - "durmiendo"
+    - Standby
+    - Cama
+    - Durmiendo
+
+daniel_home_status:
+  name: Daniel
+  options:
+    - Casa
+    - Acaba de llegar
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
+
+ramon_home_status:
+  name: Ramon
+  options:
+    - Acaba de llegar
+    - Casa
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
+
+mcarmen_home_status:
+  name: M.Carmen
+  options:
+    - Acaba de llegar
+    - Casa
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
+
+amanda_home_status:
+  name: Amanda
+  options:
+    - Acaba de llegar
+    - Casa
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
+
+andrea_home_status:
+  name: Andrea
+  options:
+    - Acaba de llegar
+    - Casa
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
+
+arturo_home_status:
+  name: Arturo
+  options:
+    - Acaba de llegar
+    - Casa
+    - Acaba de irse
+    - Ausente
+    - Fuera
+    - Cama
+    - Durmiendo
 
 radiators_threshold_temperature:
   name: Temperatura Media Umbral

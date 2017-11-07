@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Sonoffdev nombre"
-state_topic: "/sonoffdev"
-value_template: '{{ value_json.name }}'

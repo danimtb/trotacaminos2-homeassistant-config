@@ -1,6 +1,0 @@
-refresh_devices:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "owntracks/daniel/aquarisx5plus/cmd"
-        payload_template: '{"_type":"cmd","action":"reportLocation"}'

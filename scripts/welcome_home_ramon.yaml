@@ -1,5 +1,11 @@
 welcome_home_ramon:
   sequence:
-    - service: notify.pushbullet_daniel
+    - service: notify.telegram_daniel
       data:
         message: "Bienvenido a casa Ramón"
+    - service: notify.sms
+      data:
+        message: "Trotacaminos2 dice: Bienvenido a casa Ramón"
+        target:
+          - !secret ramon_number
+          - !secret daniel_number

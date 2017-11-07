@@ -1,107 +1,88 @@
-daniel_aquarisx5plus:
+daniel:
   hide_if_away: false
+  mac: !secret daniel_mac
   name: Daniel
   picture: !secret daniel_picture
   track: true
   vendor: BQ
 
-daniel_aquarisx5plus_nmap:
+ramon:
   hide_if_away: false
-  mac: !secret daniel_mac
-  name: daniel_nmap
-  picture: !secret daniel_picture
-  track: true
-  vendor: BQ
-
-ramon_motorola:
-  hide_if_away: false
+  mac: !secret ramon_mac
   name: Ramón
   picture: !secret ramon_picture
   track: true
   vendor: Motorola Mobility LLC, a Lenovo Company
 
-ramon_motorola_nmap:
+sonoff_dev:
   hide_if_away: false
-  mac: !secret ramon_mac
-  name: ramon_nmap
-  picture: !secret ramon_picture
-  track: true
-  vendor: Motorola Mobility LLC, a Lenovo Company
-
-renault_clio:
-  hide_if_away: false
-  name: Clio
-  picture: !secret clio_picture
-  track: true
-  vendor: Renault
-
-renault_scenic:
-  hide_if_away: false
-  name: Scenic
-  picture: !secret scenic_picture
-  track: true
-  vendor: Renault
-
-sonoffdev:
-  hide_if_away: false
-  mac: !secret sonoffdev_mac
-  name: sonoffdev
+  mac: !secret sonoff_dev_mac
+  name: Sonoff DEV
   picture: !secret sonoff_picture
   track: true
   vendor: Espressif Inc.
 
-sonoff1:
+luz_cama:
   hide_if_away: false
-  mac: !secret sonoff1_mac
-  name: sonoff1
+  mac: !secret luz_cama_mac
+  name: Luz Cama
   picture: !secret sonoff_picture
   track: true
   vendor: Espressif Inc.
 
-sonoff2:
+lamparita:
   hide_if_away: false
-  mac: !secret sonoff2_mac
-  name: sonoff2
+  mac: !secret lamparita_mac
+  name: Lamparita
   picture: !secret sonoff_picture
   track: true
   vendor: Espressif Inc.
 
-sonoff3:
+lampara_mesa:
   hide_if_away: false
-  mac: !secret sonoff3_mac
-  name: sonoff3
+  mac: !secret lampara_mesa_mac
+  name: Lampara Mesa
   picture: !secret sonoff_picture
   track: true
   vendor: Espressif Inc.
 
-touch1:
+workstation:
   hide_if_away: false
-  mac: !secret touch1_mac
-  name: touch1
+  icon:
+  mac: !secret workstation_mac
+  name: Workstation
+  picture: !secret sonoff_picture
+  track: true
+  vendor: Espressif Inc.
+
+luz_principal:
+  hide_if_away: false
+  mac: !secret luz_principal_mac
+  name: Luz Principal
   picture: !secret sonoff_touch_picture
   track: true
   vendor: Espressif Inc.
 
-touch2:
+luz_pasillo:
   hide_if_away: false
-  mac: !secret touch2_mac
-  name: touch2
+  mac: !secret luz_pasillo_mac
+  name: Luz Pasillo
   picture: !secret sonoff_touch_picture
   track: true
   vendor: Espressif Inc.
 
-s201:
+termo:
   hide_if_away: false
-  mac: !secret s201_mac
-  name: s201
+  mac: !secret termo_mac
+  name: Termo
   picture: !secret sonoff_s20_picture
   track: true
   vendor: Espressif Inc.
 
-pow1:
+radiador_daniel:
   hide_if_away: false
-  mac: !secret pow1_mac
-  name: pow1
+  mac: !secret radiador_daniel_mac
+  name: Radiador Daniel
   picture: !secret sonoff_pow_picture
   track: true
   vendor: Espressif Inc.
@@ -114,7 +95,7 @@ livebox:
   track: true
   vendor: Arcadyan Technology Corporation
 
-mcarmen_aquarise54g:
+mcarmen:
   hide_if_away: false
   mac: !secret mcarmen_mac
   name: M.Carmen
@@ -122,7 +103,7 @@ mcarmen_aquarise54g:
   track: true
   vendor: BQ
 
-amanda_aquarisa45:
+amanda:
   hide_if_away: false
   mac: !secret amanda_mac
   name: Amanda
@@ -162,22 +143,6 @@ computer_satellite:
   track: true
   vendor: Intel Corporate
 
-60d8196819b3:
-  hide_if_away: false
-  mac: 60:D8:19:68:19:B3
-  name: 60d8196819b3
-  picture:
-  track: true
-  vendor: Hon Hai Precision Ind. Co.,Ltd.
-
-8cbfa6d9cdb8:
-  hide_if_away: false
-  mac: 8C:BF:A6:D9:CD:B8
-  name: 8cbfa6d9cdb8
-  picture:
-  track: true
-  vendor: Samsung Electronics Co.,Ltd
-
 xiaomi_yeelight1:
   hide_if_away: false
   mac: !secret yeelight1_mac
@@ -194,76 +159,80 @@ xiaomi_yeelight2:
   track: true
   vendor: XIAOMI Electronics,CO.,LTD
 
-a020a61556ee:
-  hide_if_away: false
-  mac: A0:20:A6:15:56:EE
-  name: a020a61556ee
-  picture:
-  track: true
-  vendor: Espressif Inc.
-
-a020a615ecee:
-  hide_if_away: false
-  mac: A0:20:A6:15:EC:EE
-  name: a020a615ecee
-  picture:
-  track: true
-  vendor: Espressif Inc.
-
 strixstation:
   hide_if_away: false
   mac: !secret strixstation_mac
   name: STRIX-STATION
-  picture: strixstation_picture
+  picture: !secret strixstation_picture
   track: true
   vendor: Intel Corporate
 
-c8ff2899da66:
+asusamanda:
   hide_if_away: false
-  mac: C8:FF:28:99:DA:66
-  name: c8ff2899da66
-  picture:
-  track: true
-  vendor: Liteon Technology Corporation
-
-bc20a4779da8:
-  hide_if_away: false
-  mac: BC:20:A4:77:9D:A8
-  name: bc20a4779da8
-  picture:
-  track: true
-  vendor: unknown
-
-6045cb2089d0:
-  hide_if_away: false
-  mac: 60:45:CB:20:89:D0
-  name: 6045cb2089d0
-  picture:
+  mac: !secret asusamanda_mac
+  name: ASUS-AMANDA
+  picture: !secret asusamanda_picture
   track: true
   vendor: ASUSTek COMPUTER INC.
 
-5ccf7fb2eba9:
+dashgillette:
   hide_if_away: false
-  mac: 5C:CF:7F:B2:EB:A9
-  name: 5ccf7fb2eba9
+  icon:
+  mac: AC:63:BE:96:C4:0D
+  name: Dash Gillette
+  picture: https://images-na.ssl-images-amazon.com/images/I/61LrMwfF6DL._SY355_.jpg
+  track: true
+  vendor: Amazon Technologies Inc.
+
+somfy_connexoon:
+  hide_if_away: false
+  icon:
+  mac: F8:81:1A:03:74:22
+  name: Somfy Connexoon
+  picture: https://shop.somfy.co.uk/media/catalog/product/cache/21/thumbnail/1800x1350/9df78eab33525d08d6e5fb8d27136e95/c/o/connexoon-rts-1.jpg
+  track: true
+  vendor: OVERKIZ
+
+pipersense1:
+  hide_if_away: false
+  mac: !secret pipersense1_mac
+  name: Pipersense1
   picture:
   track: true
   vendor: Espressif Inc.
 
-b827eb242b92:
+arturo:
   hide_if_away: false
   icon:
-  mac: B8:27:EB:24:2B:92
-  name: b827eb242b92
-  picture:
+  mac: !secret arturo_mac
+  name: Arturo
+  picture: !secret arturo_picture
   track: true
-  vendor: Raspberry Pi Foundation
+  vendor: Samsung Electronics Co.,Ltd
 
-ac63be96c40d:
+08d42b1e90a8:
   hide_if_away: false
   icon:
-  mac: AC:63:BE:96:C4:0D
-  name: ac63be96c40d
+  mac: 08:D4:2B:1E:90:A8
+  name: 08d42b1e90a8
   picture:
   track: true
-  vendor: Amazon Technologies Inc.
+  vendor: Samsung Electronics Co.,Ltd
+
+ta36404wer:
+  hide_if_away: false
+  icon:
+  mac:
+  name: ta36404wer
+  picture:
+  track: true
+  vendor:
+
+60d8196819b3:
+  hide_if_away: false
+  icon:
+  mac: 60:D8:19:68:19:B3
+  name: 60d8196819b3
+  picture:
+  track: true
+  vendor: Hon Hai Precision Ind. Co.,Ltd.

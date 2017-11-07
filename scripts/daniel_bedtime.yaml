@@ -4,7 +4,7 @@ daniel_bedtime:
       event_data:
         name: EVENT
         message: "It is Daniel bedtime!"
-    - service: notify.pushbullet_daniel
+    - service: notify.telegram_daniel
       data:
         message: "¡Hora de dormir!"
     - service: light.turn_on

@@ -1,0 +1,16 @@
+platform: template
+sensors:
+  somfy_connexoon:
+    friendly_name: 'Somfy Connexoon'
+    entity_id:
+      - device_tracker.somfy_connexoon
+    value_template: >
+      {% if states.device_tracker.somfy_connexoon %}
+        {% if is_state('device_tracker.somfy_connexoon', 'home') %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      {% else %}
+        unknown
+      {% endif %}

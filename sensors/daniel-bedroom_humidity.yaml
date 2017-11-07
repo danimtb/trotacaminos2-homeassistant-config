@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Habitacion Daniel Humedad"
-state_topic: "/home/daniel-bedroom/humidity"
-unit_of_measurement: "%"

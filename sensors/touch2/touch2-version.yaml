@@ -1,4 +1,0 @@
-platform: mqtt
-name: "Touch2 versión"
-state_topic: "/touch2"
-value_template: '{{ value_json.firmware_version }}'

@@ -1,0 +1,5 @@
+welcome_home_andrea:
+  sequence:
+    - service: notify.telegram_daniel
+      data:
+        message: "Bienvenida a casa Andrea"

@@ -1,6 +1,0 @@
-car_finder_notify:
-  sequence:
-    - service: notify.pushbullet_daniel
-      data:
-        title: "Ubicación del aparcamiento"
-        message: "El Clio esta aparcado aquí: https://maps.google.com/maps?q={{states.device_tracker.renault_clio.attributes.latitude}},{{ states.device_tracker.renault_clio.attributes.longitude}}  Precisión GPS: {{states.device_tracker.renault_clio.attributes.gps_accuracy}} metros" 

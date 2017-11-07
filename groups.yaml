@@ -2,316 +2,317 @@ daniel:
   name: Daniel
   control: hidden
   entities:
-    - device_tracker.daniel_aquarisx5plus
-    - device_tracker.daniel_aquarisx5plus_nmap
-    - sensor.daniel_home
-    - sensor.aquaris_x5_plus
-    - script.refresh_devices
-    - input_boolean.daniel_bedtime
-    - input_select.daniel_status
-    - device_tracker.renault_clio
-    - sensor.daniel2home
-    - script.car_finder_notify
+  - device_tracker.daniel
+  - sensor.daniel_home_status
+  - sensor.daniel_battery
+  - input_boolean.daniel_bedtime
+  - input_select.daniel_status
+  - sensor.daniel2home
+  - sensor.daniel2work
 
-ramon:
-  name: Ramón
+luces_daniel:
+  name: Luces Daniel
   entities:
-    - device_tracker.ramon_motorola
-    - device_tracker.ramon_motorola_nmap
-    - sensor.ramon_home
-    - sensor.motorola
-    - script.refresh_devices
-    - device_tracker.renault_scenic
-    - sensor.ramon2home
+  - light.luz_pasillo
+  - light.luz_principal
+  - light.luz_cama
+  - light.luz_ambiente
 
-daniel_bedroom:
-  name: Habitacion Daniel
+sensores_daniel:
+  name: Sensores Daniel
   entities:
-    - binary_sensor.pir_habitacion_daniel
-    - light.luz_pasillo
-    - light.luz_principal
-    - light.luz_cama
-    - light.luz_ambiente
-    - light.pipersense1
-    - light.pipersense2
-    - cover.persiana
+  - binary_sensor.pir_daniel
+  - sensor.iluminancia_daniel
+  - sensor.temperatura_daniel
+  - sensor.humedad_daniel
+  
+escritorio_daniel:
+  name: Escritorio Daniel
+  entities:
+  - device_tracker.strixstation
+  - switch.workstation
 
 entrance:
   name: Entradita
   entities:
-    - light.lamparita
+  - light.lamparita
 
 livingroom:
   name: Salon
   entities:
-    - light.lampara_pie
-    - light.lampara_mesa
+  - light.lampara_pie
+  - light.lampara_mesa
 
 weather_today:
   name: Tiempo Hoy
   entities:
-    - sun.sun
-    - sensor.dark_sky_summary
-    - sensor.dark_sky_temperature
-    - sensor.dark_sky_daily_high_temperature
-    - sensor.dark_sky_daily_low_temperature
-    - sensor.dark_sky_apparent_temperature
-    - sensor.dark_sky_daily_high_apparent_temperature
-    - sensor.dark_sky_daily_low_apparent_temperature
+  - sun.sun
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_daily_high_temperature
+  - sensor.dark_sky_daily_low_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_daily_high_apparent_temperature
+  - sensor.dark_sky_daily_low_apparent_temperature
 
 weather_tomorrow:
-  name: Tiempo Mañana
+  name: "Tiempo Ma\xF1ana"
   entities:
-    - sensor.dark_sky_summary_1
-    - sensor.dark_sky_temperature_1
-    - sensor.dark_sky_daily_high_temperature_1
-    - sensor.dark_sky_daily_low_temperature_1
-    - sensor.dark_sky_apparent_temperature_1
-    - sensor.dark_sky_daily_high_apparent_temperature_1
-    - sensor.dark_sky_daily_low_apparent_temperature_1
+  - sensor.dark_sky_summary_1
+  - sensor.dark_sky_temperature_1
+  - sensor.dark_sky_daily_high_temperature_1
+  - sensor.dark_sky_daily_low_temperature_1
+  - sensor.dark_sky_apparent_temperature_1
+  - sensor.dark_sky_daily_high_apparent_temperature_1
+  - sensor.dark_sky_daily_low_apparent_temperature_1
 
-television_lg:
-  name: Televisión LG
-  entities:
-    - device_tracker.television_lg
-    - media_player.television_lg
-
-sonoffdev:
+sonoff_dev:
   name: Sonoff DEV
   entities:
-    - device_tracker.sonoffdev
-    - sensor.sonoffdev_nombre
-    - sensor.sonoffdev_mac
-    - sensor.sonoffdev_ip
-    - sensor.sonoffdev_hardware
-    - sensor.sonoffdev_firmware
-    - sensor.sonoffdev_version
+  - switch.sonoff_dev
+  - device_tracker.sonoff_dev
+  - sensor.sonoff_dev_status
+  - sensor.sonoff_dev_mac
+  - sensor.sonoff_dev_ip
+  - sensor.sonoff_dev_hardware
+  - sensor.sonoff_dev_firmware
+  - sensor.sonoff_dev_firmware_version
 
-sonoff1:
-  name: Sonoff 1
+luz_cama:
+  name: Luz Cama
   entities:
-    - device_tracker.sonoff1
-    - sensor.sonoff1_nombre
-    - sensor.sonoff1_mac
-    - sensor.sonoff1_ip
-    - sensor.sonoff1_hardware
-    - sensor.sonoff1_firmware
-    - sensor.sonoff1_version
-
-sonoff2:
-  name: Sonoff 2
+  - device_tracker.luz_cama
+  - sensor.luz_cama_status
+  - sensor.luz_cama_mac
+  - sensor.luz_cama_ip
+  - sensor.luz_cama_hardware
+  - sensor.luz_cama_firmware
+  - sensor.luz_cama_firmware_version
+lamparita:
+  name: Lamparita
   entities:
-    - device_tracker.sonoff2
-    - sensor.sonoff2_nombre
-    - sensor.sonoff2_mac
-    - sensor.sonoff2_ip
-    - sensor.sonoff2_hardware
-    - sensor.sonoff2_firmware
-    - sensor.sonoff2_version
-
-sonoff3:
-  name: Sonoff 3
+  - device_tracker.lamparita
+  - sensor.lamparita_status
+  - sensor.lamparita_mac
+  - sensor.lamparita_ip
+  - sensor.lamparita_hardware
+  - sensor.lamparita_firmware
+  - sensor.lamparita_firmware_version
+lampara_mesa:
+  name: Lampara Mesa
   entities:
-    - device_tracker.sonoff3
-    - sensor.sonoff3_nombre
-    - sensor.sonoff3_mac
-    - sensor.sonoff3_ip
-    - sensor.sonoff3_hardware
-    - sensor.sonoff3_firmware
-    - sensor.sonoff3_version
-
-touch1:
-  name: Touch 1
+  - device_tracker.lampara_mesa
+  - sensor.lampara_mesa_status
+  - sensor.lampara_mesa_mac
+  - sensor.lampara_mesa_ip
+  - sensor.lampara_mesa_hardware
+  - sensor.lampara_mesa_firmware
+  - sensor.lampara_mesa_firmware_version
+workstation:
+  name: Workstation
   entities:
-    - device_tracker.touch1
-    - sensor.touch1_nombre
-    - sensor.touch1_mac
-    - sensor.touch1_ip
-    - sensor.touch1_hardware
-    - sensor.touch1_firmware
-    - sensor.touch1_version
-
-touch2:
-  name: Touch 2
+  - device_tracker.workstation
+  - sensor.workstation_status
+  - sensor.workstation_mac
+  - sensor.workstation_ip
+  - sensor.workstation_hardware
+  - sensor.workstation_firmware
+  - sensor.workstation_firmware_version
+luz_principal:
+  name: Luz Principal
   entities:
-    - device_tracker.touch2
-    - sensor.touch2_nombre
-    - sensor.touch2_mac
-    - sensor.touch2_ip
-    - sensor.touch2_hardware
-    - sensor.touch2_firmware
-    - sensor.touch2_version
-
-s201:
-  name: S20 1
+  - device_tracker.luz_principal
+  - sensor.luz_principal_status
+  - sensor.luz_principal_mac
+  - sensor.luz_principal_ip
+  - sensor.luz_principal_hardware
+  - sensor.luz_principal_firmware
+  - sensor.luz_principal_firmware_version
+luz_pasillo:
+  name: Luz Pasillo
   entities:
-    - device_tracker.s201
-    - sensor.s201_nombre
-    - sensor.s201_mac
-    - sensor.s201_ip
-    - sensor.s201_hardware
-    - sensor.s201_firmware
-    - sensor.s201_version
-
-pow1:
-  name: Pow 1
+  - device_tracker.luz_pasillo
+  - sensor.luz_pasillo_status
+  - sensor.luz_pasillo_mac
+  - sensor.luz_pasillo_ip
+  - sensor.luz_pasillo_hardware
+  - sensor.luz_pasillo_firmware
+  - sensor.luz_pasillo_firmware_version
+termo:
+  name: Termo
   entities:
-    - device_tracker.pow1
-    - sensor.pow1_nombre
-    - sensor.pow1_mac
-    - sensor.pow1_ip
-    - sensor.pow1_hardware
-    - sensor.pow1_firmware
-    - sensor.pow1_version
-
+  - device_tracker.termo
+  - sensor.termo_status
+  - sensor.termo_mac
+  - sensor.termo_ip
+  - sensor.termo_hardware
+  - sensor.termo_firmware
+  - sensor.termo_firmware_version
+radiador_daniel:
+  name: Radiador Daniel
+  entities:
+  - device_tracker.radiador_daniel
+  - sensor.radiador_daniel_status
+  - sensor.radiador_daniel_mac
+  - sensor.radiador_daniel_ip
+  - sensor.radiador_daniel_hardware
+  - sensor.radiador_daniel_firmware
+  - sensor.radiador_daniel_firmware_version
+pipersense1:
+  name: Pripersense1
+  entities:
+  - device_tracker.pipersense1
+  - sensor.pipersense1_name
+  - sensor.pipersense1_mac
+  - sensor.pipersense1_ip
+  - sensor.pipersense1_hardware
+  - sensor.pipersense1_firmware
+  - sensor.pipersense1_firmware_version
+devices_status:
+  name: Estado Dispositivos
+  entities:
+    - sensor.somfy_connexoon
+    - sensor.luz_cama_status
+    - sensor.lamparita_status
+    - sensor.lampara_mesa_status
+    - sensor.workstation_status
+    - sensor.luz_principal_status
+    - sensor.luz_pasillo_status
+    - sensor.termo_status
 radiators_prediction:
   name: Prediccion Calefaccion
   control: hidden
   entities:
-    - input_boolean.radiators_tomorrow
-    - input_select.radiators_threshold_temperature
-    - sensor.medium_temp_calculation
-    - automation.radiators_auto_on
-    - automation.radiators_auto_off
-
-radiator_daniel:
+  - input_boolean.radiators_tomorrow
+  - input_select.radiators_threshold_temperature
+  - sensor.medium_temp_calculation
+  - automation.radiators_auto_on
+  - automation.radiators_auto_off
+control_radiator_daniel:
   name: Control Radiador Daniel
   control: hidden
   entities:
-    - switch.radiador_daniel
-    - automation.encendido_automatico_radiador_daniel
-    - input_select.radiator_daniel_time_on
-    - automation.apagado_automatico_radiador_daniel
-    - input_select.radiator_daniel_time_off
-    - sensor.radiador_daniel_potencia_activa
-    - sensor.radiador_daniel_potencia_reactiva
-    - sensor.radiador_daniel_potencia_aparente
-    - sensor.radiador_daniel_factor_potencia
-    - sensor.radiador_daniel_corriente
-    - sensor.radiador_daniel_voltaje
-
-termo:
+  - switch.radiador_daniel
+  - automation.encendido_automatico_radiador_daniel
+  - input_select.radiator_daniel_time_on
+  - automation.apagado_automatico_radiador_daniel
+  - input_select.radiator_daniel_time_off
+  - sensor.radiador_daniel_active_power
+  - sensor.radiador_daniel_reactive_power
+  - sensor.radiador_daniel_apparent_power
+  - sensor.radiador_daniel_power_factor
+  - sensor.radiador_daniel_current
+  - sensor.radiador_daniel_voltage
+control_termo:
   name: Control termo
   control: hidden
   entities:
-    - switch.enchufe
-    - automation.encendido_automatico_termo
-    - input_select.termo_time_on1
-    - input_select.termo_time_on2
-    - input_select.termo_time_on3
-    - automation.apagado_automatico_termo
-    - input_select.termo_time_off1
-    - input_select.termo_time_off2
-    - input_select.termo_time_off3
-
+  - switch.termo
+  - automation.encendido_automatico_termo
+  - input_select.termo_time_on1
+  - input_select.termo_time_on2
+  - input_select.termo_time_on3
+  - automation.apagado_automatico_termo
+  - input_select.termo_time_off1
+  - input_select.termo_time_off2
+  - input_select.termo_time_off3
 rpi3:
   name: Raspberry Pi 3
   entities:
-    - sensor.last_boot
-    - sensor.cpu_use
-    - sensor.ram_free
-    - sensor.rpi3_temperature
-    - sensor.disk_free_home
-    - sensor.speedtest_ping
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-
-automations:
-  name: Automatizaciones
+  - sensor.last_boot
+  - sensor.cpu_use
+  - sensor.ram_free
+  - sensor.rpi3_temperature
+  - sensor.disk_free_home
+  - sensor.speedtest_ping
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+home_status:
+  name: Estado Casa
   entities:
-    - automation.away
-    - automation.daniel_bedtime
-    - automation.daniel_bedtime_off
-    - automation.daniel_bedtime_welcome
-    - automation.daniel_driving
-    - automation.daniel_not_driving
-    - automation.daniel_sleeping
-    - automation.daniel_wake_up
-    - automation.motion_daniel_bedroom_on
-    - automation.motion_daniel_bedroom_off
-    - automation.owntracks_refresh
-    - automation.tv_mode_off
-    - automation.tv_mode_on
-    - automation.welcome_amanda
-    - automation.welcome_daniel
-    - automation.welcome_mcarmen
-    - automation.welcome_ramon
-
-scripts:
-  name: Scripts
+    - input_select.home_status
+    - sensor.daniel_home_status
+    - sensor.ramon_home_status
+    - sensor.mcarmen_home_status
+    - sensor.amanda_home_status
+    - sensor.andrea_home_status
+    - sensor.arturo_home_status
+all_out_home:
+  name: Fuera de Casa
   entities:
-    - script.all_lights_off
-    - script.car_finder_notify
-    - script.daniel_bedtime
-    - script.daniel_sleeping
-    - script.daniel_wakeup
-    - script.driving_daniel_start
-    - script.driving_daniel_stop
-    - script.homeassistant_restart
-    - script.livingroom_lights_off
-    - script.livingroom_lights_on
-    - script.refresh_devices
-    - script.welcome_home
-    - script.welcome_home_amanda
-    - script.welcome_home_daniel
-    - script.welcome_home_mcarmen
-    - script.welcome_home_ramon
-
-
-###### VIEWS ######
-
-default:
+  - input_boolean.daniel_out_home
+  - input_boolean.amanda_out_home
+  - input_boolean.ramon_out_home
+  - input_boolean.mcarmen_out_home
+default_view:
   name: Inicio
-  view: yes
+  icon: mdi:home
+  view: true
   entities:
-    - group.weather_today
-    - group.daniel_bedroom
-    - group.entrance
-    - group.livingroom
+  - device_tracker.daniel
+  - device_tracker.ramon
+  - device_tracker.mcarmen
+  - device_tracker.amanda
+  - device_tracker.andrea_aquarisx5
+  - device_tracker.arturo
+  - group.home_status
+  - group.weather_today
+  - group.livingroom
+  - group.entrance
+daniel_bedroom_view:
+  name: Daniel
+  icon: mdi:human-male
+  view: true
+  entities:
     - group.daniel
-    - group.ramon
-    - device_tracker.mcarmen_aquarise54g
-    - device_tracker.amanda_aquarisa45
-    - device_tracker.andrea_aquarisx5
-
-radiators:
+    - group.luces_daniel
+    - group.sensores_daniel
+    - group.escritorio_daniel
+    - light.notificacion_daniel
+    - group.control_radiator_daniel
+    - media_player.gpm_desktop_player
+radiators_view:
   name: Radiadores
-  view: yes
+  icon: mdi:hot-tub
+  view: true
   entities:
-    - group.weather_tomorrow
-    - group.radiators_prediction
-    - group.radiator_daniel
-    - group.termo
-
-multimedia:
-  name: Multimedia
-  view: yes
-  entities:
-    - group.television_lg
-    - device_tracker.computer_compaq
-    - device_tracker.computer_satellite
-
-devices:
+  - group.weather_tomorrow
+  - group.radiators_prediction
+  - group.control_radiator_daniel
+  - group.control_termo
+devices_view:
   name: Dispositivos
-  view: yes
+  icon: mdi:cellphone-wireless
+  view: true
   entities:
-    - device_tracker.livebox
-    - device_tracker.xiaomi_yeelight1
-    - device_tracker.xiaomi_yeelight2
-    - group.rpi3
-    - group.sonoffdev
-    - group.sonoff1
-    - group.sonoff2
-    - group.sonoff3
-    - group.touch1
-    - group.touch2
-    - group.s201
-    - group.pow1
-
-control:
+  - device_tracker.television_lg
+  - device_tracker.computer_compaq
+  - device_tracker.computer_satellite
+  - device_tracker.somfy_connexoon
+  - device_tracker.strixstation
+  - device_tracker.asusamanda
+  - device_tracker.livebox
+  - device_tracker.dashgillette
+  - device_tracker.xiaomi_yeelight1
+  - device_tracker.xiaomi_yeelight2
+  - group.devices_status
+  - group.rpi3
+  - group.sonoff_dev
+  - group.luz_cama
+  - group.lamparita
+  - group.lampara_mesa
+  - group.workstation
+  - group.luz_principal
+  - group.luz_pasillo
+  - group.termo
+  - group.radiador_daniel
+  - group.pipersense1
+control_view:
   name: Control
-  view: yes
+  icon: mdi:home-automation
+  view: true
   entities:
-    - group.automations
-    - group.scripts
-    - scene.dormir
+  - group.all_automations
+  - group.all_scripts
+  - scene.dormir
+  - group.all_out_home
