@@ -1,0 +1,5 @@
+platform: google_travel_time
+api_key: !secret google_travel_time_api_key
+name: mcarmen2work
+origin: device_tracker.mcarmen
+destination: zone.trabajo_mcarmen

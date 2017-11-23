@@ -119,7 +119,7 @@ television_lg:
   track: true
   vendor: LG Innotek
 
-andrea_aquarisx5:
+andrea:
   hide_if_away: false
   mac: !secret andrea_mac
   name: Andrea
@@ -143,18 +143,18 @@ computer_satellite:
   track: true
   vendor: Intel Corporate
 
-xiaomi_yeelight1:
+lampara_pie:
   hide_if_away: false
-  mac: !secret yeelight1_mac
-  name: Yeelight1
+  mac: !secret lampara_pie_mac
+  name: Lampra Pie
   picture: !secret yeelight_picture
   track: true
   vendor: XIAOMI Electronics,CO.,LTD
 
-xiaomi_yeelight2:
+luz_ambiente:
   hide_if_away: false
-  mac: !secret yeelight2_mac
-  name: Yeelight2
+  mac: !secret luz_ambiente_mac
+  name: Luz Ambiente
   picture: !secret yeelight_picture
   track: true
   vendor: XIAOMI Electronics,CO.,LTD
@@ -210,23 +210,29 @@ arturo:
   track: true
   vendor: Samsung Electronics Co.,Ltd
 
-08d42b1e90a8:
+television_papa:
   hide_if_away: false
-  icon:
-  mac: 08:D4:2B:1E:90:A8
-  name: 08d42b1e90a8
-  picture:
+  mac: television_papa_mac
+  name: Television Papa
+  picture: https://images.philips.com/is/image/PhilipsConsumer/22PFH4000_88-A4P-global-001?$jpglarge$&hei=700
   track: true
-  vendor: Samsung Electronics Co.,Ltd
+  vendor: Xiaomi Communications Co Ltd
 
-ta36404wer:
+retropie:
   hide_if_away: false
-  icon:
-  mac:
-  name: ta36404wer
-  picture:
+  mac: !secret retropie_mac
+  name: Retropie
+  picture: https://blog.petrockblock.com/wp-content/uploads/2015/06/RetroPieLogo2015Download.png
   track: true
-  vendor:
+  vendor: Raspberry Pi Foundation
+
+aspi:
+  hide_if_away: false
+  mac: !secret aspi_mac
+  name: Aspi
+  picture: https://images-na.ssl-images-amazon.com/images/I/319o-EmHl0L._SL500_AC_SS350_.jpg
+  track: true
+  vendor: XIAOMI Electronics,CO.,LTD
 
 60d8196819b3:
   hide_if_away: false
@@ -236,3 +242,21 @@ ta36404wer:
   picture:
   track: true
   vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+08d42b1e90a8:
+  hide_if_away: false
+  icon:
+  mac: 08:D4:2B:1E:90:A8
+  name: 08d42b1e90a8
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+009ec8b71380:
+  hide_if_away: false
+  icon:
+  mac: 00:9E:C8:B7:13:80
+  name: 009ec8b71380
+  picture:
+  track: true
+  vendor: Xiaomi Communications Co Ltd

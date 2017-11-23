@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  lampara_pie:
+    friendly_name: 'Lampara Pie'
+    device_class: connectivity
+    entity_id:
+      - device_tracker.lampara_pie
+    value_template: >
+      {% if states.device_tracker.lampara_pie %}
+        {% if is_state('device_tracker.lampara_pie', 'home') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

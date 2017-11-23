@@ -591,35 +591,10 @@
   alias: Mark person as extended away from away
   trigger:
     - platform: state
-      entity_id: input_select.daniel_home_status
+      entity_id: input_select.daniel_home_status, input_select.ramon_home_status, input_select.amanda_home_status, input_select.andrea_home_status, input_select.arturo_home_status
       to: 'Ausente'
       for:
-        hours: 22
-    - platform: state
-      entity_id: input_select.ramon_home_status
-      to: 'Ausente'
-      for:
-        hours: 22
-    - platform: state
-      entity_id: input_select.mcarmen_home_status
-      to: 'Ausente'
-      for:
-        hours: 22
-    - platform: state
-      entity_id: input_select.amanda_home_status
-      to: 'Ausente'
-      for:
-        hours: 22
-    - platform: state
-      entity_id: input_select.andrea_home_status
-      to: 'Ausente'
-      for:
-        hours: 22
-    - platform: state
-      entity_id: input_select.arturo_home_status
-      to: 'Ausente'
-      for:
-        hours: 22
+        hours: 10
   condition:
     condition: or
     conditions:
@@ -1306,6 +1281,26 @@
   action:
     - service: script.daniel_wakeup
 
+- id: ramon_wakeup
+  alias: Ramon Wake Up
+  trigger:
+    - platform: state
+      entity_id: input_select.ramon_home_status
+      from: "Durmiendo"
+      to: "Casa"
+  action:
+    - service: script.ramon_wakeup
+
+- id: mcarmen_wakeup
+  alias: MCarmen Wake Up
+  trigger:
+    - platform: state
+      entity_id: input_select.mcarmen_home_status
+      from: "Durmiendo"
+      to: "Casa"
+  action:
+    - service: script.mcarmen_wakeup
+
 - id: termo_on
   alias: Encendido Automatico Termo
   trigger:
@@ -1324,6 +1319,19 @@
   action:
     - service: switch.turn_on
       entity_id: switch.termo
+    - delay: 00:05
+    - service: switch.turn_on
+      entity_id: switch.termo
+    - delay: 00:05
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.termo
+          state: 'off'
+    - service: notify.telegram_daniel
+      data_template:
+        message: 'El Termo no ha podido encenderse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
+        title: Alerta de dispositivo
 
 - id: termo_off
   alias: Apagado Automatico Termo
@@ -1343,6 +1351,19 @@
   action:
     - service: switch.turn_off
       entity_id: switch.termo
+    - delay: 00:05
+    - service: switch.turn_off
+      entity_id: switch.termo
+    - delay: 00:05
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.termo
+          state: 'on'
+    - service: notify.telegram_daniel
+      data_template:
+        message: 'El Termo no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
+        title: Alerta de dispositivo
 
 - id: workstation_on
   alias: Workstation On
@@ -1569,13 +1590,158 @@
   alias: Alert when a critical device goes offline
   trigger:
     - platform: state
-      entity_id: sensor.somfy_connexoon, sensor.luz_cama_status, sensor.lamparita_status, sensor.lampara_mesa_status, sensor.workstation_status, sensor.luz_principal_status, sensor.luz_pasillo_status, sensor.termo_status
-      from: 'Online'
-      to: 'Offline'
+      entity_id: binary_sensor.somfy_connexoon, binary_sensor.luz_cama_status, binary_sensor.lamparita_status, binary_sensor.lampara_mesa_status, binary_sensor.workstation_status, binary_sensor.luz_principal_status, binary_sensor.luz_pasillo_status, binary_sensor.termo_status, binary_sensor.luz_ambiente, binary_sensor.lampara_pie, binary_sensor.aspi
+      from: 'on'
+      to: 'off'
       for:
         minutes: 2
   action:
-    - service: notify.html5_daniel
+    - service: notify.telegram_daniel
       data_template:
-        message: ' El estado de {{trigger.to_state.attributes.friendly_name}} es Offline. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de funcionar correctamente.'
+        message: ' El estado de {{trigger.to_state.attributes.friendly_name}} es Offline. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
         title: Alerta de dispositivo
+
+- id: alert_when_a_critical_device_goes_online
+  alias: Alert when a critical device goes online
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.somfy_connexoon, binary_sensor.luz_cama_status, binary_sensor.lamparita_status, binary_sensor.lampara_mesa_status, binary_sensor.workstation_status, binary_sensor.luz_principal_status, binary_sensor.luz_pasillo_status, binary_sensor.termo_status, binary_sensor.luz_ambiente, binary_sensor.lampara_pie, binary_sensor.aspi
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 2
+  action:
+    - service: notify.telegram_daniel
+      data_template:
+        message: '{{trigger.to_state.attributes.friendly_name}} se ha restablecido con éxito y su estado es Online'
+        title: Alerta de dispositivo
+
+- id: alert_when_all_critical_devices_go_online
+  alias: Alert when all critical devices go online
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.somfy_connexoon, binary_sensor.luz_cama_status, binary_sensor.lamparita_status, binary_sensor.lampara_mesa_status, binary_sensor.workstation_status, binary_sensor.luz_principal_status, binary_sensor.luz_pasillo_status, binary_sensor.termo_status, binary_sensor.luz_ambiente, binary_sensor.lampara_pie, binary_sensor.aspi
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 3
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.somfy_connexoon
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_cama_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lamparita_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lampara_mesa_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.workstation_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_principal_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_pasillo_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.termo_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_ambiente
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lampara_pie
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.aspi
+          state: 'on'
+  action:
+    - service: notify.telegram_daniel
+      data_template:
+        message: 'Todos los dispositivos se han restablecido con éxito a estado Online. Último dispositivo restablecido: {{trigger.to_state.attributes.friendly_name}}'
+        title: Alerta de dispositivo
+        
+- id: alert_when_device_is_on_for_a_long_period
+  alias: Alert when device is on for a long period
+  trigger:
+    - platform: state
+      entity_id: switch.termo, light.luz_principal, light.luz_pasillo, light.luz_cama, light.luz_ambiente, light.lamparita, light.lampara_mesa, light.lampara_pie
+      to: 'on'
+      for:
+        hours: 7
+  action:
+    - service: notify.telegram_daniel
+      data_template:
+        message: '{{trigger.to_state.attributes.friendly_name}} lleva encendido mucho tiempo. Comprobar su correcto funcionamiento'
+        title: 'Aviso de posible malfuncionamiento'
+
+- id: aspirado_con_casa_deshabitada
+  alias: Aspirado con Casa Deshabitada
+  trigger:
+    - platform: state
+      entity_id: input_select.home_status
+      from: 'Habitada'
+      to: 'Deshabitada'
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.daily_vacuum_completed
+          state: 'off'
+  action:
+    - service: script.aspi_on
+
+- id: aspirado_automatico_diario
+  alias: Aspirado Automático Diario
+  trigger:
+    - platform: time
+      minutes: '/30'
+      seconds: 0
+  condition:
+    - condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ now().time().strftime("%H:%M") == states.input_select.aspi_time.state }}'
+        - condition: state
+          entity_id: input_boolean.daily_vacuum_completed
+          state: 'off'
+        - condition: state
+          entity_id: input_select.home_status
+          state: 'Habitada'
+  action:
+    - service: script.aspi_on
+
+- id: set_daily_vacuum_completed_to_off
+  alias: Set daily vacuum completed to on
+  trigger:
+    - platform: state
+      entity_id: vacuum.aspi
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.daily_vacuum_completed
+
+- id: set_daily_vacuum_completed_to_off
+  alias: Set daily vacuum completed to off
+  trigger:
+    - platform: time
+      at: '06:00:00'
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.daily_vacuum_completed
+          state: "on"
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.daily_vacuum_completed

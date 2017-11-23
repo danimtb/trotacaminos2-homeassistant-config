@@ -10,6 +10,22 @@ daniel:
   - sensor.daniel2home
   - sensor.daniel2work
 
+ramon:
+  name: Ramón
+  control: hidden
+  entities:
+  - device_tracker.ramon
+  - sensor.ramon_home_status
+  - sensor.ramon2work
+
+mcarmen:
+  name: M.Carmen
+  control: hidden
+  entities:
+  - device_tracker.mcarmen
+  - sensor.mcarmen_home_status
+  - sensor.mcarmen2work
+
 luces_daniel:
   name: Luces Daniel
   entities:
@@ -82,7 +98,7 @@ luz_cama:
   name: Luz Cama
   entities:
   - device_tracker.luz_cama
-  - sensor.luz_cama_status
+  - binary_sensor.luz_cama_status
   - sensor.luz_cama_mac
   - sensor.luz_cama_ip
   - sensor.luz_cama_hardware
@@ -92,7 +108,7 @@ lamparita:
   name: Lamparita
   entities:
   - device_tracker.lamparita
-  - sensor.lamparita_status
+  - binary_sensor.lamparita_status
   - sensor.lamparita_mac
   - sensor.lamparita_ip
   - sensor.lamparita_hardware
@@ -102,7 +118,7 @@ lampara_mesa:
   name: Lampara Mesa
   entities:
   - device_tracker.lampara_mesa
-  - sensor.lampara_mesa_status
+  - binary_sensor.lampara_mesa_status
   - sensor.lampara_mesa_mac
   - sensor.lampara_mesa_ip
   - sensor.lampara_mesa_hardware
@@ -112,7 +128,7 @@ workstation:
   name: Workstation
   entities:
   - device_tracker.workstation
-  - sensor.workstation_status
+  - binary_sensor.workstation_status
   - sensor.workstation_mac
   - sensor.workstation_ip
   - sensor.workstation_hardware
@@ -122,7 +138,7 @@ luz_principal:
   name: Luz Principal
   entities:
   - device_tracker.luz_principal
-  - sensor.luz_principal_status
+  - binary_sensor.luz_principal_status
   - sensor.luz_principal_mac
   - sensor.luz_principal_ip
   - sensor.luz_principal_hardware
@@ -132,7 +148,7 @@ luz_pasillo:
   name: Luz Pasillo
   entities:
   - device_tracker.luz_pasillo
-  - sensor.luz_pasillo_status
+  - binary_sensor.luz_pasillo_status
   - sensor.luz_pasillo_mac
   - sensor.luz_pasillo_ip
   - sensor.luz_pasillo_hardware
@@ -142,7 +158,7 @@ termo:
   name: Termo
   entities:
   - device_tracker.termo
-  - sensor.termo_status
+  - binary_sensor.termo_status
   - sensor.termo_mac
   - sensor.termo_ip
   - sensor.termo_hardware
@@ -152,7 +168,7 @@ radiador_daniel:
   name: Radiador Daniel
   entities:
   - device_tracker.radiador_daniel
-  - sensor.radiador_daniel_status
+  - binary_sensor.radiador_daniel_status
   - sensor.radiador_daniel_mac
   - sensor.radiador_daniel_ip
   - sensor.radiador_daniel_hardware
@@ -171,14 +187,28 @@ pipersense1:
 devices_status:
   name: Estado Dispositivos
   entities:
-    - sensor.somfy_connexoon
-    - sensor.luz_cama_status
-    - sensor.lamparita_status
-    - sensor.lampara_mesa_status
-    - sensor.workstation_status
-    - sensor.luz_principal_status
-    - sensor.luz_pasillo_status
-    - sensor.termo_status
+    - binary_sensor.somfy_connexoon
+    - binary_sensor.luz_cama_status
+    - binary_sensor.luz_cama_status
+    - binary_sensor.lamparita_status
+    - binary_sensor.lampara_mesa_status
+    - binary_sensor.workstation_status
+    - binary_sensor.luz_principal_status
+    - binary_sensor.luz_pasillo_status
+    - binary_sensor.termo_status
+    - binary_sensor.luz_ambiente
+    - binary_sensor.lampara_pie
+    - binary_sensor.aspi
+aspi:
+  name: Control Aspi
+  control: hidden
+  entities:
+  - device_tracker.aspi
+  - input_boolean.daily_vacuum_completed
+  - vacuum.aspi
+  - input_select.aspi_time
+  - automation.aspirado_automatico_diario
+  - automation.aspirado_con_casa_deshabitada
 radiators_prediction:
   name: Prediccion Calefaccion
   control: hidden
@@ -253,12 +283,15 @@ default_view:
   - device_tracker.ramon
   - device_tracker.mcarmen
   - device_tracker.amanda
-  - device_tracker.andrea_aquarisx5
+  - device_tracker.andrea
   - device_tracker.arturo
+  - group.ramon
+  - group.mcarmen
   - group.home_status
   - group.weather_today
   - group.livingroom
   - group.entrance
+  - group.aspi
 daniel_bedroom_view:
   name: Daniel
   icon: mdi:human-male
@@ -288,13 +321,12 @@ devices_view:
   - device_tracker.television_lg
   - device_tracker.computer_compaq
   - device_tracker.computer_satellite
-  - device_tracker.somfy_connexoon
   - device_tracker.strixstation
   - device_tracker.asusamanda
   - device_tracker.livebox
   - device_tracker.dashgillette
-  - device_tracker.xiaomi_yeelight1
-  - device_tracker.xiaomi_yeelight2
+  - device_tracker.television_papa
+  - device_tracker.retropie
   - group.devices_status
   - group.rpi3
   - group.sonoff_dev

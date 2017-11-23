@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  aspi:
+    friendly_name: 'Aspi'
+    device_class: connectivity
+    entity_id:
+      - device_tracker.aspi
+    value_template: >
+      {% if states.device_tracker.aspi %}
+        {% if is_state('device_tracker.aspi', 'home') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

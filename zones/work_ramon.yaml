@@ -1,0 +1,5 @@
+name: Trabajo Ramon
+latitude: !secret workramon_latitude
+longitude: !secret workramon_longitude
+radius: 200
+icon: mdi:worker

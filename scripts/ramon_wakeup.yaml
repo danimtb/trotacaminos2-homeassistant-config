@@ -1,6 +1,6 @@
-daniel_wakeup:
+ramon_wakeup:
   sequence:
-    - service: notify.telegram_daniel
+    - service: notify.html5_ramon
       data_template:
         message: >
           {% if now().strftime("%H")|int < 12 %}
@@ -14,9 +14,6 @@ daniel_wakeup:
           La previsión para hoy es "{{states.sensor.dark_sky_summary.state}}" con una temperatura de {{states.sensor.dark_sky_apparent_temperature.state|round}} ºC en Leganés. Hoy las máximas rondarán los {{states.sensor.dark_sky_daily_high_apparent_temperature.state|round}} ºC con mínimas de {{states.sensor.dark_sky_daily_low_apparent_temperature.state|round}} ºC.
           El parte metorológico para las próximas horas es "{{states.sensor.dark_sky_hourly_summary.state|replace(".", "")}}".
           
-          {% if now().strftime("%H")|int < 10 and now().strftime("%w")|int > 0 and now().strftime("%w")|int < 6 %}
-            El tiempo conduciendo al trabajo es de {{states.sensor.daniel2work.attributes.duration_in_traffic}}.
+          {% if now().strftime("%H")|int < 10 %}
+            El tiempo conduciendo al trabajo es de {{states.sensor.ramon2work.attributes.duration_in_traffic}}.
           {% endif %}
-    - service: light.turn_on
-      data:
-        entity_id: light.luz_cama
