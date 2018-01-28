@@ -5,8 +5,10 @@ daniel:
   - device_tracker.daniel
   - sensor.daniel_home_status
   - sensor.daniel_battery
+  - sensor.tiempo_trabajo_semanal
   - input_boolean.daniel_bedtime
   - input_select.daniel_status
+  - proximity.daniel2home
   - sensor.daniel2home
   - sensor.daniel2work
 
@@ -41,6 +43,8 @@ sensores_daniel:
   - sensor.iluminancia_daniel
   - sensor.temperatura_daniel
   - sensor.humedad_daniel
+  - automation.presencia_daniel_on
+  - automation.presencia_daniel_off
   
 escritorio_daniel:
   name: Escritorio Daniel
@@ -56,8 +60,11 @@ entrance:
 livingroom:
   name: Salon
   entities:
+  - device_tracker.television_lg
   - light.lampara_pie
   - light.lampara_mesa
+  - automation.tv_mode_on
+  - automation.tv_mode_off
 
 weather_today:
   name: Tiempo Hoy
@@ -204,10 +211,13 @@ aspi:
   control: hidden
   entities:
   - device_tracker.aspi
-  - input_boolean.daily_vacuum_completed
   - vacuum.aspi
+  - binary_sensor.aspirado_programado
+  - input_select.aspi_frequency
   - input_select.aspi_time
-  - automation.aspirado_automatico_diario
+  - binary_sensor.aspirado_completado
+  - sensor.tiempo_aspirado_hoy
+  - automation.aspirado_automatico
   - automation.aspirado_con_casa_deshabitada
 radiators_prediction:
   name: Prediccion Calefaccion
@@ -267,13 +277,6 @@ home_status:
     - sensor.amanda_home_status
     - sensor.andrea_home_status
     - sensor.arturo_home_status
-all_out_home:
-  name: Fuera de Casa
-  entities:
-  - input_boolean.daniel_out_home
-  - input_boolean.amanda_out_home
-  - input_boolean.ramon_out_home
-  - input_boolean.mcarmen_out_home
 default_view:
   name: Inicio
   icon: mdi:home
@@ -348,3 +351,4 @@ control_view:
   - group.all_scripts
   - scene.dormir
   - group.all_out_home
+  - input_boolean.dash_gillette

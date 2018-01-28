@@ -9,3 +9,7 @@ radiators_tomorrow:
 daily_vacuum_completed:
   name: Aspirado diario completado
   icon: mdi:check
+
+dash_gillette:
+  name: Dash Gillette
+  icon: mdi:radiobox-marked

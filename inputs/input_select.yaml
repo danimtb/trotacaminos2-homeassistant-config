@@ -85,6 +85,11 @@ radiators_threshold_temperature:
   name: Temperatura Media Umbral
   icon: mdi:temperature-celsius
   options:
+    - "6.0"
+    - "7.0"
+    - "8.0"
+    - "9.0"
+    - "10.0"
     - "11.0"
     - "12.0"
     - "13.0"
@@ -421,7 +426,11 @@ termo_time_off3:
     - "14:00"
 
 aspi_time:
+<<<<<<< HEAD
   name: Hora Aspirado Diario
+=======
+  name: Hora Aspirado
+>>>>>>> Added vacuum
   icon: mdi:timer
   options:
     - "--:--"
@@ -453,4 +462,16 @@ aspi_time:
     - "20:30"
     - "21:00"
     - "21:30"
+<<<<<<< HEAD
     - "22:00"
+=======
+    - "22:00"
+
+aspi_frequency:
+  name: Frecuencia Aspirado
+  icon: mdi:refresh
+  options:
+    - "Diario"
+    - "Cada 2 días"
+    - "Cada 3 días"
+>>>>>>> Added vacuum

@@ -246,11 +246,11 @@ aspi:
 08d42b1e90a8:
   hide_if_away: false
   icon:
-  mac: 08:D4:2B:1E:90:A8
-  name: 08d42b1e90a8
+  mac: 60:D8:19:68:19:B3
+  name: 60d8196819b3
   picture:
   track: true
-  vendor: Samsung Electronics Co.,Ltd
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
 
 009ec8b71380:
   hide_if_away: false
@@ -260,3 +260,12 @@ aspi:
   picture:
   track: true
   vendor: Xiaomi Communications Co Ltd
+
+00e18cdd07bb:
+  hide_if_away: false
+  icon:
+  mac: 00:E1:8C:DD:07:BB
+  name: 00e18cdd07bb
+  picture:
+  track: true
+  vendor: Intel Corporate

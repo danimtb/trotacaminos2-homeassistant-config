@@ -1,12 +1,8 @@
 daniel_bedtime:
   sequence:
-    - event: LOGBOOK_ENTRY
-      event_data:
-        name: EVENT
-        message: "It is Daniel bedtime!"
     - service: notify.telegram_daniel
       data:
         message: "¡Hora de dormir!"
     - service: light.turn_on
       data:
-        entity_id: light.luz_cama
+        entity_id: light.luz_ambiente

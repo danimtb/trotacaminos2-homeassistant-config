@@ -2,4 +2,6 @@ platform: google_travel_time
 api_key: !secret google_travel_time_api_key
 name: daniel2work
 origin: device_tracker.daniel
-destination: zone.universidad_etsidi
+destination: zone.trabajo_daniel
+options:
+  mode: transit

@@ -19,10 +19,12 @@ homeassistant:
       icon: mdi:code-brackets
     "*_firmware_version":
       icon: mdi:code-tags
-    "*2home":
+    "proximity.*2home":
+      friendly_name: Distancia a Casa
+    "sensor.*2home":
       friendly_name: Tiempo Est. a Casa
       icon: mdi:timelapse
-    "*2work":
+    "sensor.*2work":
       friendly_name: Tiempo Est. al Trabajo
       icon: mdi:timelapse
     "*iluminancia_*":
@@ -162,6 +164,16 @@ vacuum:
     name: Aspi
     host: !secret aspi_host
     token: !secret aspi_token
+
+proximity:
+  daniel2home:
+    zone: home
+    ignored_zones:
+      - trabajo_daniel
+    devices:
+      - device_tracker.daniel
+    tolerance: 50
+    unit_of_measurement: km
 
 ### DIRECTORIES ###
 automation: !include automations.yaml

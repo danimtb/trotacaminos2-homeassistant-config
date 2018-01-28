@@ -1,0 +1,16 @@
+platform: template
+sensors:
+  aspirado_completado:
+    friendly_name: "Aspirado Completado"
+    entity_id:
+      - sensor.tiempo_aspirado_hoy
+    value_template: >
+      {% if states.sensor.tiempo_aspirado_hoy %}
+        {% if (states.sensor.tiempo_aspirado_hoy.state | float) > 0.5 %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

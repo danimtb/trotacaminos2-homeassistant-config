@@ -594,40 +594,50 @@
       entity_id: input_select.daniel_home_status, input_select.ramon_home_status, input_select.amanda_home_status, input_select.andrea_home_status, input_select.arturo_home_status
       to: 'Ausente'
       for:
-        hours: 10
+        hours: 20
+    - platform: time
+      minutes: '/30'
+      seconds: 0
   condition:
-    condition: or
-    conditions:
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.daniel_home_status' and states.input_select.daniel_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.ramon_home_status' and states.input_select.ramon_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.mcarmen_home_status' and states.input_select.mcarmen_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.amanda_home_status' and states.input_select.amanda_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.andrea_home_status' and states.input_select.andrea_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
-      - condition: template
-        value_template: >
-          {% if trigger.entity_id == 'input_select.arturo_home_status' and states.input_select.arturo_home_status.state == 'Ausente' %}
-            true
-          {% endif %}
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: trigger.entity_id
+          state: Ausente
+          for:
+            hours: 20
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.daniel_home_status' and states.input_select.daniel_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.ramon_home_status' and states.input_select.ramon_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.mcarmen_home_status' and states.input_select.mcarmen_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.amanda_home_status' and states.input_select.amanda_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.andrea_home_status' and states.input_select.andrea_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
+            - condition: template
+              value_template: >
+                {% if trigger.entity_id == 'input_select.arturo_home_status' and states.input_select.arturo_home_status.state == 'Ausente' %}
+                  true
+                {% endif %}
   action:
     - service: input_select.select_option
       data_template:
@@ -780,7 +790,7 @@
           {% endif %}
       - condition: template
         value_template: >
-          {% if trigger.entity_id == 'device_tracker.ramon' and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 5 and states.input_select.ramon_home_status.state == 'Acaba de llegar' %}
+          {% if trigger.entity_id == 'device_tracker.ramon' and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 4 and states.input_select.ramon_home_status.state == 'Acaba de llegar' %}
             true
           {% endif %}
       - condition: template
@@ -851,7 +861,7 @@
           {% endif %}
       - condition: template
         value_template: >
-          {% if trigger.entity_id == 'device_tracker.ramon' and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 5 and states.input_select.ramon_home_status.state == 'Casa' %}
+          {% if trigger.entity_id == 'device_tracker.ramon' and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 4 and states.input_select.ramon_home_status.state == 'Casa' %}
             true
           {% endif %}
       - condition: template
@@ -1398,13 +1408,11 @@
       to: "home"
     - platform: sun
       event: sunset
-      offset: '-00:30:00'
   condition:
     - condition: and
       conditions: 
         - condition: sun
           after: sunset
-          after_offset: "-00:30:00"
         - condition: state
           entity_id: device_tracker.television_lg
           state: "home"
@@ -1470,6 +1478,19 @@
   action:
     - service: switch.turn_on
       entity_id: switch.radiador_daniel
+    - delay: 00:05
+    - service: switch.turn_on
+      entity_id: switch.radiador_daniel
+    - delay: 00:05
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.radiador_daniel
+          state: 'off'
+    - service: notify.telegram_daniel
+      data_template:
+        message: 'El Radiador Daniel no ha podido encenderse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
+        title: Alerta de dispositivo
 
 - id: radiator_daniel_off
   alias: "Apagado Automatico Radiador Daniel"
@@ -1485,6 +1506,19 @@
   action:
     - service: switch.turn_off
       entity_id: switch.radiador_daniel
+    - delay: 00:05
+    - service: switch.turn_off
+      entity_id: switch.radiador_daniel
+    - delay: 00:05
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.radiador_daniel
+          state: 'on'
+    - service: notify.telegram_daniel
+      data_template:
+        message: 'El Radiador Daniel no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
+        title: Alerta de dispositivo
 
 - id: welcome_home
   alias: Bienvenidos a Casa
@@ -1594,7 +1628,73 @@
       from: 'on'
       to: 'off'
       for:
-        minutes: 2
+        minutes: 8
+  action:
+    - service: notify.telegram_daniel
+      data_template:
+        message: ' El estado de {{trigger.to_state.attributes.friendly_name}} es Offline. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles'
+        title: Alerta de dispositivo
+
+- id: alert_when_a_critical_device_goes_online
+  alias: Alert when a critical device goes online
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.somfy_connexoon, binary_sensor.luz_cama_status, binary_sensor.lamparita_status, binary_sensor.lampara_mesa_status, binary_sensor.workstation_status, binary_sensor.luz_principal_status, binary_sensor.luz_pasillo_status, binary_sensor.termo_status, binary_sensor.luz_ambiente, binary_sensor.lampara_pie, binary_sensor.aspi
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 4
+  action:
+    - service: notify.telegram_daniel
+      data_template:
+        message: '{{trigger.to_state.attributes.friendly_name}} se ha restablecido con éxito y su estado es Online'
+        title: Alerta de dispositivo
+
+- id: alert_when_all_critical_devices_go_online
+  alias: Alert when all critical devices go online
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.somfy_connexoon, binary_sensor.luz_cama_status, binary_sensor.lamparita_status, binary_sensor.lampara_mesa_status, binary_sensor.workstation_status, binary_sensor.luz_principal_status, binary_sensor.luz_pasillo_status, binary_sensor.termo_status, binary_sensor.luz_ambiente, binary_sensor.lampara_pie, binary_sensor.aspi
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 5
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.somfy_connexoon
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_cama_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lamparita_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lampara_mesa_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.workstation_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_principal_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_pasillo_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.termo_status
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.luz_ambiente
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.lampara_pie
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.aspi
+          state: 'on'
   action:
     - service: notify.telegram_daniel
       data_template:
@@ -1709,39 +1809,87 @@
         - condition: template
           value_template: '{{ now().time().strftime("%H:%M") == states.input_select.aspi_time.state }}'
         - condition: state
-          entity_id: input_boolean.daily_vacuum_completed
+          entity_id: binary_sensor.aspirado_completado
           state: 'off'
+        - condition: state
+          entity_id: binary_sensor.aspirado_programado
+          state: 'on'
         - condition: state
           entity_id: input_select.home_status
           state: 'Habitada'
   action:
     - service: script.aspi_on
 
-- id: set_daily_vacuum_completed_to_off
-  alias: Set daily vacuum completed to on
+- id: daniel_de_standby_a_cama
+  alias: Daniel de Standby a Cama
   trigger:
     - platform: state
-      entity_id: vacuum.aspi
+      entity_id: light.luz_cama
       to: 'on'
-      for:
-        minutes: 30
+  condition:
+    - condition: template
+      value_template: >
+        {% if states.input_select.daniel_home_status.state == 'Casa' or states.input_select.daniel_home_status.state == 'Acaba de llegar' %}
+          true
+        {% endif %}
   action:
-    - service: input_boolean.turn_on
+    - service: input_select.select_option
       data:
-        entity_id: input_boolean.daily_vacuum_completed
+        entity_id: input_select.daniel_status
+        option: Cama
 
-- id: set_daily_vacuum_completed_to_off
-  alias: Set daily vacuum completed to off
+- id: daniel_de_cama_a_standby
+  alias: Daniel de Cama a Standby
   trigger:
-    - platform: time
-      at: '06:00:00'
+    - platform: state
+      entity_id: light.luz_cama
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_select.daniel_home_status
+      state: Cama
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.daniel_status
+        option: Standby
+
+- id: daniel_de_standby_a_durmiendo
+  alias: Daniel de Standby a Durmiendo
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dash_gillette
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.daniel_home_status
+          state: Acaba de llegar
+        - condition: state
+          entity_id: input_select.daniel_home_status
+          state: Casa
+        - condition: state
+          entity_id: input_select.daniel_home_status
+          state: Cama
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.daniel_status
+        option: Durmiendo
+
+- id: daniel_de_durmiendo_a_standby
+  alias: Daniel de Durmiendo a Standby
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dash_gillette
   condition:
     - condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.daily_vacuum_completed
-          state: "on"
+          entity_id: input_select.daniel_home_status
+          state: Durmiendo
   action:
-    - service: input_boolean.turn_off
+    - service: input_select.select_option
       data:
-        entity_id: input_boolean.daily_vacuum_completed
+        entity_id: input_select.daniel_status
+        option: Standby
