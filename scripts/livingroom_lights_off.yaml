@@ -2,4 +2,7 @@ livingroom_lights_off:
   sequence:
     - service: light.turn_off
       data:
-        entity_id: group.livingroom
+        entity_id: light.lampara_pie
+    - service: light.turn_off
+      data:
+        entity_id: light.lampara_mesa
