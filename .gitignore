@@ -1,8 +1,11 @@
 !.gitignore
+.HA_VERSION
+.uuid
 *.db
 *.db-journal
+*.db-shm
+*.db-wal
 deps/
-.*
 secrets.yaml
 *.log
 *.save
