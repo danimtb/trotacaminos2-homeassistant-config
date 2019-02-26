@@ -1,5 +1,0 @@
-name: Gym
-latitude: !secret gym_latitude
-longitude: !secret gym_longitude
-radius: 50
-icon: mdi:tennis

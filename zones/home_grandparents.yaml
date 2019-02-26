@@ -1,5 +1,0 @@
-name: Casa Abuelos
-latitude: !secret grandparents_latitude
-longitude: !secret grandparents_longitude
-radius: 50
-icon: mdi:home

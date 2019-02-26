@@ -1,5 +1,0 @@
-name: Trabajo MCarmen
-latitude: !secret workmcarmen_latitude
-longitude: !secret workmcarmen_longitude
-radius: 200
-icon: mdi:worker

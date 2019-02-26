@@ -1,9 +1,0 @@
-platform: template
-sensors:
-  daniel_battery:
-    friendly_name: Aquaris X5 Plus
-    entity_id:
-      - device_tracker.daniel
-    value_template: '{{ states.device_tracker.daniel.attributes.battery | int}}'
-    unit_of_measurement: '%'
-    icon_template: '{% if states.device_tracker.daniel.attributes.battery | int > 50 %} mdi:battery-70 {% else %} mdi:battery-30 {% endif %}'

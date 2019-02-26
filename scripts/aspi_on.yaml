@@ -1,5 +1,0 @@
-aspi_on:
-  sequence:
-    - service: vacuum.turn_on
-      data:
-        entity_id: vacuum.aspi

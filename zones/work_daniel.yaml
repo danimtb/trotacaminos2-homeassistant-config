@@ -1,5 +1,0 @@
-name: Trabajo Daniel
-latitude: !secret workdaniel_latitude
-longitude: !secret workdaniel_longitude
-radius: 200
-icon: mdi:worker

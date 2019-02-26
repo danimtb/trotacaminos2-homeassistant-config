@@ -1,5 +1,0 @@
-platform: google_travel_time
-api_key: !secret google_travel_time_api_key
-name: ramon2work
-origin: device_tracker.ramon
-destination: zone.trabajo_ramon

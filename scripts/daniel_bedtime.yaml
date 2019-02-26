@@ -1,8 +1,0 @@
-daniel_bedtime:
-  sequence:
-    - service: notify.telegram_daniel
-      data:
-        message: "¡Hora de dormir!"
-    - service: light.turn_on
-      data:
-        entity_id: light.luz_ambiente

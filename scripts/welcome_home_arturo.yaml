@@ -1,5 +1,0 @@
-welcome_home_arturo:
-  sequence:
-    - service: notify.telegram_daniel
-      data:
-        message: "Bienvenido a casa Arturo"

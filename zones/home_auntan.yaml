@@ -1,5 +1,0 @@
-name: Casa Tia Ana
-latitude: !secret auntan_latitude
-longitude: !secret auntan_longitude
-radius: 25
-icon: mdi:home

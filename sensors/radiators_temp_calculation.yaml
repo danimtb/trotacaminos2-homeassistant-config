@@ -1,9 +1,0 @@
-platform: template
-sensors:
-  medium_temp_calculation:
-    friendly_name: Temperatura Media Calculada
-    entity_id:
-      - sensor.dark_sky_daily_high_apparent_temperature_1 
-      - sensor.dark_sky_daily_low_apparent_temperature_1 
-    value_template: '{{ states.sensor.dark_sky_daily_high_apparent_temperature_1.state | int / 2 + states.sensor.dark_sky_daily_low_apparent_temperature_1.state | int / 2}}'
-    unit_of_measurement: '°C'
