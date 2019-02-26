@@ -1,0 +1,60 @@
+daniel_bedtime:
+  name: Hora de dormir
+  icon: mdi:hotel
+
+radiators_tomorrow:
+  name: Calefaccion mañana
+  icon: mdi:radiator
+
+dash_gillette:
+  name: Dash Gillette
+  icon: mdi:radiobox-marked
+  initial: on
+
+dash_dolce1:
+  name: Dash Dolce 1
+  icon: mdi:radiobox-marked
+
+dash_dolce2:
+  name: Dash Dolce 2
+  icon: mdi:radiobox-marked
+
+aspi_llena:
+  name: Aspiradora Llena
+  icon: mdi:delete-empty
+
+automation_devices_status:
+  name: AUTO devices status
+  icon: mdi:resistor-nodes
+
+automation_aspi_notification:
+  name: AUTO Notificación Aspi
+  icon: mdi:resistor-nodes
+
+automation_daniel_bedtime:
+  name: AUTO Hora de dormir
+  icon: mdi:resistor-nodes
+
+automation_workstation:
+  name: AUTO Workstation
+  icon: mdi:resistor-nodes
+
+automation_hassio_backups:
+  name: AUTO Hass.io Backups
+  icon: mdi:resistor-nodes
+
+automation_tv_mode_lights:
+  name: AUTO Luces Modo TV
+  icon: mdi:resistor-nodes
+
+automation_toldos:
+  name: AUTO Toldos
+  icon: mdi:resistor-nodes
+
+automation_daniel_presence:
+  name: AUTO Presencia Daniel
+  icon: mdi:resistor-nodes
+
+automation_livingroom_presence:
+  name: AUTO Presencia Salon
+  icon: mdi:resistor-nodes

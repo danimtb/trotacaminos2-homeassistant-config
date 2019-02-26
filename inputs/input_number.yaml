@@ -1,0 +1,27 @@
+cover_toldo_1_open_hour:
+  name: Toldo Grande Offset Apertura
+  icon: mdi:clock-out
+  min: 0
+  max: 8
+  initial: 3
+
+cover_toldos_2_open_hour:
+  name: Toldo Lateral Offset Apertura
+  icon: mdi:clock-out
+  min: 0
+  max: 8
+  initial: 3
+
+cover_toldo_1_close_hour:
+  name: Toldo Grande Offset Cierre
+  icon: mdi:clock-in
+  min: 0
+  max: 8
+  initial: 2
+
+cover_toldos_2_close_hour:
+  name: Toldo Lateral Offset Cierre
+  icon: mdi:clock-in
+  min: 0
+  max: 8
+  initial: 2
