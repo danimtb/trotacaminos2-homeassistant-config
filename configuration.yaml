@@ -328,7 +328,7 @@ intent_script:
           entity_id: "switch.{{ Name.lower() | replace(' ', '_') }}"
 
 ### DIRECTORIES ###
-automation: !include_dir_merge_named automations/
+automation: !include_dir_list automations/
 group: !include groups.yaml
 input_boolean: !include inputs/input_boolean.yaml
 input_select: !include inputs/input_select.yaml
