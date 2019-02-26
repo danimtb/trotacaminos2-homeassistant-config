@@ -1,0 +1,22 @@
+platform: template
+sensors:
+  radiador_despacho_current:
+    friendly_name_template: "{{ states.switch.radiador_despacho.name}} Current"
+    value_template: '{{ states.switch.radiador_despacho.attributes["current_a"] | float }}'
+    unit_of_measurement: "A"
+  radiador_despacho_active_power:
+    friendly_name_template: "{{ states.switch.radiador_despacho.name}} Active Power"
+    value_template: '{{ states.switch.radiador_despacho.attributes["current_power_w"] | float }}'
+    unit_of_measurement: "W"
+  radiador_despacho_total_energy:
+    friendly_name_template: "{{ states.switch.radiador_despacho.name}} Total Energy Consumption"
+    value_template: '{{ states.switch.radiador_despacho.attributes["total_energy_kwh"] | float }}'
+    unit_of_measurement: "kWh"
+  radiador_despacho_voltage:
+    friendly_name_template: "{{ states.switch.radiador_despacho.name}} Voltage"
+    value_template: '{{ states.switch.radiador_despacho.attributes["voltage"] | float }}'
+    unit_of_measurement: "V"
+  radiador_despacho_today_energy:
+    friendly_name_template: "{{ states.switch.radiador_despacho.name}} Today Energy Consumption"
+    value_template: '{{ states.switch.radiador_despacho.attributes["today_energy_kwh"] | float }}'
+    unit_of_measurement: "kWh"

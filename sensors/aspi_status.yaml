@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  aspi_status:
+    value_template: '{{ states.vacuum.aspi.state }}'
+    friendly_name: 'Aspi Status'
+    entity_id:
+      - vacuum.aspi
+    icon_template: >
+      {% if states("vacuum.aspi") == "docked" %}
+        mdi:battery-charging
+      {% elif states("vacuum.aspi") == "idle" %}
+        mdi:stop-circle-outline
+      {% elif states("vacuum.aspi") == "error" %}
+        mdi:alert-circle-outline
+      {% else %}
+        mdi:broom
+      {% endif %}

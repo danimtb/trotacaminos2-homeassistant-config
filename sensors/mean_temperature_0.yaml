@@ -1,0 +1,9 @@
+platform: template
+sensors:
+  mean_temperature_0:
+    friendly_name: Temperatura Media
+    entity_id:
+      - sensor.dark_sky_daily_high_temperature_0
+      - sensor.dark_sky_overnight_low_temperature_0
+    value_template: '{{ states.sensor.dark_sky_daytime_high_temperature_0.state | int / 2 + states.sensor.dark_sky_overnight_low_temperature_0.state | int / 2}}'
+    unit_of_measurement: '°C'

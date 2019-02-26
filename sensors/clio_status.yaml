@@ -1,0 +1,8 @@
+platform: template
+sensors:
+  clio_status:
+    value_template: '{{ states.input_select.clio_status.state }}'
+    friendly_name: 'Clio Status'
+    entity_id:
+      - input_select.clio_status
+    icon_template: '{% if states("input_select.clio_status") == "Standby" %} mdi:car {% else %} mdi:car-side {% endif %}'

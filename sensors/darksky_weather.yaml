@@ -1,0 +1,15 @@
+platform: darksky
+api_key: !secret darksky_api_key
+language: es
+forecast:
+  - 0
+  - 1
+monitored_conditions:
+  - summary
+  - temperature
+  - temperature_high
+  - temperature_low
+  - apparent_temperature
+  - apparent_temperature_high
+  - apparent_temperature_low
+  - hourly_summary

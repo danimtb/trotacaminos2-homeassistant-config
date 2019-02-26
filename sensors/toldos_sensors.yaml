@@ -1,0 +1,30 @@
+platform: template
+sensors:
+  toldo_1_open_time:
+    friendly_name: Toldo Grande Hora Apertura
+    entity_id:
+      - sensor.sunrise
+      - input_number.cover_toldo_1_open_hour
+    value_template: "{{ as_timestamp(strptime('%s:%s' | format((strptime(states.sensor.sunrise.state, '%H:%M').hour + strptime('%s' | format(states.input_number.cover_toldo_1_open_hour.state | int), '%H').hour),  strptime(states.sensor.sunrise.state, '%H:%M').minute), '%H:%M')) | timestamp_custom('%H:%M', True) }}"
+    icon_template: mdi:inbox-arrow-down
+  toldo_1_close_time:
+    friendly_name: Toldo Grande Hora Cierre
+    entity_id:
+      - sensor.sunset
+      - input_number.cover_toldo_1_close_hour
+    value_template: "{{ as_timestamp(strptime('%s:%s' | format((strptime(states.sensor.sunset.state, '%H:%M').hour - strptime('%s' | format(states.input_number.cover_toldo_1_close_hour.state | int), '%H').hour),  strptime(states.sensor.sunset.state, '%H:%M').minute), '%H:%M')) | timestamp_custom('%H:%M', True) }}"
+    icon_template: mdi:inbox-arrow-up
+  toldos_2_open_time:
+    friendly_name: Toldo Lateral Hora Apertura
+    entity_id:
+      - sensor.sunrise
+      - input_number.cover_toldos_2_open_hour
+    value_template: "{{ as_timestamp(strptime('%s:%s' | format((strptime(states.sensor.sunrise.state, '%H:%M').hour + strptime('%s' | format(states.input_number.cover_toldos_2_open_hour.state | int), '%H').hour),  strptime(states.sensor.sunrise.state, '%H:%M').minute), '%H:%M')) | timestamp_custom('%H:%M', True) }}"
+    icon_template: mdi:inbox-arrow-down
+  toldos_2_close_time:
+    friendly_name: Toldo Lateral Hora Cierre
+    entity_id:
+      - sensor.sunset
+      - input_number.cover_toldos_2_close_hour
+    value_template: "{{ as_timestamp(strptime('%s:%s' | format((strptime(states.sensor.sunset.state, '%H:%M').hour - strptime('%s' | format(states.input_number.cover_toldos_2_close_hour.state | int), '%H').hour),  strptime(states.sensor.sunset.state, '%H:%M').minute), '%H:%M')) | timestamp_custom('%H:%M', True) }}"
+    icon_template: mdi:inbox-arrow-up

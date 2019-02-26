@@ -1,0 +1,22 @@
+platform: template
+sensors:
+  termo_current:
+    friendly_name_template: "{{ states.switch.termo.name}} Current"
+    value_template: '{{ states.switch.termo.attributes["current_a"] | float }}'
+    unit_of_measurement: "A"
+  termo_active_power:
+    friendly_name_template: "{{ states.switch.termo.name}} Active Power"
+    value_template: '{{ states.switch.termo.attributes["current_power_w"] | float }}'
+    unit_of_measurement: "W"
+  termo_total_energy:
+    friendly_name_template: "{{ states.switch.termo.name}} Total Energy Consumption"
+    value_template: '{{ states.switch.termo.attributes["total_energy_kwh"] | float }}'
+    unit_of_measurement: "kWh"
+  termo_voltage:
+    friendly_name_template: "{{ states.switch.termo.name}} Voltage"
+    value_template: '{{ states.switch.termo.attributes["voltage"] | float }}'
+    unit_of_measurement: "V"
+  termo_today_energy:
+    friendly_name_template: "{{ states.switch.termo.name}} Today Energy Consumption"
+    value_template: '{{ states.switch.termo.attributes["today_energy_kwh"] | float }}'
+    unit_of_measurement: "kWh"

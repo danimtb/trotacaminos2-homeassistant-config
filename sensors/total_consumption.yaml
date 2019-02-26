@@ -1,0 +1,20 @@
+platform: template
+sensors:
+  total_active_power:
+    value_template: '{{ (states.sensor.termo_active_power.state | float) + (states.sensor.radiador_daniel_active_power.state | float) + (states.sensor.radiador_amanda_active_power.state | float) + (states.sensor.radiador_despacho_active_power.state | float) }}'
+    friendly_name: 'Total Active Power'
+    unit_of_measurement: 'W'
+    entity_id:
+      - sensor.termo_active_power
+      - sensor.radiador_daniel_active_power
+      - sensor.radiador_amanda_active_power
+      - sensor.radiador_despacho_active_power
+  total_current:
+    value_template: '{{ (states.sensor.termo_current.state | float) + (states.sensor.radiador_daniel_current.state | float) + (states.sensor.radiador_amanda_current.state | float) + (states.sensor.radiador_despacho_current.state | float) }}'
+    friendly_name: 'Total Current'
+    unit_of_measurement: 'A'
+    entity_id:
+      - sensor.termo_current
+      - sensor.radiador_daniel_current
+      - sensor.radiador_amanda_current
+      - sensor.radiador_despacho_current

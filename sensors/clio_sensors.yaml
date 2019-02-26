@@ -1,0 +1,23 @@
+platform: template
+sensors:
+  clio_battery:
+    friendly_name: Bateria
+    entity_id:
+      - device_tracker.clio
+    value_template: '{{ states.device_tracker.clio.attributes.battery | int }}'
+    unit_of_measurement: '%'
+    icon_template: '{% if states.device_tracker.clio.attributes.battery | int > 50 %} mdi:battery-70 {% else %} mdi:battery-30 {% endif %}'
+  clio_speed:
+    friendly_name: Velocidad
+    entity_id:
+      - device_tracker.clio
+    value_template: '{{ states.device_tracker.clio.attributes.speed | int * 360 }}'
+    unit_of_measurement: 'km/h'
+    icon_template: mdi:speedometer
+  clio_altitude:
+    friendly_name: Altitud
+    entity_id:
+      - device_tracker.clio
+    value_template: '{{ states.device_tracker.clio.attributes.altitude | int }}'
+    unit_of_measurement: 'm'
+    icon_template: mdi:image-filter-hdr
