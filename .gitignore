@@ -1,12 +1,21 @@
 !.gitignore
-.HA_VERSION
-.uuid
+
+
+# Wildcards
 *.db
 *.db-journal
 *.db-shm
 *.db-wal
-deps/
-secrets.yaml
 *.log
 *.save
 *.save.*
+
+# Files
+.HA_VERSION
+.uuid
+secrets.yaml
+
+# Folders
+.cloud/
+.storage/
+deps/
