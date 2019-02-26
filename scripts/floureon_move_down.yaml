@@ -1,0 +1,3 @@
+floureon_move_down:
+  sequence:
+    - service: rest_command.floureon_down

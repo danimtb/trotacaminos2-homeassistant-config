@@ -1,0 +1,3 @@
+floureon_move_right:
+  sequence:
+    - service: rest_command.floureon_right

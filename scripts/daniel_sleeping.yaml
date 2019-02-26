@@ -1,0 +1,10 @@
+daniel_sleeping:
+  sequence:
+    - event: LOGBOOK_ENTRY
+      event_data:
+        name: EVENT
+        message: "Good night Daniel"
+    - service: notify.telegram_daniel
+      data:
+        message: "Buenas noches"
+    - service: script.all_lights_off

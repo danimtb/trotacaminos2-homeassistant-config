@@ -1,0 +1,15 @@
+mcarmen_wakeup:
+  sequence:
+    - service: notify.html5_mcarmen
+      data_template:
+        message: >
+          {% if now().strftime("%H")|int < 12 %}
+            ¡Buenos días!
+          {% elif now().strftime("%H")|int < 20 %}
+            Buenas tardes
+          {% else %}
+            Buenas noches
+          {% endif %}
+
+          La previsión para hoy es "{{states.sensor.dark_sky_summary_0.state}}" con una temperatura de {{states.sensor.dark_sky_apparent_temperature.state|round}} ºC en Leganés. Hoy las máximas rondarán los {{states.sensor.dark_sky_daytime_high_apparent_temperature_0.state|round}} ºC con mínimas de {{states.sensor.dark_sky_overnight_low_apparent_temperature_0.state|round}} ºC.
+          El parte metorológico para las próximas horas es "{{states.sensor.dark_sky_hourly_summary.state|replace(".", "")}}".

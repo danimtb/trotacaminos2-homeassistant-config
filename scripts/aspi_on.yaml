@@ -1,0 +1,5 @@
+aspi_on:
+  sequence:
+    - service: vacuum.start
+      data:
+        entity_id: vacuum.aspi

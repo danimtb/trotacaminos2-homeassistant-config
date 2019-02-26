@@ -1,0 +1,11 @@
+welcome_home_amanda:
+  sequence:
+    - service: notify.telegram_daniel
+      data:
+        message: "Bienvenida a casa Amanda"
+    - service: notify.sms
+      data:
+        message: "Trotacaminos2 dice: Bienvenida a casa Amanda"
+        target:
+          - !secret amanda_number
+          - !secret daniel_number

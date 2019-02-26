@@ -1,0 +1,3 @@
+floureon_center:
+  sequence:
+    - service: rest_command.floureon_center

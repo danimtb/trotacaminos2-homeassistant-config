@@ -1,0 +1,12 @@
+livingroom_lights_tv_on:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.lampara_pie
+      transition: 50
+      rgb_color: [203, 88, 255]
+      brightness: 255
+  - delay: 00:01:20
+  - service: light.turn_on
+    data:
+      entity_id: light.lampara_mesa

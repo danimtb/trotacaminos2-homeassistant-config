@@ -1,0 +1,32 @@
+daniel_wakeup:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.luz_cama
+    - delay: 00:05
+    - service: notify.telegram_daniel
+      data_template:
+        message: >
+          {% if now().strftime("%H")|int < 12 %}
+            ¡Buenos días!
+          {% elif now().strftime("%H")|int < 20 %}
+            Buenas tardes
+          {% else %}
+            Buenas noches
+          {% endif %}
+
+          La previsión para hoy es "{{states.sensor.dark_sky_summary_0.state}}" con una temperatura de {{states.sensor.dark_sky_apparent_temperature.state|round}} ºC en Leganés. Hoy las máximas rondarán los {{states.sensor.dark_sky_daytime_high_apparent_temperature_0.state|round}} ºC con mínimas de {{states.sensor.dark_sky_overnight_low_apparent_temperature_0.state|round}} ºC.
+          El parte metorológico para las próximas horas es "{{states.sensor.dark_sky_hourly_summary.state|replace(".", "")}}".
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - service: light.turn_off
+      data:
+        entity_id: light.luz_cama
+    - service: light.turn_on
+      data:
+        entity_id: light.luz_principal
