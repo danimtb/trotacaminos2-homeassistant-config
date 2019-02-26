@@ -1,0 +1,27 @@
+alias: Daniel de Standby a Durmiendo
+trigger:
+- platform: mqtt
+  topic: /daniel/status/durmiendo
+  payload: TOGGLE
+condition:
+- condition: or
+  conditions:
+  - condition: state
+    entity_id: input_select.daniel_home_status
+    state: Acaba de llegar
+  - condition: state
+    entity_id: input_select.daniel_home_status
+    state: Casa
+  - condition: state
+    entity_id: input_select.daniel_home_status
+    state: Cama
+action:
+- service: input_select.select_option
+  data:
+    entity_id: input_select.daniel_status
+    option: Durmiendo
+- service: mqtt.publish
+  data:
+    topic: /daniel/status/durmiendo
+    payload: "off"
+    retain: true

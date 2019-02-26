@@ -1,0 +1,17 @@
+alias: Radiators Auto ON
+trigger:
+- platform: time
+  at: "20:30:00"
+condition:
+- condition: and
+  conditions:
+  - condition: template
+    value_template: >
+      {% if states.sensor.mean_temperature_1.state | float <= states.input_select.radiators_threshold_temperature.state | float %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_boolean.turn_on
+  data:

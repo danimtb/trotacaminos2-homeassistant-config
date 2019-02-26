@@ -1,0 +1,14 @@
+alias: Apagar luces con Casa Deshabitada
+trigger:
+- platform: state
+  entity_id: input_select.home_status
+  from: Habitada
+  to: Deshabitada
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: group.all_lights
+    state: "on"
+action:
+- service: script.all_lights_off

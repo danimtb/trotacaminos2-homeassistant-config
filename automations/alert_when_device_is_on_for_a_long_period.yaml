@@ -1,0 +1,13 @@
+alias: Alert when device is on for a long period
+trigger:
+- platform: state
+  entity_id: switch.termo, light.luz_principal, light.luz_pasillo, light.luz_cama,
+    light.luz_ambiente, light.lamparita, light.lampara_mesa, light.lampara_pie
+  to: "on"
+  for:
+    hours: 7
+action:
+- service: notify.telegram_daniel
+  data_template:
+    message: "{{trigger.to_state.attributes.friendly_name}} lleva encendido mucho
+      tiempo. Comprobar su correcto funcionamiento"

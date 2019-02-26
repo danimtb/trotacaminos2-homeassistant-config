@@ -1,0 +1,43 @@
+alias: Apagado Automatico Termo
+trigger:
+- platform: time_pattern
+  minutes: /30
+condition:
+- condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if now().time().strftime("%H:%M") == states.input_select.termo_time_off1.state %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if now().time().strftime("%H:%M") == states.input_select.termo_time_off2.state %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if now().time().strftime("%H:%M") == states.input_select.termo_time_off3.state %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: switch.turn_off
+  entity_id: switch.termo
+- delay: 00:05
+- service: switch.turn_off
+  entity_id: switch.termo
+- delay: 00:05
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: switch.termo
+    state: "on"
+- service: notify.telegram_daniel
+  data_template:
+    message: El Termo no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

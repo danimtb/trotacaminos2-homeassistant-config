@@ -1,0 +1,89 @@
+alias: Mark person as just arrived from extended away
+trigger:
+- platform: state
+  entity_id: device_tracker.daniel
+  from: not_home
+  to: home
+- platform: state
+  entity_id: device_tracker.ramon
+  from: not_home
+  to: home
+- platform: state
+  entity_id: device_tracker.mcarmen
+  from: not_home
+  to: home
+- platform: state
+  entity_id: device_tracker.amanda
+  from: not_home
+  to: home
+- platform: state
+  entity_id: device_tracker.andrea
+  from: not_home
+  to: home
+- platform: state
+  entity_id: device_tracker.arturo
+  from: not_home
+  to: home
+condition:
+  condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.daniel" and states.input_select.daniel_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.ramon" and states.input_select.ramon_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.mcarmen" and states.input_select.mcarmen_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.amanda" and states.input_select.amanda_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.andrea" and states.input_select.andrea_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.arturo" and states.input_select.arturo_home_status.state == "Ausente" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "device_tracker.daniel" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "device_tracker.ramon" %}
+        input_select.ramon_home_status
+      {% elif trigger.entity_id == "device_tracker.mcarmen" %}
+        input_select.mcarmen_home_status
+      {% elif trigger.entity_id == "device_tracker.amanda" %}
+        input_select.amanda_home_status
+      {% elif trigger.entity_id == "device_tracker.andrea" %}
+        input_select.andrea_home_status
+      {% else %}
+        input_select.arturo_home_status
+      {% endif %}
+    option: Acaba de llegar

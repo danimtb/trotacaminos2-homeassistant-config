@@ -1,0 +1,8 @@
+alias: Aspi Llena
+trigger:
+- platform: state
+  entity_id: binary_sensor.aspirado_completado
+  to: "on"
+action:
+- service: input_boolean.turn_on
+  data:

@@ -1,0 +1,16 @@
+alias: Aspirado con Casa Deshabitada
+trigger:
+- platform: state
+  entity_id: input_select.home_status
+  from: Habitada
+  to: Deshabitada
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.aspirado_completado
+    state: "off"
+  - condition: state
+    entity_id: binary_sensor.aspirado_programado
+    state: "on"
+action:

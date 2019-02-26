@@ -1,0 +1,94 @@
+alias: Mark person as home from just arrived
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+- platform: state
+  entity_id: input_select.ramon_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+- platform: state
+  entity_id: input_select.mcarmen_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+- platform: state
+  entity_id: input_select.amanda_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+- platform: state
+  entity_id: input_select.andrea_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+- platform: state
+  entity_id: input_select.arturo_home_status
+  to: Acaba de llegar
+  for:
+    minutes: 10
+condition:
+  condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.daniel_home_status" and states.input_select.daniel_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.ramon_home_status" and states.input_select.ramon_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.mcarmen_home_status" and states.input_select.mcarmen_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.amanda_home_status" and states.input_select.amanda_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.andrea_home_status" and states.input_select.andrea_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.arturo_home_status" and states.input_select.arturo_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "input_select.daniel_home_status" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "input_select.ramon_home_status" %}
+        input_select.ramon_home_status
+      {% elif trigger.entity_id == "input_select.mcarmen_home_status"%}
+        input_select.mcarmen_home_status
+      {% elif trigger.entity_id == "input_select.amanda_home_status" %}
+        input_select.amanda_home_status
+      {% elif trigger.entity_id == "input_select.andrea_home_status" %}
+        input_select.andrea_home_status
+      {% else %}
+        input_select.arturo_home_status
+      {% endif %}

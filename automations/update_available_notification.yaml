@@ -1,0 +1,21 @@
+alias: Update Available Notification
+trigger:
+  platform: state
+  entity_id: updater.updater
+condition:
+- condition: template
+  value_template: >
+    {% if states("updater.updater") != "unknown" %}
+      true
+    {% else %}
+      false
+    {% endif %}
+action:
+- service: notify.html5_daniel
+  data_template:
+    title: Nueva versión de Home Assistant
+    message: --> {{ states("updater.updater") }} <-- {{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }}
+- service: persistent_notification.create
+  data_template:
+    title: Actualización disponible
+    message: Home Assistant {{ states("updater.updater") }} está disponible. - {{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }}

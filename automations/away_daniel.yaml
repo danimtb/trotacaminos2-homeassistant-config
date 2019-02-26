@@ -1,0 +1,14 @@
+alias: Away Daniel
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  from: Acaba de irse
+  to: Fuera
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: group.lights_daniel_bedroom
+    state: "on"
+action:
+- service: script.daniel_lights_off

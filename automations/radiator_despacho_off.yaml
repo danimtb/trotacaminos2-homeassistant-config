@@ -1,0 +1,29 @@
+alias: Apagado Automatico Radiador Despacho
+trigger:
+- platform: time_pattern
+  minutes: /15
+condition:
+- condition: and
+  conditions:
+  - condition: template
+    value_template: >
+      {% if states.input_select.radiator_despacho_time_on.state > states.input_select.radiator_despacho_time_off.state %}
+        {{ now().time().strftime("%H:%M") < states.input_select.radiator_despacho_time_on.state and now().time().strftime("%H:%M") >= states.input_select.radiator_despacho_time_off.state }}
+      {% else %}
+        {{ now().time().strftime("%H:%M") < states.input_select.radiator_despacho_time_on.state or now().time().strftime("%H:%M") >= states.input_select.radiator_despacho_time_off.state }}
+      {% endif %}
+action:
+- service: switch.turn_off
+  entity_id: switch.radiador_despacho
+- delay: 00:02
+- service: switch.turn_off
+  entity_id: switch.radiador_despacho
+- delay: 00:02
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: switch.radiador_despacho
+    state: "on"
+- service: notify.telegram_daniel
+  data_template:
+    message: El Radiador Despacho no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

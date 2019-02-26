@@ -1,0 +1,7 @@
+alias: HA Statup
+trigger:
+- platform: homeassistant
+  event: start
+action:
+- service: notify.html5_daniel
+  data:

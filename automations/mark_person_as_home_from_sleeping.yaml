@@ -1,0 +1,78 @@
+alias: Mark person as home from sleeping
+trigger:
+- platform: state
+  entity_id: input_select.daniel_status
+  to: Standby
+- platform: state
+  entity_id: device_tracker.daniel
+  to: home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.ramon
+  to: home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.mcarmen
+  to: home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.amanda
+  to: home
+  for:
+    minutes: 2
+condition:
+  condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.daniel_status" and states.input_select.daniel_home_status.state == "Durmiendo" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.daniel" and now().strftime("%H")|int >= 6 and now().strftime("%H")|int <= 12 and states.input_select.daniel_status.state != "Durmiendo" and states.input_select.daniel_home_status.state == "Durmiendo" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.ramon" and now().strftime("%H")|int >= 6 and now().strftime("%H")|int <= 12 and states.input_select.ramon_home_status.state == "Durmiendo" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.mcarmen" and now().strftime("%H")|int >= 6 and now().strftime("%H")|int <= 12 and states.input_select.mcarmen_home_status.state == "Durmiendo" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.amanda" and now().strftime("%H")|int >= 6 and now().strftime("%H")|int <= 12 and states.input_select.amanda_home_status.state == "Durmiendo" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "input_select.daniel_status" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "device_tracker.daniel" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "device_tracker.ramon" %}
+        input_select.ramon_home_status
+      {% elif trigger.entity_id == "device_tracker.mcarmen" %}
+        input_select.mcarmen_home_status
+      {% elif trigger.entity_id == "device_tracker.amanda" %}
+        input_select.amanda_home_status
+      {% endif %}

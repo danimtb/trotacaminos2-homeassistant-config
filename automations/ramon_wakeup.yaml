@@ -1,0 +1,7 @@
+alias: Ramon Wake Up
+trigger:
+- platform: state
+  entity_id: input_select.ramon_home_status
+  from: Durmiendo
+  to: Casa
+action:

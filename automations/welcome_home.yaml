@@ -1,0 +1,43 @@
+alias: Bienvenidos a Casa
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  to: Acaba de llegar
+- platform: state
+  entity_id: input_select.ramon_home_status
+  to: Acaba de llegar
+- platform: state
+  entity_id: input_select.mcarmen_home_status
+  to: Acaba de llegar
+- platform: state
+  entity_id: input_select.amanda_home_status
+  to: Acaba de llegar
+- platform: state
+  entity_id: input_select.andrea_home_status
+  to: Acaba de llegar
+- platform: state
+  entity_id: input_select.arturo_home_status
+  to: Acaba de llegar
+condition:
+- condition: and
+  conditions:
+  - condition: time
+    after: "7:00:00"
+    before: 05:30:00
+action:
+- service: script.welcome_home
+- service: script.turn_on
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "input_select.daniel_home_status" %}
+        script.welcome_home_daniel
+      {% elif trigger.entity_id == "input_select.ramon_home_status" %}
+        script.welcome_home_ramon
+      {% elif trigger.entity_id == "input_select.mcarmen_home_status" %}
+        script.welcome_home_mcarmen
+      {% elif trigger.entity_id == "input_select.amanda_home_status" %}
+        script.welcome_home_amanda
+      {% elif trigger.entity_id == "input_select.andrea_home_status" %}
+        script.welcome_home_andrea
+      {% else %}
+        script.welcome_home_arturo

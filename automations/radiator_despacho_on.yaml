@@ -1,0 +1,32 @@
+alias: Encendido Automatico Radiador Despacho
+trigger:
+- platform: time_pattern
+  minutes: /30
+condition:
+- condition: and
+  conditions:
+  - condition: template
+    value_template: >
+      {% if states.input_select.radiator_despacho_time_on.state > states.input_select.radiator_despacho_time_off.state %}
+        {{ now().time().strftime("%H:%M") >= states.input_select.radiator_despacho_time_on.state or now().time().strftime("%H:%M") < states.input_select.radiator_despacho_time_off.state }}
+      {% else %}
+        {{ now().time().strftime("%H:%M") >= states.input_select.radiator_despacho_time_on.state and now().time().strftime("%H:%M") < states.input_select.radiator_despacho_time_off.state }}
+      {% endif %}
+  - condition: state
+    entity_id: input_boolean.radiators_tomorrow
+    state: "on"
+action:
+- service: switch.turn_on
+  entity_id: switch.radiador_despacho
+- delay: 00:02
+- service: switch.turn_on
+  entity_id: switch.radiador_despacho
+- delay: 00:02
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: switch.radiador_despacho
+    state: "off"
+- service: notify.telegram_daniel
+  data_template:
+    message: El Radiador Despacho no ha podido encenderse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

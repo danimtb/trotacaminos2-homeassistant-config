@@ -1,0 +1,19 @@
+alias: Encendido Automatico Radiador Amanda
+trigger:
+- platform: time_pattern
+  minutes: /30
+action:
+- service: switch.turn_on
+  entity_id: switch.radiador_amanda
+- delay: 00:02
+- service: switch.turn_on
+  entity_id: switch.radiador_amanda
+- delay: 00:02
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: switch.radiador_amanda
+    state: "off"
+- service: notify.telegram_daniel
+  data_template:
+    message: El Radiador Amanda no ha podido encenderse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

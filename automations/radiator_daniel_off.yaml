@@ -1,0 +1,24 @@
+alias: Apagado Automatico Radiador Daniel
+trigger:
+- platform: time_pattern
+  minutes: /15
+condition:
+- condition: and
+  conditions:
+  - condition: template
+    value_template: >
+      {% if now().time().strftime("%H:%M") < states.input_select.radiator_daniel_time_on.state or now().time().strftime("%H:%M") >= states.input_select.radiator_daniel_time_off.state %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: switch.turn_off
+  entity_id: switch.radiador_daniel
+- delay: 00:02
+- service: switch.turn_off
+  entity_id: switch.radiador_daniel
+- delay: 00:02
+- service: notify.telegram_daniel
+  data_template:
+    message: El Radiador Daniel no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

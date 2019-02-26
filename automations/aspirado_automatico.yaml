@@ -1,0 +1,22 @@
+alias: Aspirado Automático
+trigger:
+- platform: time_pattern
+  minutes: /30
+condition:
+- condition: and
+  conditions:
+  - condition: template
+    value_template: >
+      {% if now().time().strftime("%H:%M") == states.input_select.aspi_time.state %}
+        true
+      {% endif %}
+  - condition: state
+    entity_id: binary_sensor.aspirado_completado
+    state: "off"
+  - condition: state
+    entity_id: binary_sensor.aspirado_programado
+    state: "on"
+  - condition: state
+    entity_id: input_select.home_status
+    state: Habitada
+action:

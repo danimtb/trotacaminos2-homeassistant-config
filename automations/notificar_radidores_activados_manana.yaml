@@ -1,0 +1,14 @@
+alias: Notificar Radiadores Activados Mañana
+trigger:
+- platform: state
+  entity_id: input_boolean.radiators_tomorrow
+  from: "off"
+  to: "on"
+action:
+- data:
+    message: Mañana hará frío por lo que he activado la carga de los radiadores para esta noche ({{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }})
+    title: Predicción de radiadores
+  service: notify.html5_family
+- data:
+    message: Mañana hará frío por lo que he activado la carga de los radiadores para esta noche ({{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }})
+    title: Predicción de radiadores

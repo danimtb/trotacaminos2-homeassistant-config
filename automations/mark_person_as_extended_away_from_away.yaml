@@ -1,0 +1,79 @@
+alias: Mark person as extended away from away
+trigger:
+- platform: time_pattern
+  minutes: /30
+condition:
+- condition: or
+  conditions:
+  - condition: state
+    entity_id: input_select.daniel_home_status
+    state: Fuera
+    for:
+      hours: 20
+  - condition: state
+    entity_id: input_select.ramon_home_status
+    state: Fuera
+    for:
+      hours: 20
+  - condition: state
+    entity_id: input_select.mcarmen_home_status
+    state: Fuera
+    for:
+      hours: 20
+  - condition: state
+    entity_id: input_select.amanda_home_status
+    state: Fuera
+    for:
+      hours: 20
+  - condition: state
+    entity_id: input_select.andrea_home_status
+    state: Fuera
+    for:
+      hours: 20
+  - condition: state
+    entity_id: input_select.arturo_home_status
+    state: Fuera
+    for:
+      hours: 20
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now()) - as_timestamp(states.input_select.daniel_home_status.last_updated)) > 72000 %}
+        input_select.daniel_home_status
+      {% endif %}
+    option: Ausente
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now()) - as_timestamp(states.input_select.ramon_home_status.last_updated)) > 72000 %}
+        input_select.ramon_home_status
+      {% endif %}
+    option: Ausente
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now()) - as_timestamp(states.input_select.mcarmen_home_status.last_updated)) > 72000 %}
+        input_select.mcarmen_home_status
+      {% endif %}
+    option: Ausente
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now()) - as_timestamp(states.input_select.amanda_home_status.last_updated)) > 72000 %}
+        input_select.amanda_home_status
+      {% endif %}
+    option: Ausente
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now())-as_timestamp(states.input_select.andrea_home_status.last_updated)) > 72000 %}
+        input_select.andrea_home_status
+      {% endif %}
+    option: Ausente
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if (as_timestamp(now())-as_timestamp(states.input_select.arturo_home_status.last_updated)) > 72000 %}
+        input_select.arturo_home_status
+      {% endif %}

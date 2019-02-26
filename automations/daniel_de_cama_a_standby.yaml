@@ -1,0 +1,12 @@
+alias: Daniel de Cama a Standby
+trigger:
+- platform: state
+  entity_id: input_boolean.dash_dolce2
+condition:
+- condition: state
+  entity_id: input_select.daniel_home_status
+  state: Cama
+action:
+- service: input_select.select_option
+  data:
+    entity_id: input_select.daniel_status

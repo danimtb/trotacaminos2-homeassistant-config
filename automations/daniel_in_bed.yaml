@@ -1,0 +1,6 @@
+alias: Daniel en la cama
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  to: Cama
+action:

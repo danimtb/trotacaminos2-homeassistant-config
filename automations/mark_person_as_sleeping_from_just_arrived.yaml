@@ -1,0 +1,78 @@
+alias: Mark person as sleeping from just arrived
+trigger:
+- platform: state
+  entity_id: input_select.daniel_status
+  to: Durmiendo
+- platform: state
+  entity_id: device_tracker.daniel
+  to: not_home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.ramon
+  to: not_home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.mcarmen
+  to: not_home
+  for:
+    minutes: 2
+- platform: state
+  entity_id: device_tracker.amanda
+  to: not_home
+  for:
+    minutes: 2
+condition:
+  condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.daniel_status" and states.input_select.daniel_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.daniel" and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 5 and states.input_select.daniel_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.ramon" and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 4 and states.input_select.ramon_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.mcarmen" and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 5 and states.input_select.mcarmen_home_status.state == "Acaba de llegar" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "device_tracker.amanda" and now().strftime("%H")|int >= 0 and now().strftime("%H")|int <= 5 and states.input_select.amanda_home_status.state == "Casa" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "input_select.daniel_status" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "device_tracker.daniel" %}
+        input_select.daniel_home_status
+      {% elif trigger.entity_id == "device_tracker.ramon" %}
+        input_select.ramon_home_status
+      {% elif trigger.entity_id == "device_tracker.mcarmen" %}
+        input_select.mcarmen_home_status
+      {% elif trigger.entity_id == "device_tracker.amanda" %}
+        input_select.amanda_home_status
+      {% endif %}

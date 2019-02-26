@@ -1,0 +1,13 @@
+alias: Login Failure
+trigger:
+  platform: template
+  value_template: >
+    {% if states("persistent_notification.httplogin") != "unknown" %}
+      true
+    {% else %}
+      false
+    {% endif %}
+action:
+- service: notify.telegram_daniel
+  data:
+    title: Alerta por intrusión

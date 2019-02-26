@@ -1,0 +1,16 @@
+alias: Daniel de Standby a Cama
+trigger:
+- platform: state
+  entity_id: input_boolean.dash_dolce2
+condition:
+- condition: template
+  value_template: >
+    {% if states.input_select.daniel_home_status.state == "Casa" or states.input_select.daniel_home_status.state == "Acaba de llegar" %}
+      true
+    {% else %}
+      false
+    {% endif %}
+action:
+- service: input_select.select_option
+  data:
+    entity_id: input_select.daniel_status

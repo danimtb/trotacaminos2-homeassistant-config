@@ -1,0 +1,7 @@
+alias: MCarmen Wake Up
+trigger:
+- platform: state
+  entity_id: input_select.mcarmen_home_status
+  from: Durmiendo
+  to: Casa
+action:

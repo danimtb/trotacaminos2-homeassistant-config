@@ -1,0 +1,22 @@
+alias: Mark person as sleeping from bed
+trigger:
+- platform: state
+  entity_id: input_select.daniel_status
+  to: Durmiendo
+condition:
+  condition: or
+  conditions:
+  - condition: template
+    value_template: >
+      {% if trigger.entity_id == "input_select.daniel_status" and states.input_select.daniel_home_status.state == "Cama" %}
+        true
+      {% else %}
+        false
+      {% endif %}
+action:
+- service: input_select.select_option
+  data_template:
+    entity_id: >
+      {% if trigger.entity_id == "input_select.daniel_status" %}
+        input_select.daniel_home_status
+      {% endif %}

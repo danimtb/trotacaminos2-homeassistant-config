@@ -1,0 +1,6 @@
+alias: Daniel Sleeping
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  to: Durmiendo
+action:

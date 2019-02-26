@@ -1,0 +1,78 @@
+alias: Marcar Casa como Deshabitada desde Habitada
+trigger:
+- platform: state
+  entity_id: input_select.daniel_home_status
+  to: Fuera
+- platform: state
+  entity_id: input_select.ramon_home_status
+  to: Fuera
+- platform: state
+  entity_id: input_select.mcarmen_home_status
+  to: Fuera
+- platform: state
+  entity_id: input_select.amanda_home_status
+  to: Fuera
+- platform: state
+  entity_id: input_select.andrea_home_status
+  to: Fuera
+- platform: state
+  entity_id: input_select.arturo_home_status
+  to: Fuera
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: input_select.home_status
+    state: Habitada
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.daniel_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.daniel_home_status
+      state: Ausente
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.ramon_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.ramon_home_status
+      state: Ausente
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.mcarmen_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.mcarmen_home_status
+      state: Ausente
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.amanda_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.amanda_home_status
+      state: Ausente
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.andrea_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.andrea_home_status
+      state: Ausente
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.arturo_home_status
+      state: Fuera
+    - condition: state
+      entity_id: input_select.arturo_home_status
+      state: Ausente
+action:
+- service: input_select.select_option
+  data:
+    entity_id: input_select.home_status
