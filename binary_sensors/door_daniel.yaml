@@ -1,0 +1,15 @@
+platform: template
+sensors:
+  door_daniel:
+    friendly_name: "Puerta"
+    device_class: door
+    value_template: >
+      {% if states.input_boolean.dash_gillette %}
+        {% if is_state('input_boolean.dash_gillette', 'on') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

@@ -1,0 +1,21 @@
+platform: template
+sensors:
+  aspirado_programado:
+    entity_id:
+      - sensor.time
+      - input_select.aspi_frequency
+    friendly_name: "Aspirado Programado"
+    value_template: >
+      {% if states.input_select.aspi_frequency %}
+        {% if is_state('input_select.aspi_frequency', 'Diario') %}
+          true
+        {% elif is_state('input_select.aspi_frequency', 'Cada 2 días') and (now().day % 2) == 0 %}
+          true
+        {% elif is_state('input_select.aspi_frequency', 'Cada 3 días') and (now().day % 3) == 0 %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  luz_ambiente_status:
+    friendly_name: 'Luz Ambiente Status'
+    device_class: connectivity
+    entity_id:
+      - device_tracker.luz_ambiente
+    value_template: >
+      {% if states.device_tracker.luz_ambiente %}
+        {% if is_state('device_tracker.luz_ambiente', 'home') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

@@ -1,0 +1,17 @@
+platform: template
+sensors:
+  termo_status:
+    friendly_name: 'Termo Status'
+    device_class: connectivity
+    entity_id:
+      - device_tracker.termo
+    value_template: >
+      {% if states.device_tracker.termo %}
+        {% if is_state('device_tracker.termo', 'home') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+      {% else %}
+        false
+      {% endif %}

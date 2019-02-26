@@ -1,0 +1,8 @@
+platform: template
+sensors:
+  recomendacion_bajar_toldos:
+    friendly_name: "Recomendación Bajar Toldos"
+    entity_id:
+      - sensor.dark_sky_summary_0
+      - sensor.mean_temperature_0
+    value_template: "{{ (states.sensor.dark_sky_summary_0.state == 'Despejado' or states.sensor.dark_sky_summary_0.state == 'Parcialmente Nublado' or states.sensor.dark_sky_summary.state == 'Seco' or states.sensor.dark_sky_summary.state == 'Sin Precipitaciones') and states.sensor.mean_temperature_0.state | int > 20 }}"

@@ -1,0 +1,14 @@
+platform: template
+sensors:
+  toldo_1:
+    friendly_name: "Estado Toldo Grande"
+    entity_id:
+      - cover.toldo_1
+    value_template: "{{ states.cover.toldo_1.attributes.current_position | int != 100 }}"
+    device_class: opening
+  toldos_2:
+    friendly_name: "Estado Toldo Lateral"
+    entity_id:
+      - cover.toldos_2
+    value_template: "{{ states.cover.toldos_2.attributes.current_position | int != 100 }}"
+    device_class: opening
