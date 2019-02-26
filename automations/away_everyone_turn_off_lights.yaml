@@ -12,3 +12,4 @@ condition:
     state: "on"
 action:
 - service: script.all_lights_off
+- service: script.notify_ligths_on

@@ -21,4 +21,5 @@ action:
 - delay: 00:02
 - service: notify.telegram_daniel
   data_template:
+    title: Alerta de dispositivo
     message: El Radiador Daniel no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

@@ -5,3 +5,4 @@ trigger:
   from: Durmiendo
   to: Casa
 action:
+  - service: script.daniel_wakeup

@@ -10,4 +10,5 @@ action:
     notification_id: new_device_connected
 - service: notify.html5_daniel
   data_template:
-    title: Nueva dispositivo conectado
+    title: Nuevo dispositivo conectado
+    message: Nuevo dispositivo {{trigger.event.data.host_name}} ({{trigger.event.data.entity_id}}) detectado

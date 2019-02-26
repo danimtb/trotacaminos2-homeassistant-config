@@ -12,3 +12,4 @@ condition:
     state: "on"
 action:
 - service: script.daniel_lights_off
+- service: script.notify_daniel_lights_on

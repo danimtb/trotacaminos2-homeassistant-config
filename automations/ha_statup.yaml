@@ -5,3 +5,4 @@ trigger:
 action:
 - service: notify.html5_daniel
   data:
+    message: ¡Home Assistant se ha iniciado con éxito!

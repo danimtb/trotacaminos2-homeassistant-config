@@ -77,3 +77,4 @@ action:
       {% if (as_timestamp(now())-as_timestamp(states.input_select.arturo_home_status.last_updated)) > 72000 %}
         input_select.arturo_home_status
       {% endif %}
+    option: Ausente

@@ -6,3 +6,4 @@ trigger:
 action:
 - service: input_boolean.turn_on
   data:
+    entity_id: input_boolean.aspi_llena

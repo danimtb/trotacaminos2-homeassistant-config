@@ -4,3 +4,4 @@ trigger:
   entity_id: input_select.daniel_home_status
   to: Durmiendo
 action:
+- service: script.daniel_sleeping

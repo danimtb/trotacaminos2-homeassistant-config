@@ -25,3 +25,4 @@ action:
     topic: /daniel/status/durmiendo
     payload: "off"
     retain: true
+    qos: 1

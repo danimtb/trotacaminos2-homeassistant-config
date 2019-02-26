@@ -11,3 +11,4 @@ action:
 - service: notify.telegram_daniel
   data:
     title: Alerta por intrusión
+    message: Ha habido un intento de login fallido. Accede a Home Assistant para más detalles

@@ -26,4 +26,5 @@ action:
     state: "on"
 - service: notify.telegram_daniel
   data_template:
+    title: Alerta de dispositivo
     message: El Radiador Despacho no ha podido apagarse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

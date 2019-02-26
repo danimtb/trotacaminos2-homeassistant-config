@@ -41,3 +41,4 @@ action:
         script.welcome_home_andrea
       {% else %}
         script.welcome_home_arturo
+      {% endif %}

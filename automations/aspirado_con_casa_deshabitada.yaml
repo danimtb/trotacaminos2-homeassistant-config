@@ -14,3 +14,4 @@ condition:
     entity_id: binary_sensor.aspirado_programado
     state: "on"
 action:
+  - service: script.aspi_on

@@ -4,3 +4,4 @@ trigger:
   entity_id: input_select.daniel_home_status
   to: Cama
 action:
+- service: script.daniel_bed

@@ -9,5 +9,5 @@ trigger:
 action:
 - service: notify.telegram_daniel
   data_template:
-    message: "{{trigger.to_state.attributes.friendly_name}} lleva encendido mucho
-      tiempo. Comprobar su correcto funcionamiento"
+    message: "{{trigger.to_state.attributes.friendly_name}} lleva encendido mucho tiempo. Comprobar su correcto funcionamiento"
+    title: Aviso de posible malfuncionamiento

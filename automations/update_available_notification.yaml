@@ -17,5 +17,6 @@ action:
     message: --> {{ states("updater.updater") }} <-- {{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }}
 - service: persistent_notification.create
   data_template:
+    notification_id: update_available
     title: Actualización disponible
     message: Home Assistant {{ states("updater.updater") }} está disponible. - {{ as_timestamp(now()) | timestamp_custom("%I:%M:%S %p %d%b%Y", true) }}

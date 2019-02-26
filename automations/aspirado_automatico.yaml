@@ -20,3 +20,4 @@ condition:
     entity_id: input_select.home_status
     state: Habitada
 action:
+  - service: script.aspi_on

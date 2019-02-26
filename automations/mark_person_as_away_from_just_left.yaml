@@ -92,3 +92,4 @@ action:
       {% else %}
         input_select.arturo_home_status
       {% endif %}
+    option: Fuera

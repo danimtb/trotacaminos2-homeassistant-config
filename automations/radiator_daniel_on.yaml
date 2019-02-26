@@ -22,4 +22,5 @@ action:
     state: "off"
 - service: notify.telegram_daniel
   data_template:
+    title: Alerta de dispositivo
     message: El Radiador Daniel no ha podido encenderse a la hora especificada. Comprobar el estado del dispositivo ya que algunas funcionalidades dejarán de estar disponibles

@@ -20,3 +20,4 @@ action:
       {% if trigger.entity_id == "input_select.daniel_status" %}
         input_select.daniel_home_status
       {% endif %}
+    option: Casa
