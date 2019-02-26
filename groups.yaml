@@ -1,0 +1,502 @@
+daniel:
+  name: Daniel
+  control: hidden
+  entities:
+  - sensor.daniel_home_status
+  - sensor.daniel_battery
+  - sensor.tiempo_trabajo_semanal
+  - input_boolean.daniel_bedtime
+  - input_select.daniel_status
+  - proximity.daniel2home
+  - camera.daniel
+
+lights_daniel_bedroom:
+  name: Luces Daniel
+  entities:
+  - light.luz_pasillo
+  - light.luz_principal
+  - light.luz_cama
+  - light.luz_ambiente
+
+sensores_daniel:
+  name: Sensores Daniel
+  control: hidden
+  entities:
+  - binary_sensor.pir_daniel
+  - sensor.iluminancia_daniel
+  - sensor.temperatura_daniel
+  - sensor.humedad_daniel
+  - binary_sensor.door_daniel
+
+sensores_salon:
+  name: Sensores Salon
+  control: hidden
+  entities:
+  - binary_sensor.pir_salon
+  - sensor.iluminancia_salon
+  - sensor.temperatura_salon
+  - sensor.humedad_salon
+  - light.notificacion_salon
+  - input_boolean.automation_livingroom_presence
+
+escritorio_daniel:
+  name: Escritorio Daniel
+  entities:
+  - device_tracker.strixstation
+  - device_tracker.strixstation_eth
+  - device_tracker.thinkpadstation
+  - switch.workstation
+  - input_boolean.automation_workstation
+
+entrance:
+  name: Entradita
+  control: hidden
+  entities:
+  - light.lamparita
+
+ligths_living_room:
+  name: Luces Salon
+  entities:
+  - light.lampara_pie
+  - light.lampara_mesa
+
+tv_living_room:
+  name: Television
+  entities:
+  - device_tracker.television_lg
+  - input_boolean.automation_tv_mode_lights
+
+weather_today:
+  name: Tiempo Hoy
+  control: hidden
+  entities:
+  - sun.sun
+  - sensor.sunrise
+  - sensor.sunset
+  - sensor.dark_sky_summary_0
+  - sensor.dark_sky_temperature
+  - sensor.mean_temperature_0
+  - sensor.dark_sky_daytime_high_temperature_0
+  - sensor.dark_sky_overnight_low_temperature_0
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_daytime_high_apparent_temperature_0
+  - sensor.dark_sky_overnight_low_apparent_temperature_0
+
+weather_tomorrow:
+  name: "Tiempo Ma\xF1ana"
+  control: hidden
+  entities:
+  - sensor.dark_sky_summary_1
+  - sensor.mean_temperature_1
+  - sensor.dark_sky_daytime_high_temperature_1
+  - sensor.dark_sky_overnight_low_temperature_1
+  - sensor.dark_sky_daytime_high_apparent_temperature_1
+  - sensor.dark_sky_overnight_low_apparent_temperature_1
+
+sonoff_dev:
+  name: Sonoff DEV
+  entities:
+  - switch.sonoff_dev
+  - device_tracker.sonoff_dev
+  - sensor.sonoff_dev_status
+  - sensor.sonoff_dev_mac
+  - sensor.sonoff_dev_ip
+  - sensor.sonoff_dev_hardware
+  - sensor.sonoff_dev_firmware
+  - sensor.sonoff_dev_firmware_version
+
+luz_cama:
+  name: Luz Cama
+  entities:
+  - device_tracker.luz_cama
+  - binary_sensor.luz_cama_status
+  - sensor.luz_cama_mac
+  - sensor.luz_cama_ip
+  - sensor.luz_cama_hardware
+  - sensor.luz_cama_firmware
+  - sensor.luz_cama_firmware_version
+lamparita:
+  name: Lamparita
+  entities:
+  - device_tracker.lamparita
+  - binary_sensor.lamparita_status
+  - sensor.lamparita_mac
+  - sensor.lamparita_ip
+  - sensor.lamparita_hardware
+  - sensor.lamparita_firmware
+  - sensor.lamparita_firmware_version
+lampara_mesa:
+  name: Lampara Mesa
+  entities:
+  - device_tracker.lampara_mesa
+  - binary_sensor.lampara_mesa_status
+  - sensor.lampara_mesa_mac
+  - sensor.lampara_mesa_ip
+  - sensor.lampara_mesa_hardware
+  - sensor.lampara_mesa_firmware
+  - sensor.lampara_mesa_firmware_version
+workstation:
+  name: Workstation
+  entities:
+  - device_tracker.workstation
+  - binary_sensor.workstation_status
+  - sensor.workstation_mac
+  - sensor.workstation_ip
+  - sensor.workstation_hardware
+  - sensor.workstation_firmware
+  - sensor.workstation_firmware_version
+
+luz_principal:
+  name: Luz Principal
+  entities:
+  - device_tracker.luz_principal
+  - binary_sensor.luz_principal_status
+  - sensor.luz_principal_mac
+  - sensor.luz_principal_ip
+  - sensor.luz_principal_hardware
+  - sensor.luz_principal_firmware
+  - sensor.luz_principal_firmware_version
+luz_pasillo:
+  name: Luz Pasillo
+  entities:
+  - device_tracker.luz_pasillo
+  - binary_sensor.luz_pasillo_status
+  - sensor.luz_pasillo_mac
+  - sensor.luz_pasillo_ip
+  - sensor.luz_pasillo_hardware
+  - sensor.luz_pasillo_firmware
+  - sensor.luz_pasillo_firmware_version
+termo_old:
+  name: Termo
+  entities:
+  - device_tracker.termo
+  - binary_sensor.termo_status
+  - sensor.termo_mac
+  - sensor.termo_ip
+  - sensor.termo_hardware
+  - sensor.termo_firmware
+  - sensor.termo_firmware_version
+radiador_daniel:
+  name: Radiador Daniel
+  entities:
+  - device_tracker.radiador_daniel
+  - binary_sensor.radiador_daniel_status
+  - sensor.radiador_daniel_mac
+  - sensor.radiador_daniel_ip
+  - sensor.radiador_daniel_hardware
+  - sensor.radiador_daniel_firmware
+  - sensor.radiador_daniel_firmware_version
+radiador_amanda:
+  name: Radiador Amanda
+  entities:
+  - device_tracker.radiador_amanda
+  - binary_sensor.radiador_amanda_status
+  - sensor.radiador_amanda_mac
+  - sensor.radiador_amanda_ip
+  - sensor.radiador_amanda_hardware
+  - sensor.radiador_amanda_firmware
+  - sensor.radiador_amanda_firmware_version
+pipersense1:
+  name: Pripersense1
+  entities:
+  - device_tracker.pipersense1
+  - sensor.pipersense1_name
+  - sensor.pipersense1_mac
+  - sensor.pipersense1_ip
+  - sensor.pipersense1_hardware
+  - sensor.pipersense1_firmware
+  - sensor.pipersense1_firmware_version
+pipersense2:
+  name: Pripersense2
+  entities:
+  - device_tracker.pipersense2
+  - sensor.pipersense2_name
+  - sensor.pipersense2_mac
+  - sensor.pipersense2_ip
+  - sensor.pipersense2_hardware
+  - sensor.pipersense2_firmware
+  - sensor.pipersense2_firmware_version
+devices_status:
+  name: Estado Dispositivos
+  entities:
+    - binary_sensor.somfy_connexoon_status
+    - binary_sensor.luz_cama_status
+    - binary_sensor.luz_cama_status
+    - binary_sensor.lamparita_status
+    - binary_sensor.lampara_mesa_status
+    - binary_sensor.workstation_status
+    - binary_sensor.luz_principal_status
+    - binary_sensor.luz_pasillo_status
+    - binary_sensor.termo_status
+    - binary_sensor.luz_ambiente_status
+    - binary_sensor.lampara_pie_status
+    - binary_sensor.aspi_status
+aspi:
+  name: Control Aspi
+  control: hidden
+  entities:
+  - device_tracker.aspi
+  - vacuum.aspi
+  - sensor.aspi_status
+  - binary_sensor.aspirado_programado
+  - input_select.aspi_frequency
+  - input_select.aspi_time
+  - binary_sensor.aspirado_completado
+  - input_boolean.aspi_llena
+  - sensor.tiempo_aspirado_hoy
+  - automation.aspirado_automatico
+  - automation.aspirado_con_casa_deshabitada
+  - input_boolean.automation_aspi_notification
+radiators_prediction:
+  name: Predicción Calefacción Mañana
+  control: hidden
+  entities:
+  - input_boolean.radiators_tomorrow
+  - input_select.radiators_threshold_temperature
+  - sensor.mean_temperature_1
+  - automation.radiators_auto_on
+  - automation.radiators_auto_off
+control_radiator_daniel:
+  name: Control Radiador Daniel
+  control: hidden
+  entities:
+  - switch.radiador_daniel
+  - automation.encendido_automatico_radiador_daniel
+  - input_select.radiator_daniel_time_on
+  - automation.apagado_automatico_radiador_daniel
+  - input_select.radiator_daniel_time_off
+  - sensor.radiador_daniel_active_power
+  - sensor.radiador_daniel_reactive_power
+  - sensor.radiador_daniel_apparent_power
+  - sensor.radiador_daniel_power_factor
+  - sensor.radiador_daniel_current
+  - sensor.radiador_daniel_voltage
+control_radiator_amanda:
+  name: Control Radiador Amanda
+  control: hidden
+  entities:
+  - switch.radiador_amanda
+  - automation.encendido_automatico_radiador_amanda
+  - input_select.radiator_amanda_time_on
+  - automation.apagado_automatico_radiador_amanda
+  - input_select.radiator_amanda_time_off
+  - sensor.radiador_amanda_active_power
+  - sensor.radiador_amanda_reactive_power
+  - sensor.radiador_amanda_apparent_power
+  - sensor.radiador_amanda_power_factor
+  - sensor.radiador_amanda_current
+  - sensor.radiador_amanda_voltage
+control_radiator_despacho:
+  name: Control Radiador Despacho
+  control: hidden
+  entities:
+  - switch.radiador_despacho
+  - automation.encendido_automatico_radiador_despacho
+  - input_select.radiator_despacho_time_on
+  - automation.apagado_automatico_radiador_despacho
+  - input_select.radiator_despacho_time_off
+  - sensor.radiador_despacho_active_power
+  - sensor.radiador_despacho_current
+  - sensor.radiador_despacho_voltage
+  - sensor.radiador_despacho_today_energy
+  - sensor.radiador_despacho_total_energy
+control_termo:
+  name: Control termo
+  control: hidden
+  entities:
+  - switch.termo
+  - automation.encendido_automatico_termo
+  - input_select.termo_time_on1
+  - input_select.termo_time_on2
+  - input_select.termo_time_on3
+  - automation.apagado_automatico_termo
+  - input_select.termo_time_off1
+  - input_select.termo_time_off2
+  - input_select.termo_time_off3
+  - sensor.termo_active_power
+  - sensor.termo_current
+  - sensor.termo_voltage
+  - sensor.termo_today_energy
+  - sensor.termo_total_energy
+rpi3:
+  name: Intel NUC
+  entities:
+  - sensor.last_boot
+  - sensor.processor_use
+  - sensor.memory_free
+  - sensor.rpi3_temperature
+  - sensor.disk_free_home
+home_status:
+  name: Estado Casa
+  control: hidden
+  entities:
+    - sensor.home_status
+    - sensor.daniel_home_status
+    - sensor.ramon_home_status
+    - sensor.mcarmen_home_status
+    - sensor.amanda_home_status
+    - sensor.andrea_home_status
+    - sensor.arturo_home_status
+clio:
+  name: Clio
+  entities:
+    - device_tracker.clio
+    - proximity.clio2home
+    - sensor.clio_status
+    - sensor.clio_battery
+    - sensor.clio_speed
+    - sensor.clio_altitude
+    - input_select.clio_status
+    - camera.clio
+cocinacam:
+  name: Concina Cam
+  control: hidden
+  entities:
+    - camera.cocina
+    - script.floureon_center
+    - script.floureon_move_up
+    - script.floureon_move_down
+    - script.floureon_move_right
+    - script.floureon_move_left
+    - script.floureon_set_center
+toldos:
+  name: Toldos
+  control: hidden
+  entities:
+    - cover.toldo_1
+    - binary_sensor.toldo_1
+    - cover.toldos_2
+    - binary_sensor.toldos_2
+    - input_boolean.automation_toldos
+    - binary_sensor.recomendacion_bajar_toldos
+    - sensor.sunrise
+    - sensor.toldo_1_open_time
+    - sensor.toldos_2_open_time
+    - input_number.cover_toldo_1_open_hour
+    - input_number.cover_toldos_2_open_hour
+    - sensor.sunset
+    - sensor.toldo_1_close_time
+    - sensor.toldos_2_close_time
+    - input_number.cover_toldo_1_close_hour
+    - input_number.cover_toldos_2_close_hour
+nodered_automations:
+  name: Automatizaciones Node-RED
+  entities:
+    - input_boolean.automation_devices_status
+    - input_boolean.automation_aspi_notification
+    - input_boolean.automation_daniel_bedtime
+    - input_boolean.automation_workstation
+    - input_boolean.automation_hassio_backups
+    - input_boolean.automation_tv_mode_lights
+    - input_boolean.automation_toldos
+    - input_boolean.automation_daniel_presence
+total_consumption:
+  name: Consumo Total
+  control: hidden
+  entities:
+    - sensor.total_active_power
+    - sensor.total_current
+default_view:
+  name: Inicio
+  icon: mdi:home
+  view: true
+  entities:
+  - device_tracker.daniel
+  - device_tracker.ramon
+  - device_tracker.mcarmen
+  - device_tracker.amanda
+  - device_tracker.andrea
+  - device_tracker.arturo
+  - group.home_status
+  - group.weather_today
+  - group.cocinacam
+living_room_view:
+  name: Salon
+  icon: mdi:sofa
+  view: true
+  entities:
+  - group.ligths_living_room
+  - group.tv_living_room
+  - group.toldos
+  - group.entrance
+  - group.aspi
+  - group.sensores_salon
+daniel_bedroom_view:
+  name: Daniel
+  icon: mdi:human-male
+  view: true
+  entities:
+    - device_tracker.daniel
+    - group.daniel
+    - group.clio
+    - group.lights_daniel_bedroom
+    - group.sensores_daniel
+    - group.escritorio_daniel
+    - light.notificacion_daniel
+    - group.control_radiator_daniel
+    - input_boolean.automation_daniel_presence
+radiators_view:
+  name: Radiadores
+  icon: mdi:hot-tub
+  view: true
+  entities:
+  - group.weather_tomorrow
+  - group.radiators_prediction
+  - group.total_consumption
+  - group.control_termo
+  - group.control_radiator_daniel
+  - group.control_radiator_amanda
+  - group.control_radiator_despacho
+devices_view:
+  name: Dispositivos
+  icon: mdi:cellphone-wireless
+  view: true
+  entities:
+  - device_tracker.television_lg
+  - device_tracker.computer_compaq
+  - device_tracker.computer_satellite
+  - device_tracker.strixstation
+  - device_tracker.strixstation_eth
+  - device_tracker.thinkpadstation
+  - device_tracker.asusamanda
+  - device_tracker.livebox
+  - device_tracker.dashgillette
+  - device_tracker.television_papa
+  - device_tracker.retropie
+  - device_tracker.broadlink
+  - device_tracker.termo
+  - device_tracker.radiador_despacho
+  - group.devices_status
+  - group.rpi3
+  - group.sonoff_dev
+  - group.luz_cama
+  - group.lamparita
+  - group.lampara_mesa
+  - group.workstation
+  - group.luz_principal
+  - group.luz_pasillo
+  - group.radiador_daniel
+  - group.radiador_amanda
+  - group.pipersense1
+  - group.pipersense2
+control_view:
+  name: Control
+  icon: mdi:home-automation
+  view: true
+  entities:
+  - group.all_automations
+  - group.all_scripts
+  - scene.dormir
+  - group.all_out_home
+  - input_boolean.dash_gillette
+  - input_boolean.dash_dolce1
+  - input_boolean.dash_dolce2
+  - input_select.home_status
+  - input_select.daniel_home_status
+  - input_select.ramon_home_status
+  - input_select.mcarmen_home_status
+  - input_select.amanda_home_status
+  - input_select.andrea_home_status
+  - input_select.arturo_home_status
+  - group.nodered_automations
+  - media_player.mpd

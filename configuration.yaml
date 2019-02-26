@@ -1,0 +1,340 @@
+homeassistant:
+  name: Trotacaminos 2
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/Madrid
+  customize: !include customize.yaml
+  customize_glob:
+    "*_name":
+      icon: mdi:cursor-text
+    "*_mac":
+      icon: mdi:tag-text-outline
+    "*_ip":
+      icon: mdi:pound-box
+    "*_hardware":
+      icon: mdi:wrench
+    "*_firmware":
+      icon: mdi:code-brackets
+    "*_firmware_version":
+      icon: mdi:code-tags
+    "proximity.*2home":
+      friendly_name: Distancia a Casa
+    "*iluminancia_*":
+      icon: mdi:brightness-5
+    "*temperatura_*":
+      icon: mdi:thermometer
+    "*humedad_*":
+      icon: mdi:water-percent
+    "*dark_sky_summary*":
+      friendly_name: Pronóstico
+    "*dark_sky_temperature*":
+      friendly_name: Temperatura
+    "*_apparent_temperature*":
+      friendly_name: Temperatura Aparente
+    "*high_apparent_temperature*":
+      friendly_name: Temperatura Máxima Aparente
+    "*low_apparent_temperature*":
+      friendly_name: Temperatura Mínima Aparente
+    "*high_temperature*":
+      friendly_name: Temperatura Máxima
+    "*low_temperature*":
+      friendly_name: Temperatura Mínima
+    "*_active_power":
+      icon: mdi:alpha-w-circle
+    "*_current":
+      icon: mdi:alpha-a-circle-outline
+    "*_voltage":
+      icon: mdi:alpha-v-circle
+
+frontend:
+
+logger:
+
+map:
+
+config:
+
+system_health:
+
+cloud:
+  google_actions:
+    filter:
+      include_domains:
+        - switch
+        - light
+
+http:
+  base_url: !secret ha_url
+  api_password: !secret ha_password
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: True
+  login_attempts_threshold: 10
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret addon_configurator_url
+  terminal:
+    title: Terminal
+    icon: mdi:console
+    url: !secret addon_terminal_url
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: !secret addon_nodered_url
+
+updater:
+  include_used_components: true
+
+discovery:
+
+conversation:
+
+recorder:
+  db_url: !secret recorder_db_url
+  purge_keep_days: 7
+  purge_interval: 1
+
+logbook:
+
+history:
+
+sun:
+
+tts:
+  - platform: google
+    language: 'es'
+
+light:
+ - platform: yeelight
+   devices:
+     192.168.1.3:
+       name: Lampara Pie
+     192.168.1.5:
+       name: Luz Ambiente
+
+device_tracker:
+  - platform: gpslogger
+  - platform: nmap_tracker
+    hosts: 192.168.1.1-255
+    track_new_devices: False
+    consider_home: 900
+    interval_seconds: 10
+    home_interval: 5
+    scan_options: " --privileged -sP "
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
+notify:
+  - name: telegram_daniel
+    platform: telegram
+    chat_id: !secret telegram_chat_id
+  - name: html5
+    platform: html5
+    gcm_api_key: !secret html5_api_key
+    gcm_sender_id: !secret html5_sender_id
+  - name: html5_daniel
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "daniel"
+  - name: html5_ramon
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "ramon"
+  - name: html5_mcarmen
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "mcarmen"
+  - name: html5_family
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: daniel
+      - service: html5
+        data:
+          target: ramon
+      - service: html5
+        data:
+          target: mcarmen
+
+vacuum:
+  - platform: xiaomi_miio
+    name: Aspi
+    host: !secret aspi_host
+    token: !secret aspi_token
+
+proximity:
+  daniel2home:
+    zone: home
+    ignored_zones:
+      - trabajo_daniel
+    devices:
+      - device_tracker.daniel
+    tolerance: 50
+    unit_of_measurement: km
+  clio2home:
+    zone: home
+    devices:
+      - device_tracker.clio
+    tolerance: 50
+    unit_of_measurement: km
+
+switch:
+  - platform: broadlink
+    host: !secret broadlink_rmpro_host
+    mac: !secret broadlink_rmpro_mac
+    type: rm2_pro_plus
+  - platform: tplink
+    name: Termo
+    host: !secret termo_host
+  - platform: tplink
+    name: Radiador Despacho
+    host: !secret radiador_despacho_host
+
+camera:
+  - platform: generic
+    name: Clio
+    still_image_url: !secret clio_url
+    limit_refetch_to_url_change: true
+  - platform: generic
+    name: Daniel
+    still_image_url: !secret daniel_url
+    limit_refetch_to_url_change: true
+  - platform: generic
+    name: Cocina
+    still_image_url: !secret floureon_still_image_url
+    username: !secret floureon_username
+    password: !secret floureon_password
+
+rest_command:
+  floureon_up:
+    url: !secret floureon_up
+  floureon_down:
+    url: !secret floureon_down
+  floureon_right:
+    url: !secret floureon_right
+  floureon_left:
+    url: !secret floureon_left
+  floureon_center:
+    url: !secret floureon_center
+  floureon_set_center:
+    url: !secret floureon_set_center
+
+tahoma:
+  username: !secret tahoma_username
+  password: !secret tahoma_password
+
+media_player:
+  - platform: mpd
+    host: 192.168.1.101
+    port: 6601
+
+dialogflow:
+
+intent_script:
+  TemperatureIntent:
+    speech:
+      text: The temperature at home is {{ states('sensor.temperatura_daniel') }} degrees
+  HumidityIntent:
+    speech:
+      text: The humidity at home is {{ states('sensor.humedad_daniel') }} percent
+  IlluminanceIntent:
+    speech:
+      text: The illuminance at home is {{ states('sensor.iluminancia_daniel') }} percent
+  LocateIntent:
+    speech:
+      text: >
+        {%- for state in states.device_tracker -%}
+          {%- if state.name.lower() == User.lower() -%}
+            {{ state.name }} is at {{ state.state }}
+          {%- elif loop.last -%}
+            I am sorry, I do not know where {{ User }} is.
+          {%- endif -%}
+        {%- else -%}
+          Sorry, I don't have any trackers registered.
+        {%- endfor -%}
+  WhereAreWeIntent:
+    speech:
+      text: >
+        {%- if is_state('device_tracker.daniel', 'home') and
+               is_state('device_tracker.ramon', 'home') and
+               is_state('device_tracker.mcarmen', 'home') and
+               is_state('device_tracker.amanda', 'home') -%}
+          Everybody is at home, you silly
+        {%- else -%}
+          {%- if is_state('device_tracker.daniel', 'not_home') -%}
+            Daniel is not at home, 
+          {%- else -%}
+            Daniel is at {{ states("device_tracker.daniel") }}, 
+          {%- endif -%}
+          {%- if is_state('device_tracker.ramon', 'not_home') -%}
+            Ramón is not at home, 
+          {%- else -%}
+            Ramon is at {{ states("device_tracker.ramon") }}, 
+          {%- endif -%}
+          {%- if is_state('device_tracker.mcarmen', 'not_home') -%}
+            MCarmen is not at home 
+          {%- else -%}
+            Mcarmen is at {{ states("device_tracker.mcarmen") }} 
+          {%- endif -%}
+          and 
+          {%- if is_state('device_tracker.amanda', 'not_home') -%}
+            Amanda is not at home
+          {%- else -%}
+            Amanda is at {{ states("device_tracker.amanda") }}
+          {%- endif -%}
+        {% endif %}
+  TurnLightsIntent:
+    speech:
+      text: Turning {{ Room }} lights {{ OnOff }}
+    action:
+      - service: notify.telegram_daniel
+        data_template:
+          message: Someone asked via dialogflow to turn {{ Room }} lights {{ OnOff }}
+      - service_template: >
+          {%- if OnOff == "on" -%}
+            homeassistant.turn_on
+          {%- else -%}
+            homeassistant.turn_off
+          {%- endif -%}
+        data_template:
+          entity_id: "group.lights_{{ Room.lower() | replace(' ', '_') }}"
+  TurnSwitchIntent:
+    speech:
+      text: Switching {{ Name }} switch {{ OnOff }}
+    action:
+      - service_template: >
+          {%- if OnOff == "on" -%}
+            switch.turn_on
+          {%- else -%}
+            switch.turn_off
+          {%- endif -%}
+        data_template:
+          entity_id: "switch.{{ Name.lower() | replace(' ', '_') }}"
+
+### DIRECTORIES ###
+automation: !include_dir_merge_named automations/
+group: !include groups.yaml
+input_boolean: !include inputs/input_boolean.yaml
+input_select: !include inputs/input_select.yaml
+input_number: !include inputs/input_number.yaml
+scene: !include scenes.yaml
+script: !include_dir_merge_named scripts/
+sensor: !include_dir_list sensors/
+binary_sensor: !include_dir_list binary_sensors/
+zone: !include_dir_list zones/

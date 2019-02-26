@@ -1,0 +1,47 @@
+group.all_automations:
+  friendly_name: Automatizaciones
+  hidden: false
+  initial_state: true
+group.all_scripts:
+  friendly_name: Scripts
+  hidden: false
+light.yeelight_rgb_286c07ae666c:
+  friendly_name: Luz Ambiente
+light.yeelight_rgb_286c07ae7a1b:
+  friendly_name: Lampara Pie
+sensor.home_status:
+  icon: mdi:home
+sensor.daniel_home_status:
+  entity_picture: /local/daniel.png
+sensor.ramon_home_status:
+  entity_picture: /local/ramon.jpg
+sensor.mcarmen_home_status:
+  entity_picture: /local/mcarmen.jpg
+sensor.amanda_home_status:
+  entity_picture: /local/amanda.jpg
+sensor.andrea_home_status:
+  entity_picture: /local/andrea.jpg
+sensor.arturo_home_status:
+  entity_picture: /local/arturo.jpg
+cover.toldo_1:
+  friendly_name: Toldo Grande
+cover.toldos_2:
+  friendly_name: Toldo Lateral
+script.floureon_move_right:
+  friendly_name: Mover Derecha
+  icon: mdi:arrow-right-bold-box
+script.floureon_move_left:
+  friendly_name: Mover Izquierda
+  icon: mdi:arrow-left-bold-box
+script.floureon_move_up:
+  friendly_name: Mover Arriba
+  icon: mdi:arrow-up-bold-box
+script.floureon_move_down:
+  friendly_name: Mover Abajo
+  icon: mdi:arrow-down-bold-box
+script.floureon_center:
+  friendly_name: Centrar
+  icon: mdi:image-filter-center-focus
+script.floureon_set_center:
+  friendly_name: Guardar como Centro
+  icon: mdi:camera-metering-center
