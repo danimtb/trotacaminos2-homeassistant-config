@@ -1,4 +1,5 @@
 !.gitignore
+!node-red/flows.json
 
 
 # Wildcards
@@ -14,8 +15,18 @@
 .HA_VERSION
 .uuid
 secrets.yaml
+www/daniel.png
+www/amanda.jpg
+www/ramon.jpg
+www/mcarmen.jpg
+www/andrea.jpg
+www/arturo.jpg
+html5_push_registrations.conf
+known_devices.yaml
 
 # Folders
 .cloud/
 .storage/
 deps/
+tts/
+node-red/
