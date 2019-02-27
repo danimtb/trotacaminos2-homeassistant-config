@@ -5,6 +5,13 @@ trigger:
 condition:
 - condition: and
   conditions:
+  - condition: template
+    value_template: >
+      {% if states.input_select.radiator_daniel_time_on.state > states.input_select.radiator_daniel_time_off.state %}
+        {{ now().time().strftime("%H:%M") >= states.input_select.radiator_daniel_time_on.state or now().time().strftime("%H:%M") < states.input_select.radiator_daniel_time_off.state }}
+      {% else %}
+        {{ now().time().strftime("%H:%M") >= states.input_select.radiator_daniel_time_on.state and now().time().strftime("%H:%M") < states.input_select.radiator_daniel_time_off.state }}
+      {% endif %}
   - condition: state
     entity_id: input_boolean.radiators_tomorrow
     state: "on"

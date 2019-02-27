@@ -7,10 +7,10 @@ condition:
   conditions:
   - condition: template
     value_template: >
-      {% if now().time().strftime("%H:%M") < states.input_select.radiator_amanda_time_on.state or now().time().strftime("%H:%M") >= states.input_select.radiator_amanda_time_off.state %}
-        true
+      {% if states.input_select.radiator_amanda_time_on.state > states.input_select.radiator_amanda_time_off.state %}
+        {{ now().time().strftime("%H:%M") < states.input_select.radiator_amanda_time_on.state and now().time().strftime("%H:%M") >= states.input_select.radiator_amanda_time_off.state }}
       {% else %}
-        false
+        {{ now().time().strftime("%H:%M") < states.input_select.radiator_amanda_time_on.state or now().time().strftime("%H:%M") >= states.input_select.radiator_amanda_time_off.state }}
       {% endif %}
 action:
 - service: switch.turn_off
